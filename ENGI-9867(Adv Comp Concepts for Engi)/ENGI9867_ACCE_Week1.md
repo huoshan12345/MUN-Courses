@@ -275,7 +275,7 @@ languages.
 - Rules: Functions that are used to transform elements of E into new elements.  
 Ω = {f1,f2,...,fn} ∧ ∀$f_{i}$ ∈ Ω  
 $f_{i}$: E × E ×...× E -> E  
-∀$x_{1}$,$x_{2}$,...$x_{p}$ ∈ E, $f_{i}$($x_{1}$,$x_{2}$,...$x_{p}) = X ∈ E
+∀ $x_{1}$, $x_{2}$,... $x_{p}$ ∈ E, $f_{i}$($x_{1}$, $x_{2}$,..., $x_{p}$) = X ∈ E
 - Closure: Performing the rules on members of E always produces a member of E. In
 another way Ω(E) $\subseteq$ E
 
@@ -315,7 +315,7 @@ Identity element of concatenation is λ
 x = λ => xy=y  
 y = λ => xy=x
 
-We can build a monoid set of words($Σ^{*}$) from the alphabet using concatenation operation having an empty string as an identity element and holding associativity property.
+We can build a monoid set of words($Σ^*$) from the alphabet using concatenation operation having an empty string as an identity element and holding associativity property.
 
 ## Reverse of a string
 
@@ -352,8 +352,8 @@ For example:
 Σ = {a,b} => $Σ^+$ = {a,b,aa,ba,ab,bb,aaa,aab,...}.
 
 $Σ^*$ denotes the set of all strings over the Σ alphabet
-1. λ ∈ $Σ^{*}$
-2. (x ∈ $Σ^*$ ∧ a ∈ Σ) => ax ∈ $Σ^{*}$
+1. λ ∈ $Σ^*$
+2. (x ∈ $Σ^*$ ∧ a ∈ Σ) => ax ∈ $Σ^*$
 3. $Σ^*$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
 
 For example:  
@@ -367,7 +367,7 @@ Assuming (x ∈ $Σ^*$) ∧ (∀n ∈ N), a string’s $n^{th}$ power($x^n$) can
 For example:  
 Σ = {a,b}, x = ab
 $x^0$ = λ, $x^1$ = ab, $x^2$ = abab, $x^3$ = ababab  
-or {$a^n$ $b^n$ | n ≥ 0} defines the set: {λ,ab,aabb,aaabbb,...}
+or { $a^n$ $b^n$ | n ≥ 0} defines the set: {λ,ab,aabb,aaabbb,...}
 
 Let Σ be a finite alphabet.
 A language over Σ is a subset of $Σ^*$.
@@ -375,7 +375,7 @@ A language over Σ is a subset of $Σ^*$.
 The rules of choosing a subset from $Σ^*$ can be performed by using a grammar.
 
 For example:  
-{$a^m$ $b^n$ | m,n ∈ N} is a language defined over {a,b}.
+{ $a^m$ $b^n$ | m,n ∈ N} is a language defined over {a,b}.
 
 This language cannot contain any other symbols than a and b.
 
