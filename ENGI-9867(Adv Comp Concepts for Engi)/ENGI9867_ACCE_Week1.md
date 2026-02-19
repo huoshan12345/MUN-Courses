@@ -335,7 +335,7 @@ $(wx)^R$ = $x^R$ · $w^R$ ∧ (|x| = n, |w| = m) ∧ (m, n ∈ N)
 
 #### Proof.
 |x| = 0 ⇒ x = λ  
-$(wx)^R$ = $(wλ)^R$ = $w^R$ = λ$w^R$ = $λ^R$ $w^R$ = $x^R$ $w^R$  
+$(wx)^R$ = $(wλ)^R$ = $w^R$ = λ $w^R$ = $λ^R$ $w^R$ = $x^R$ $w^R$  
 Inductive step: |x| ≤ n ⇒ $(wx)^R$ = $x^R$ $w^R$  
 For |x| = n + 1
 (x = ua) ∧ (|u| = n) ∧ (a ∈ Σ) ∧ ($x^r$ = a $u^r$)  
