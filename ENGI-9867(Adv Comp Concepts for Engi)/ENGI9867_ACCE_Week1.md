@@ -315,7 +315,7 @@ Identity element of concatenation is λ
 x = λ ⇒ xy=y  
 y = λ ⇒ xy=x
 
-We can build a monoid set of words($Σ^{*}$) from the alphabet using concatenation operation having an empty string as an identity element and holding associativity property.
+We can build a monoid set of words($Σ^*$) from the alphabet using concatenation operation having an empty string as an identity element and holding associativity property.
 
 ## Reverse of a string
 
@@ -343,24 +343,24 @@ $(wx)^R$ = $(w(ua))^R$ = $((wu)a)^R$ = a($u^R$ $w^R$) = a $u^R$ $w^R$ = $x^R$ $w
 
 For example $(snow~ball)^R$ = $(ball)^R$ $(snow)^R$
 
-$Σ^{+}$ denotes the set of non-empty strings over the Σ alphabet
-1. a ∈ Σ ⇒ a ∈ $Σ^{+}$
-2. (x ∈ $Σ^{+}$ ∧ a ∈ Σ) ⇒ ax ∈ $Σ^{+}$
-3. $Σ^{+}$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
+$Σ^+$ denotes the set of non-empty strings over the Σ alphabet
+1. a ∈ Σ ⇒ a ∈ $Σ^+$
+2. (x ∈ $Σ^+$ ∧ a ∈ Σ) ⇒ ax ∈ $Σ^+$
+3. $Σ^+$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
 
 For example:  
-Σ = {a,b} ⇒ $Σ^{+}$ = {a,b,aa,ba,ab,bb,aaa,aab,...}.
+Σ = {a,b} ⇒ $Σ^+$ = {a,b,aa,ba,ab,bb,aaa,aab,...}.
 
-$Σ^{*}$ denotes the set of all strings over the Σ alphabet
-1. λ ∈ $Σ^{*}$
-2. x ∈ $$Σ^{*}$$ ∧ a ∈ Σ ⇒ ax ∈ $Σ^{*}$
-3. $Σ^{*}$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
+$Σ^*$ denotes the set of all strings over the Σ alphabet
+1. λ ∈ $Σ^\*$
+2. x ∈ $Σ^\*$ ∧ a ∈ Σ ⇒ ax ∈ $Σ^\*$
+3. $Σ^\*$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
 
 For example:  
-Σ = {a,b} ⇒ $Σ^{*}$ = {λ,a,b,aa,ba,ab,bb,aaa,aab,...}.  
-Σ = {0,1} ⇒ $Σ^{*}$ = {λ,0,1,00,01,10,11,000,001,...}.
+Σ = {a,b} ⇒ $Σ^\*$ = {λ,a,b,aa,ba,ab,bb,aaa,aab,...}.  
+Σ = {0,1} ⇒ $Σ^\*$ = {λ,0,1,00,01,10,11,000,001,...}.
 
-Assuming (x ∈ $Σ^{*}$) ∧ (∀n ∈ N), a string’s $n^{th}$ power($x^n$) can be formally defined as:  
+Assuming (x ∈ $Σ^*$) ∧ (∀n ∈ N), a string’s $n^{th}$ power($x^n$) can be formally defined as:  
 1. $x^0$ = λ
 2. $x^{n+1}$ = $x^n$ · x = ($x^n$&x)
 
@@ -370,9 +370,9 @@ $x^0$ = λ, $x^1$ = ab, $x^2$ = abab, $x^3$ = ababab
 or { $a^n$ $b^n$ | n ≥ 0} defines the set: {λ,ab,aabb,aaabbb,...}
 
 Let Σ be a finite alphabet.
-A language over Σ is a subset of $Σ^{*}$.
+A language over Σ is a subset of $Σ^*$.
 
-The rules of choosing a subset from $Σ^{*}$ can be performed by using a grammar.
+The rules of choosing a subset from $Σ^*$ can be performed by using a grammar.
 
 For example:  
 { $a^m$ $b^n$ | m,n ∈ N} is a language defined over {a,b}.
