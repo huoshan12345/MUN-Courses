@@ -106,8 +106,8 @@ L(M) = $(a ∨ ba^{\ast}b)^{\ast}$. We can write the grammar as:
 V = S ∪ Σ  
 I = Σ = {a,b}  
 $s_0 = q_0 = n_0$  
-$\langle q_0 \rangle$ ::= λ | a $\langle q_0 \rangle$ | b $\langle q_1 \rangle$ | a  
-$\langle q_1 \rangle$ ::= b $\langle q_0 \rangle$ | a $\langle q_1 \rangle$ | b  
+$\langle q_0 \rangle$ ::= λ | $a \langle q_0 \rangle$ | $b \langle q_1 \rangle$ | a  
+$\langle q_1 \rangle$ ::= $b \langle q_0 \rangle$ | $a \langle q_1 \rangle$ | b  
 
 #### Example 2 
 
@@ -132,9 +132,9 @@ L(M) = $[(λ ∨ b ∨ bb)a]^{\ast}$(λ ∨ b ∨ bb)
 
 S = { $q_0,q_1,q_2$ }, Σ = {x,y}, $s_0 = q_0$, F = { $q_2$ }
 
-$\langle q_0 \rangle$ ::= x $\langle q_0 \rangle$ | y $\langle q_1 \rangle$  
-$\langle q_1 \rangle$ ::= y $\langle q_2 \rangle$ | y | x $\langle q_0 \rangle$  
-$\langle q_2 \rangle$ ::= y | y $\langle q_2 \rangle$ | x $\langle q_0 \rangle$  
+$\langle q_0 \rangle$ ::= $x \langle q_0 \rangle$ | $y \langle q_1 \rangle$  
+$\langle q_1 \rangle$ ::= $y \langle q_2 \rangle$ | y | $x \langle q_0 \rangle$  
+$\langle q_2 \rangle$ ::= y | $y \langle q_2 \rangle$ | $x \langle q_0 \rangle$  
 
 L(M) = $((x ∨ yx)^{\ast}yy^+x)^{\ast}(x ∨ yx)^{\ast}yy^+$  
 L(M) = $((λ ∨ y ∨ yy^+)x)^{\ast}yy^+$ = $(y^{\ast}x)^{\ast}yy^+$  
@@ -173,14 +173,14 @@ $F = \{q_3\}$
 $Δ = \{(q_0,a,q_0),(q_0,b,q_0),(q_0,ba,q_1),(q_1,b,q_3),(q_1,a,q_2), (q_2,b,q_3),(q_3,a,q_3),(q_3,b,q_3)\}$  
 
 M = (S,Σ,Δ,$s_0$,F)  
-$\langle q_0 \rangle$ ::= a $\langle q_0 \rangle$ | b $\langle q_0 \rangle$ | ba $\langle q_1 \rangle$  
-$\langle q_1 \rangle$ ::= b $\langle q_3 \rangle$ | b | a $\langle q_2 \rangle$  
-$\langle q_2 \rangle$ ::= b $\langle q_3 \rangle$ | b  
-$\langle q_3 \rangle$ ::= a | b | a $\langle q_3 \rangle$ | b $\langle q_3 \rangle$  
-$\langle q_0 \rangle$ ::= a $\langle q_0 \rangle$ | b $\langle q_0 \rangle$ | ba $\langle q_1 \rangle$  
-$\langle q_1 \rangle$ ::= b $\langle q_3 \rangle$ | b | a $\langle q_2 \rangle$  
-$\langle q_2 \rangle$ ::= b $\langle q_3 \rangle$ | b  
-$\langle q_3 \rangle$ ::= a | b | a $\langle q_3 \rangle$ | b $\langle q_3 \rangle$  
+$\langle q_0 \rangle$ ::= $a \langle q_0 \rangle$ | $b \langle q_0 \rangle$ | $ba \langle q_1 \rangle$  
+$\langle q_1 \rangle$ ::= $b \langle q_3 \rangle$ | b | $a \langle q_2 \rangle$  
+$\langle q_2 \rangle$ ::= $b \langle q_3 \rangle$ | b  
+$\langle q_3 \rangle$ ::= a | b | $a \langle q_3 \rangle$ | $b \langle q_3 \rangle$  
+$\langle q_0 \rangle$ ::= $a \langle q_0 \rangle$ | $b \langle q_0 \rangle$ | $ba \langle q_1 \rangle$  
+$\langle q_1 \rangle$ ::= $b \langle q_3 \rangle$ | b | $a \langle q_2 \rangle$  
+$\langle q_2 \rangle$ ::= $b \langle q_3 \rangle$ | b  
+$\langle q_3 \rangle$ ::= a | b | $a \langle q_3 \rangle$ | $b \langle q_3 \rangle$  
 
 A possible derivation may follow the path:
 $(q_0,aaabbbaabab) ⊢$  
