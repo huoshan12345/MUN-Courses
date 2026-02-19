@@ -352,13 +352,13 @@ For example:
 Σ = {a,b} ⇒ $Σ^+$ = {a,b,aa,ba,ab,bb,aaa,aab,...}.
 
 $Σ^*$ denotes the set of all strings over the Σ alphabet
-1. λ ∈ $Σ^\*$
-2. x ∈ $Σ^\*$ ∧ a ∈ Σ ⇒ ax ∈ $Σ^\*$
-3. $Σ^\*$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
+1. λ ∈ $Σ^{*}$
+2. x ∈ $Σ^{*}$ ∧ a ∈ Σ ⇒ ax ∈ $Σ^{*}$
+3. $Σ^{*}$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
 
 For example:  
-Σ = {a,b} ⇒ $Σ^\*$ = {λ,a,b,aa,ba,ab,bb,aaa,aab,...}.  
-Σ = {0,1} ⇒ $Σ^\*$ = {λ,0,1,00,01,10,11,000,001,...}.
+Σ = {a,b} ⇒ $Σ^{*}$ = {λ,a,b,aa,ba,ab,bb,aaa,aab,...}.  
+Σ = {0,1} ⇒ $Σ^{*}$ = {λ,0,1,00,01,10,11,000,001,...}.
 
 Assuming (x ∈ $Σ^*$) ∧ (∀n ∈ N), a string’s $n^{th}$ power($x^n$) can be formally defined as:  
 1. $x^0$ = λ
