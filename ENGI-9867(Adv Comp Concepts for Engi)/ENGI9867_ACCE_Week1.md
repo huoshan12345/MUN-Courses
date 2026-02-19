@@ -353,7 +353,7 @@ For example:
 
 $Σ^{*}$ denotes the set of all strings over the Σ alphabet
 1. λ ∈ $Σ^{*}$
-2. x ∈ $Σ^{*}$ ∧ a ∈ Σ ⇒ ax ∈ $Σ^{*}$
+2. x ∈ $$\\ Σ^{*} $$ ∧ a ∈ Σ ⇒ ax ∈ $Σ^{*}$
 3. $Σ^{*}$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
 
 For example:  
