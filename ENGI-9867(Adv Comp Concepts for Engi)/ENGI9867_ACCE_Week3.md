@@ -125,7 +125,7 @@ S = { $q_0,q_1,q_2,q_3$ }, Σ = {a,b}, $s_0 = q_0$, F = { $q_0,q_1,q_2$ }
 | $q_3$ | a | $q_3$ |
 | $q_3$ | b | $q_3$ |
 
-We have a dead state q3 where the automaton is not able to change state once it visits the dead state.  
+We have a dead state $q_3$ where the automaton is not able to change state once it visits the dead state.  
 L(M) = $[(λ ∨ b ∨ bb)a]^{\ast}$(λ ∨ b ∨ bb)
 
 ####　Example 3
@@ -135,4 +135,66 @@ S = { $q_0,q_1,q_2$ }, Σ = {x,y}, $s_0 = q_0$, F = { $q_2$ }
 \<$q_0$\> ::= x\<$q_0$\> | y\<$q_1$\>  
 \<$q_1$\> ::= y\<$q_2$\> | y | x\<$q_0$\>  
 \<$q_2$\> ::= y | y\<$q_2$\> | x\<$q_0$\>  
+
+L(M) = $((x ∨ yx)^{\ast}yy^+x)^{\ast}(x ∨ yx)^{\ast}yy^+$  
+L(M) = $((λ ∨ y ∨ yy^+)x)^{\ast}yy^+$ = $(y^{\ast}x)^{\ast}yy^+$  
+L(M) = $(x ∨ yx ∨ yy^+x)^{\ast}yyy^{\ast}$
+
+
+# Non-deterministic Finite Automata (NFA)
+
+In an NFA, given an input symbol it is possible to jump into several possible next states from each state.
+
+## Formal Definition of an NFA
+
+A non-deterministic finite state machine is a quintuple M = ($Σ,S,s_0,Δ,F$), where:
+- S: A finite, non-empty set of states where s ∈ S.
+- Σ: Input alphabet (a finite, non-empty set of symbols)
+- $s_0$: An initial state, an element of S.
+- Δ: The state-transition relation Δ: S × $Σ^{\ast}$ × S
+- F: The set of final states where F $\subseteq$ S.
+
+A configuration is defined as a tuple in set S × $Σ^{\ast}$. Considering the definition of derivation in one step:  
+(q,ω) $⊢_M$ (q′,ω′) ⇒ ∃u ∈ $Σ^{\ast}$(ω = uω′ ∧ (q,u,q′) ∈ Δ)
+
+For deterministic automata Δ $\subseteq$ S × $Σ^{\ast}$ × S relation becomes a function S × Σ → S. For (q,u,q′) triplets |u| = 1 ∧ (∀q ∈ S ∧ ∀u ∈ Σ)∃!q′ ∈ S  
+NOTE: ∃! means **exists and is unique**
+
+The language that an NFA recognizes is L(M) = { ω | (s,ω)$⊢_m^{\ast}$(q,λ) ∧ q ∈ F }
+
+## An example NFA
+
+Build an NFA that recognizes languages including bab or baab as substrings.
+
+$S = \{q_0,q_1,q_2,q_3\}$  
+Σ = {a,b}  
+$s_0 = q_0$  
+$F = \{q_3\}$  
+$Δ = \{(q_0,a,q_0),(q_0,b,q_0),(q_0,ba,q_1),(q_1,b,q_3),(q_1,a,q_2), (q_2,b,q_3),(q_3,a,q_3),(q_3,b,q_3)\}$  
+
+M = (S,Σ,Δ,$s_0$,F)  
+\<$q_0$\> ::= a\<$q_0$\> | b\<$q_0$\> | ba\<$q_1$\>  
+\<$q_1$\> ::= b\<$q_3$\> | b | a\<$q_2$\>  
+\<$q_2$\> ::= b\<$q_3$\> | b  
+\<$q_3$\> ::= a | b | a\<$q_3$\> | b\<$q_3$\>  
+\<$q_0$\> ::= a\<$q_0$\> | b\<$q_0$\> | ba\<$q_1$\>  
+\<$q_1$\> ::= b\<$q_3$\> | b | a\<$q_2$\>  
+\<$q_2$\> ::= b\<$q_3$\> | b  
+\<$q_3$\> ::= a | b | a\<$q_3$\> | b\<$q_3$\>  
+
+A possible derivation may follow the path:
+$(q_0,aaabbbaabab) ⊢$  
+$(q_0,aabbbaabab) ⊢ (q_0,abbbaabab) ⊢$  
+$(q_0,bbbaabab) ⊢ (q_0,bbaabab) ⊢$  
+$(q_0,baabab) ⊢ (q_1,abab) ⊢$  
+$(q_2,bab) ⊢ (q_3,ab) ⊢ (q_3,b) ⊢ (q_3,λ)$  
+
+
+
+
+
+
+
+
+
 
