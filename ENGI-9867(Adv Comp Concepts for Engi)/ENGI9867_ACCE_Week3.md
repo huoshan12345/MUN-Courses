@@ -189,12 +189,33 @@ $(q_0,bbbaabab) ⊢ (q_0,bbaabab) ⊢$
 $(q_0,baabab) ⊢ (q_1,abab) ⊢$  
 $(q_2,bab) ⊢ (q_3,ab) ⊢ (q_3,b) ⊢ (q_3,λ)$  
 
+#### Lemma
 
+M = (S,Σ,Δ,$s_0$,F) ∧ q,r ∈ S ∧ x,y ∈ $Σ^{\ast}$  
+∃p ∈ S ∧ (q,x)$⊢_M^{\ast}$(p,λ) ∧ (p,y)$⊢_M^{\ast}$(r,λ) ⇒ (q,xy)$⊢_M^{\ast}$(r,λ)
 
+#### Definition
 
+Regular Grammar: All the production rules are of type-3.  
+Regular Language: Languages that can be recognized by regular grammars.  
+Regular Expression: ∅, {λ}, {a | a ∈ Σ}, A ∨ B, A.B, ${A^\ast}$  
+Regular set: The sets which can be represented by regular expressions are called regular sets.
 
+Regular grammars can be represented by NFAs.
 
+- Non-terminal symbols are assigned to states
+- Initital state corresponds to initial symbol
+- Accepting states corresponds to the rules that end with terminal symbols
+- If λ should be recognized, initial state is an accepting state.
 
+Languages recognized by finite automata (Regular Languages) are closed under union, concatenation and Kleene star operations.
 
+#### Kleene Theorem
 
+Every regular language can be recognized by a finite automaton and every finite automaton defines a regular language.
+
+M = (S,Σ,Δ,$s_0$,F) ⇔ G = (N, Σ, $n_0$, ↦), L = L(G) whereG is a grammar of type-3.  
+S = N ∪ $f_i$  
+F $\subseteq$ S  
+$s_0 = n_0$
 
