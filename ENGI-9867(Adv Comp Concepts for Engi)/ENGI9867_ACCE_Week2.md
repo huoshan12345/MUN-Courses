@@ -279,7 +279,7 @@ The Chomsky hierarchy is a containment hierarchy of classes of formal grammars. 
 #### Type-1 grammars
 
 - Type-1 grammars (context-sensitive grammars) have transformation rules s.t. for w1 → w2 rule |w1| ≤ |w2| should hold.
-- Context sensitivity follows the rules having the form lwr′ → lw′r
+- Context sensitivity follows the rules having the form lwr' → lw'r
 - The languages described by these grammars are exactly all languages that can be recognized by a linear bounded automaton.
 - Example 4 conforms to a Type-1 grammar.
 

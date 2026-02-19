@@ -61,7 +61,7 @@ Consider the physical machine below with an input tape. The tape is divided into
 
 A run can be seen as a sequence of compositions of transition function with itself. Given an
 input symbol σ ∈ Σ when this machine reads σ from the strip it can be written as  
-δ(s,σ) = s′ ∈ S.
+δ(s,σ) = s' ∈ S.
 
 #### Configuration
 
@@ -69,20 +69,20 @@ A computation history is a (normally finite) sequence of configurations of a for
 s,ω ∈ S × $Σ^{\ast}$
 
 Configuration derivation is performed by a relation $⊢_M$. If we denote the tuples in $⊢_M$ as
-(s,ω) and (s′,ω′), the relation can be defined as:  
-- ω = σω′ ∧ σ ∈ Σ  
-- δ(s,σ) = s′
+(s,ω) and (s',ω'), the relation can be defined as:  
+- ω = σω' ∧ σ ∈ Σ  
+- δ(s,σ) = s'
 
-A transition defined by this relation is called derivation in one step and denoted as (s,ω) $⊢_M$ (s′,ω′). Following definitions can be defined based on this:
-- Derivable configuration: (s,ω) $⊢_M^{\ast}$ (s′,ω′) where $⊢_M^{\ast}$ is the transitive closure of $⊢_M$
+A transition defined by this relation is called derivation in one step and denoted as (s,ω) $⊢_M$ (s',ω'). Following definitions can be defined based on this:
+- Derivable configuration: (s,ω) $⊢_M^{\ast}$ (s',ω') where $⊢_M^{\ast}$ is the transitive closure of $⊢_M$
 - Recognized word: ($s_0$,ω) $⊢_M^{\ast}$ ($s_i$,λ) where $s_i$ ∈ F.
 - Execution: ($s_0,ω_0$) ⊢ ($s_1,ω_1$) ⊢ ($s_2$,ω) ⊢ ... ⊢ ($s_n$,λ) where λ is the empty string.
 - Recognized Language: L(M) = { $ω_0$ ∈ $Σ^{\ast}$ | ($s_0$,ω) $⊢_M^{\ast}$ ($s_i$,λ) ∧ $s_i$ ∈ F }
 
 #### Language Recognizer
 
-The transitive closure of $⊢_M$ as $⊢_M^{\ast}$. (q,ω) $⊢_M^{\ast}$ (q′,ω′) denotes that (q,ω) yields (q′,ω′) after some number of steps.
-(s,ω) $⊢_M^{\ast}$ (q′,λ) denotes that ω ∈ $Σ^{\ast}$ is recognized by an automaton if q ∈ F. In other words  
+The transitive closure of $⊢_M$ as $⊢_M^{\ast}$. (q,ω) $⊢_M^{\ast}$ (q',ω') denotes that (q,ω) yields (q',ω') after some number of steps.
+(s,ω) $⊢_M^{\ast}$ (q',λ) denotes that ω ∈ $Σ^{\ast}$ is recognized by an automaton if q ∈ F. In other words  
 L(M) = { ω ∈ $Σ^{\ast}$ | (s,ω) $⊢_M^{\ast}$ ($q_i$,λ) ∧ $q_i$ ∈ F }
 
 #### Example 1
@@ -155,9 +155,9 @@ A non-deterministic finite state machine is a quintuple M = ($Σ,S,s_0,Δ,F$), w
 - F: The set of final states where F $\subseteq$ S.
 
 A configuration is defined as a tuple in set S × $Σ^{\ast}$. Considering the definition of derivation in one step:  
-(q,ω) $⊢_M$ (q′,ω′) ⇒ ∃u ∈ $Σ^{\ast}$(ω = uω′ ∧ (q,u,q′) ∈ Δ)
+(q,ω) $⊢_M$ (q',ω') ⇒ ∃u ∈ $Σ^{\ast}$(ω = uω' ∧ (q,u,q') ∈ Δ)
 
-For deterministic automata Δ $\subseteq$ S × $Σ^{\ast}$ × S relation becomes a function S × Σ → S. For (q,u,q′) triplets |u| = 1 ∧ (∀q ∈ S ∧ ∀u ∈ Σ)∃!q′ ∈ S  
+For deterministic automata Δ $\subseteq$ S × $Σ^{\ast}$ × S relation becomes a function S × Σ → S. For (q,u,q') triplets |u| = 1 ∧ (∀q ∈ S ∧ ∀u ∈ Σ)∃!q' ∈ S  
 NOTE: ∃! means **exists and is unique**
 
 The language that an NFA recognizes is L(M) = { ω | (s,ω)$⊢_m^{\ast}$(q,λ) ∧ q ∈ F }
