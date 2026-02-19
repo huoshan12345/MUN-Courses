@@ -214,7 +214,7 @@ Languages recognized by finite automata (Regular Languages) are closed under uni
 
 Every regular language can be recognized by a finite automaton and every finite automaton defines a regular language.
 
-M = (S,Σ,Δ,$s_0$,F) ⇔ G = (N, Σ, $n_0$, ↦), L = L(G) whereG is a grammar of type-3.  
+M = (S,Σ,Δ,$s_0$,F) ⇔ G = (N, Σ, $n_0$, ↦), L = L(G) where G is a grammar of type-3.  
 S = N ∪ $f_i$  
 F $\subseteq$ S  
 $s_0 = n_0$
