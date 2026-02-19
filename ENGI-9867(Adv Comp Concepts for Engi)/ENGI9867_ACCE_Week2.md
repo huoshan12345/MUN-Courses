@@ -37,8 +37,8 @@ z = xy ⇔ x ∈ A ∧ y ∈ C
 
 - AB ∩ AC $\subseteq$ A(B ∩ C) ❌  
 ∀z[z ∈ AB ∩ AC ⇔ z ∈ AB ∩ z ∈ AC]  
-z ∈ AB ⇔ ∃$x_1,y_1$[(z = $x_1y_1$) ∧ ($x_1$ ∈ A) ∧ ($y_1$ ∈ B)]  
-z ∈ AC ⇔ ∃$x_2,y_2$[(z = $x_2y_2$) ∧ ($x_2$ ∈ A) ∧ ($y_2$ ∈ C)]  
+z ∈ AB ⇔ ∃ $x_1,y_1$[(z = $x_1y_1$) ∧ ($x_1$ ∈ A) ∧ ($y_1$ ∈ B)]  
+z ∈ AC ⇔ ∃ $x_2,y_2$[(z = $x_2y_2$) ∧ ($x_2$ ∈ A) ∧ ($y_2$ ∈ C)]  
 ($x_1$ = $x_2$) ∧ ($y_1$ = $y_2$) ❌
 
 - Let’s give a counter example to show that AB ∩ AC $\not\subseteq$ A(B ∩ C)  
@@ -353,7 +353,7 @@ Syntax diagrams can be used define regular expressions. The following three diag
 
 The basis regular expression syntax only covers these operators. Operators like numbered repetitions (e.g. $a^nb^n$) can be used to extend the type of language being represented.
 - a ∨ b ∨ $c^{\ast}$
-- (a ∨ b)$cd^{\ast}$
+- (a ∨ b) $cd^{\ast}$
 - $(a ∨ bc)^{\ast}$
 
 ## Precedence of Regular Expressions
