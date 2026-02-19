@@ -362,7 +362,7 @@ For example:
 
 Assuming (x ∈ $Σ^*$) ∧ (∀n ∈ N), a string’s $n^{th}$ power($x^n$) can be formally defined as:  
 1. $x^0$ = λ
-2. $x^{n+1}$ = $x^n$ · x = ($x^n$\&x)
+2. $x^{n+1}$ = $x^n$ · x = ($x^n$ &x)
 
 For example:  
 Σ = {a,b}, x = ab
