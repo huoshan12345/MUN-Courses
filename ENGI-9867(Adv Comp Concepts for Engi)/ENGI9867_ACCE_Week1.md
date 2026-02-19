@@ -1,3 +1,5 @@
+# Introduction, Motivation and Background
+
 ## Computing Machines
 
 #### Computer
@@ -224,6 +226,15 @@ Formal methods provide a unified mathematical framework for reasoning about **be
   - Automata and languages as formal objects
   - Machine-checked proofs
 
+## From Automata to Formal Methods
+
+#### Three Levels of Reasoning
+- Automata answer: “What can happen?”
+- Formal languages answer: “Which behaviors are allowed?”
+- Formal methods answer: “Is the system correct, and can we prove it?”
+
+# Formal Languages and Alphabet
+
 ## Finite State Machine(FSM)
 
 An FSM has a mathematical model defined by a quintuple (S, I, O, δ, ω), where:
@@ -312,8 +323,8 @@ Concatenation is performed by joining two character strings end-to-end.
 (x = $a_{1}$ $a_{2}$... $a_{n}$) ∧ (y = $b_{1}$ $b_{2}$... $b_{m}$) ⇒ xy = $a_{1}$ $a_{2}$... $a_{n}$ $b_{1}$ $b_{2}$... $b_{m}$(x&y)  
 
 Identity element of concatenation is λ    
-x = λ ⇒ xy=y  
-y = λ ⇒ xy=x
+x = λ ⇒ xy = y  
+y = λ ⇒ xy = x
 
 We can build a monoid set of words($Σ^*$) from the alphabet using concatenation operation having an empty string as an identity element and holding associativity property.
 
