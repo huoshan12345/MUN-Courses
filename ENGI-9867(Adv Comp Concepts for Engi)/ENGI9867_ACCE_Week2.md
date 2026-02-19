@@ -208,19 +208,19 @@ Parsing, or, syntactic analysis, is the process of analyzing a text, made of a s
 
 #### Example 2
 
-Σ = {a,b,c}  
-N = { $n_0$,w}  
-↦ = { $n_0$ → aw | w → bbw | w → c}
+Σ = { a,b,c }  
+N = { $n_0$,w }  
+↦ = { $n_0$ → aw | w → bbw | w → c }
 
 L(G) = {a} · $\{bb\}^{\ast}$ · {c}  
 = $a(bb)^{\ast}c$  
-= {$a(bb)^nc$ | n ∈ N}
+= { $a(bb)^nc$ | n ∈ N }
 
 #### Example 3
 
-Σ = {a,b,c}  
-N = { $n_0$,w}  
-↦ = { $n_0$ → $an_0b$ | $n_0b$ → bw | awb → c}
+Σ = { a,b,c }  
+N = { $n_0$,w }  
+↦ = { $n_0$ → $an_0b$ | $n_0b$ → bw | awb → c }
 
 $n_0 ⇒ an_0b$  
 ⇒ $a(an_0b)b$  
@@ -231,7 +231,7 @@ $n_0 ⇒ an_0b$
 ⇒ $a^{n-1}cb^{n-1}$  
 $n_0 ⇒ a^{n-1}cb^{n-1}$  
 
-Or in a general form: L(G) = {$a^mcb^m$ | m ∈ N}
+Or in a general form: L(G) = { $a^mcb^m$ | m ∈ N }
 
 #### Example 4
 
