@@ -76,5 +76,5 @@ Configuration derivation is performed by a relation $⊢_M$. If we denote the tu
 A transition defined by this relation is called derivation in one step and denoted as (s,ω) $⊢_M$ (s′,ω′). Following definitions can be defined based on this:
 - Derivable configuration: (s,ω) $⊢_M^{\ast}$ (s′,ω′) where $⊢_M^{\ast}$ is the transitive closure of $⊢_M$
 - Recognized word: ($s_0$,ω) $⊢_M^{\ast}$ ($s_i$,λ) where $s_i$ ∈ F.
-- Execution: ($s_0$,$ω_0$) ⊢ ($s_1$,$ω_1$) ⊢ ($s_2$,ω) ⊢ ... ⊢ ($s_n$,λ) where λ is the empty string.
+- Execution: ($s_0,ω_0$) ⊢ ($s_1,ω_1$) ⊢ ($s_2$,ω) ⊢ ... ⊢ ($s_n$,λ) where λ is the empty string.
 - Recognized Language: L(M) = { $ω_0$ ∈ $Σ^{\ast}$ | ($s_0$,ω) $⊢_M^{\ast}$ ($s_i$,λ) ∧ $s_i$ ∈ F }
