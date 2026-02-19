@@ -42,9 +42,9 @@ z ∈ AC ⇔ ∃ $x_2,y_2$[(z = $x_2y_2$) ∧ ($x_2$ ∈ A) ∧ ($y_2$ ∈ C)]
 ($x_1$ = $x_2$) ∧ ($y_1$ = $y_2$) ❌
 
 - Let’s give a counter example to show that AB ∩ AC $\not\subseteq$ A(B ∩ C)  
-A = {$a^n$ | n ∈ N}  
-B = {$a^nb^n$ | n ∈ N}  
-C = {$b^n$ | n ∈ N}  
+A = { $a^n$ | n ∈ N}  
+B = { $a^nb^n$ | n ∈ N}  
+C = { $b^n$ | n ∈ N}  
 Let’s take z = $a^5b^2$.  
 z = $a^3a^2b^2$  
 z ∈ AB ∩ AC  
