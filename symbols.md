@@ -1,0 +1,8 @@
+- × 
+- λ Σ,σ ε Γ,γ α β 
+- ∀ ∃
+- ∈ ∉ ∩ ∪ ∧ ∨ $\subseteq$ $\not\subseteq$ ∅
+- ≥ ≤
+- ⇒ ⇔ → 
+- ↦ (Maplet Arrow)
+- $A^{\ast}$ $A^+$ $A_1$ 
