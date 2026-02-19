@@ -45,10 +45,10 @@ The major objective of automata theory is to develop methods by which computer s
 
 ## Formal Definition of a DFA
 
-A deterministic finite state machine is a quintuple M = ($Σ,S,s^0,δ,F$), where:
+A deterministic finite state machine is a quintuple M = ($Σ,S,s_0,δ,F$), where:
 - S: A finite, non-empty set of states where s ∈ S.
 - Σ: Input alphabet (a finite, non-empty set of symbols)
-- $s^0$: An initial state, an element of S.
+- $s_0$: An initial state, an element of S.
 - δ: The state-transition function δ: S × Σ → S
 - F: The set of final states where F $\subseteq$ S.
 
