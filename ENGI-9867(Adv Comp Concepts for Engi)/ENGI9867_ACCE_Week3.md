@@ -4,15 +4,15 @@
 
 #### A Type-0 Grammar
 
-\<n0\> ::= a\<n0\>b  
-\<n0\>b ::= b\<w\>  
-ab\<w\> ::= c  
+$\langle n_0 \rangle$ ::= $a \langle n_0 \rangle b$  
+$\langle n_0 \rangle b$ ::= $b \langle w \rangle b$  
+$ab \langle w \rangle b$ ::= c  
 
 #### A Type-1 Grammar
 
-\<A\> ::= a\<A\>\<B\>c | abc
-c\<B\> ::= \<B\>c
-b\<B\> ::= bb
+$\langle A \rangle$ ::= $a \langle A \rangle \langle B \rangle c$ | abc  
+$c \langle B \rangle$ ::= $\langle B \rangle c$  
+$b \langle B \rangle$ ::= bb
 
 #### A Type-2 Grammar
 
@@ -24,8 +24,8 @@ b\<B\> ::= bb
 
 #### A Type-3 Grammar
 
-\<n0\> ::= a\<w\>  
-\<w\> ::= bb\<w\> | c  
+$\langle n_0 \rangle$ ::= $a \langle w \rangle$  
+$\langle w \rangle$ ::= $bb \langle w \rangle$ | c  
 
 Rules of the form w → bbw are called recursive rules. If a recursive rule’s non-terminal symbol is at the rightmost side it is called a normal rule.
 
