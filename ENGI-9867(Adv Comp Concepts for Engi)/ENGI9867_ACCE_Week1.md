@@ -273,7 +273,7 @@ In order to define a set E inductively, we need to have:
 which are used to derive members of E. An alphabet contains basis elements for natural
 languages.
 - Rules: Functions that are used to transform elements of E into new elements.  
-Ω = {f1,f2,...,fn} ∧ ∀$f_{i}$ ∈ Ω  
+Ω = { $f_{1}$, $f_{2}$,..., $f_{n}$ } ∧ ∀ $f_{i}$ ∈ Ω  
 $f_{i}$: E × E ×...× E -> E  
 ∀ $x_{1}$, $x_{2}$,... $x_{p}$ ∈ E, $f_{i}$($x_{1}$, $x_{2}$,..., $x_{p}$) = X ∈ E
 - Closure: Performing the rules on members of E always produces a member of E. In
@@ -295,7 +295,7 @@ i can be finite or infinite.
 
 Let’s build the set of even numbers inductively:
 1. 0 ∈ E basis element
-2. n ∈ E => (n+2) ∈ E
+2. n ∈ E ⇒ (n+2) ∈ E
 3. No other number can be identified as even number, apart from the rule number (2)
 
 ## Definitions
@@ -309,11 +309,11 @@ Let’s build the set of even numbers inductively:
 
 Concatenation is performed by joining two character strings end-to-end.
 
-(x = $a_{1}$ $a_{2}$...$a_{n}$) ∧ (y = $b_{1}$ $b_{2}$...$b_{m}$) => xy = $a_{1}$ $a_{2}$...$a_{n}$ $b_{1}$ $b_{2}$...$b_{m}$(x&y)  
+(x = $a_{1}$ $a_{2}$... $a_{n}$) ∧ (y = $b_{1}$ $b_{2}$... $b_{m}$) ⇒ xy = $a_{1}$ $a_{2}$... $a_{n}$ $b_{1}$ $b_{2}$... $b_{m}$(x&y)  
 
 Identity element of concatenation is λ    
-x = λ => xy=y  
-y = λ => xy=x
+x = λ ⇒ xy=y  
+y = λ ⇒ xy=x
 
 We can build a monoid set of words($Σ^*$) from the alphabet using concatenation operation having an empty string as an identity element and holding associativity property.
 
@@ -323,20 +323,20 @@ $(baba)^R$ = abab
 $(ana)^R$ = ana 
 
 We can define the operation using induction:
-1. |w| = 0 => $w^R$ = w = λ
+1. |w| = 0 ⇒ $w^R$ = w = λ
 2.  Assume we have two strings w and u.  
 |w| = n + 1  
 |u| = n  
 n ∈ N
-(w = ua) ∧ (a ∈ Σ) => $w^R$ = a $u^R$  
+(w = ua) ∧ (a ∈ Σ) ⇒ $w^R$ = a $u^R$  
 
 #### Theorem
 $(wx)^R$ = $x^R$ · $w^R$ ∧ (|x| = n, |w| = m) ∧ (m, n ∈ N)
 
 #### Proof.
-|x| = 0 => x = λ  
-$(wx)^R$ = $(wλ)^R$ = $w^R$ = λ$w^R$ = $λ^R$ $w^R$ = $x^R$ $w^R$  
-Inductive step: |x| ≤ n => $(wx)^R$ = $x^R$ $w^R$  
+|x| = 0 ⇒ x = λ  
+$(wx)^R$ = $(wλ)^R$ = $w^R$ = λ $w^R$ = $λ^R$ $w^R$ = $x^R$ $w^R$  
+Inductive step: |x| ≤ n ⇒ $(wx)^R$ = $x^R$ $w^R$  
 For |x| = n + 1
 (x = ua) ∧ (|u| = n) ∧ (a ∈ Σ) ∧ ($x^r$ = a $u^r$)  
 $(wx)^R$ = $(w(ua))^R$ = $((wu)a)^R$ = a($u^R$ $w^R$) = a $u^R$ $w^R$ = $x^R$ $w^R$
@@ -344,25 +344,25 @@ $(wx)^R$ = $(w(ua))^R$ = $((wu)a)^R$ = a($u^R$ $w^R$) = a $u^R$ $w^R$ = $x^R$ $w
 For example $(snow~ball)^R$ = $(ball)^R$ $(snow)^R$
 
 $Σ^+$ denotes the set of non-empty strings over the Σ alphabet
-1. a ∈ Σ => a ∈ $Σ^+$
-2. (x ∈ $Σ^+$ ∧ a ∈ Σ) => ax ∈ $Σ^+$
+1. a ∈ Σ ⇒ a ∈ $Σ^+$
+2. (x ∈ $Σ^+$ ∧ a ∈ Σ) ⇒ ax ∈ $Σ^+$
 3. $Σ^+$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
 
 For example:  
-Σ = {a,b} => $Σ^+$ = {a,b,aa,ba,ab,bb,aaa,aab,...}.
+Σ = {a,b} ⇒ $Σ^+$ = {a,b,aa,ba,ab,bb,aaa,aab,...}.
 
 $Σ^*$ denotes the set of all strings over the Σ alphabet
-1. λ ∈ $Σ^*$
-2. (x ∈ $Σ^*$ ∧ a ∈ Σ) => ax ∈ $Σ^*$
-3. $Σ^*$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
+1. λ ∈ $Σ^{\ast}$
+2. x ∈ $Σ^{\ast}$ ∧ a ∈ Σ ⇒ ax ∈ $Σ^{\ast}$
+3. $Σ^{\ast}$ doesn’t contain any elements other than the ones that can be constructed by pplying `1` and `2` finitely.
 
 For example:  
-Σ = {a,b} => $Σ^*$ = {λ,a,b,aa,ba,ab,bb,aaa,aab,...}.  
-Σ = {0,1} => $Σ^*$ = {λ,0,1,00,01,10,11,000,001,...}.
+Σ = {a,b} ⇒ $Σ^{\ast}$ = {λ,a,b,aa,ba,ab,bb,aaa,aab,...}.  
+Σ = {0,1} ⇒ $Σ^{\ast}$ = {λ,0,1,00,01,10,11,000,001,...}.
 
 Assuming (x ∈ $Σ^*$) ∧ (∀n ∈ N), a string’s $n^{th}$ power($x^n$) can be formally defined as:  
 1. $x^0$ = λ
-2. $x^{n+1}$ = $x^n$ · x = ($x^n$&x)
+2. $x^{n+1}$ = $x^n$ · x = ($x^n$ & x)
 
 For example:  
 Σ = {a,b}, x = ab
