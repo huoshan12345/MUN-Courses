@@ -4,28 +4,28 @@
 
 #### A Type-0 Grammar
 
-&lt;n0&gt; ::= a&lt;n0&gt;b  
-&lt;n0&gt;b ::= b&lt;w&gt;  
-ab&lt;w&gt; ::= c  
+\<n0\> ::= a\<n0\>b  
+\<n0\>b ::= b\<w\>  
+ab\<w\> ::= c  
 
 #### A Type-1 Grammar
 
-&lt;A&gt; ::= a&lt;A&gt;&lt;B&gt;c | abc
-c&lt;B&gt; ::= &lt;B&gt;c
-b&lt;B&gt; ::= bb
+\<A\> ::= a\<A\>\<B\>c | abc
+c\<B\> ::= \<B\>c
+b\<B\> ::= bb
 
 #### A Type-2 Grammar
 
-&lt;sentence&gt; ::= &lt;noun&gt;&lt;verbal sentence &gt;  
-&lt;noun&gt; ::= Harry | Sally  
-&lt;verbal sentence&gt; ::= &lt;verb&gt;&lt;adverb&gt;  
-&lt;verb&gt; ::= runs | swims  
-&lt;adverb&gt; ::= fast | often | long  
+\<sentence\> ::= \<noun\>\<verbal sentence \>  
+\<noun\> ::= Harry | Sally  
+\<verbal sentence\> ::= \<verb\>\<adverb\>  
+\<verb\> ::= runs | swims  
+\<adverb\> ::= fast | often | long  
 
 #### A Type-3 Grammar
 
-&lt;n0&gt; ::= a&lt;w&gt;  
-&lt;w&gt; ::= bb&lt;w&gt; | c  
+\<n0\> ::= a\<w\>  
+\<w\> ::= bb\<w\> | c  
 
 Rules of the form w → bbw are called recursive rules. If a recursive rule’s non-terminal symbol is at the rightmost side it is called a normal rule.
 
@@ -106,8 +106,8 @@ L(M) = $(a ∨ ba^{\ast}b)^{\ast}$. We can write the grammar as:
 V = S ∪ Σ  
 I = Σ = {a,b}  
 $s_0 = q_0 = n_0$  
-&lt;$q_0$&gt; ::= λ | a&lt;$q_0$&gt; | b&lt;$q_1$&gt; | a  
-&lt;$q_1$&gt; ::= b&lt;$q_0$&gt; | a&lt;$q_1$&gt; | b  
+$\langle q_0 \rangle$ ::= λ | a $\langle q_0 \rangle$ | b $\langle q_1 \rangle$ | a  
+$\langle q_1 \rangle$ ::= b $\langle q_0 \rangle$ | a $\langle q_1 \rangle$ | b  
 
 #### Example 2 
 
@@ -132,9 +132,9 @@ L(M) = $[(λ ∨ b ∨ bb)a]^{\ast}$(λ ∨ b ∨ bb)
 
 S = { $q_0,q_1,q_2$ }, Σ = {x,y}, $s_0 = q_0$, F = { $q_2$ }
 
-&lt;$q_0$&gt; ::= x&lt;$q_0$&gt; | y&lt;$q_1$&gt;  
-&lt;$q_1$&gt; ::= y&lt;$q_2$&gt; | y | x&lt;$q_0$&gt;  
-&lt;$q_2$&gt; ::= y | y&lt;$q_2$&gt; | x&lt;$q_0$&gt;  
+$\langle q_0 \rangle$ ::= x $\langle q_0 \rangle$ | y $\langle q_1 \rangle$  
+$\langle q_1 \rangle$ ::= y $\langle q_2 \rangle$ | y | x $\langle q_0 \rangle$  
+$\langle q_2 \rangle$ ::= y | y $\langle q_2 \rangle$ | x $\langle q_0 \rangle$  
 
 L(M) = $((x ∨ yx)^{\ast}yy^+x)^{\ast}(x ∨ yx)^{\ast}yy^+$  
 L(M) = $((λ ∨ y ∨ yy^+)x)^{\ast}yy^+$ = $(y^{\ast}x)^{\ast}yy^+$  
@@ -173,14 +173,14 @@ $F = \{q_3\}$
 $Δ = \{(q_0,a,q_0),(q_0,b,q_0),(q_0,ba,q_1),(q_1,b,q_3),(q_1,a,q_2), (q_2,b,q_3),(q_3,a,q_3),(q_3,b,q_3)\}$  
 
 M = (S,Σ,Δ,$s_0$,F)  
-&lt;$q_0$&gt; ::= a&lt;$q_0$&gt; | b&lt;$q_0$&gt; | ba&lt;$q_1$&gt;  
-&lt;$q_1$&gt; ::= b&lt;$q_3$&gt; | b | a&lt;$q_2$&gt;  
-&lt;$q_2$&gt; ::= b&lt;$q_3$&gt; | b  
-&lt;$q_3$&gt; ::= a | b | a&lt;$q_3$&gt; | b&lt;$q_3$&gt;  
-&lt;$q_0$&gt; ::= a&lt;$q_0$&gt; | b&lt;$q_0$&gt; | ba&lt;$q_1$&gt;  
-&lt;$q_1$&gt; ::= b&lt;$q_3$&gt; | b | a&lt;$q_2$&gt;  
-&lt;$q_2$&gt; ::= b&lt;$q_3$&gt; | b  
-&lt;$q_3$&gt; ::= a | b | a&lt;$q_3$&gt; | b&lt;$q_3$&gt;  
+$\langle q_0 \rangle$ ::= a $\langle q_0 \rangle$ | b $\langle q_0 \rangle$ | ba $\langle q_1 \rangle$  
+$\langle q_1 \rangle$ ::= b $\langle q_3 \rangle$ | b | a $\langle q_2 \rangle$  
+$\langle q_2 \rangle$ ::= b $\langle q_3 \rangle$ | b  
+$\langle q_3 \rangle$ ::= a | b | a $\langle q_3 \rangle$ | b $\langle q_3 \rangle$  
+$\langle q_0 \rangle$ ::= a $\langle q_0 \rangle$ | b $\langle q_0 \rangle$ | ba $\langle q_1 \rangle$  
+$\langle q_1 \rangle$ ::= b $\langle q_3 \rangle$ | b | a $\langle q_2 \rangle$  
+$\langle q_2 \rangle$ ::= b $\langle q_3 \rangle$ | b  
+$\langle q_3 \rangle$ ::= a | b | a $\langle q_3 \rangle$ | b $\langle q_3 \rangle$  
 
 A possible derivation may follow the path:
 $(q_0,aaabbbaabab) ⊢$  
