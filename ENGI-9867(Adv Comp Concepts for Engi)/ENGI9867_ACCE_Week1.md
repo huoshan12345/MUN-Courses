@@ -273,7 +273,7 @@ In order to define a set E inductively, we need to have:
 which are used to derive members of E. An alphabet contains basis elements for natural
 languages.
 - Rules: Functions that are used to transform elements of E into new elements.  
-Ω = {f1,f2,...,fn} ∧ ∀$f_{i}$ ∈ Ω  
+Ω = { $f_{1}$, $f_{2}$,... $f_{n}$} ∧ ∀ $f_{i}$ ∈ Ω  
 $f_{i}$: E × E ×...× E -> E  
 ∀ $x_{1}$, $x_{2}$,... $x_{p}$ ∈ E, $f_{i}$($x_{1}$, $x_{2}$,..., $x_{p}$) = X ∈ E
 - Closure: Performing the rules on members of E always produces a member of E. In
