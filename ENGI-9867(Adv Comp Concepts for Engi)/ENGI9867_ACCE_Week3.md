@@ -78,3 +78,61 @@ A transition defined by this relation is called derivation in one step and denot
 - Recognized word: ($s_0$,ω) $⊢_M^{\ast}$ ($s_i$,λ) where $s_i$ ∈ F.
 - Execution: ($s_0,ω_0$) ⊢ ($s_1,ω_1$) ⊢ ($s_2$,ω) ⊢ ... ⊢ ($s_n$,λ) where λ is the empty string.
 - Recognized Language: L(M) = { $ω_0$ ∈ $Σ^{\ast}$ | ($s_0$,ω) $⊢_M^{\ast}$ ($s_i$,λ) ∧ $s_i$ ∈ F }
+
+#### Language Recognizer
+
+The transitive closure of $⊢_M$ as $⊢_M^{\ast}$. (q,ω) $⊢_M^{\ast}$ (q′,ω′) denotes that (q,ω) yields (q′,ω′) after some number of steps.
+(s,ω) $⊢_M^{\ast}$ (q′,λ) denotes that ω ∈ $Σ^{\ast}$ is recognized by an automaton if q ∈ F. In other words  
+L(M) = { ω ∈ $Σ^{\ast}$ | (s,ω) $⊢_M^{\ast}$ ($q_i$,λ) ∧ $q_i$ ∈ F }
+
+#### Example 1
+
+S = { $q_0,q_1$ }, Σ = {a,b}, $s_0 = q_0$, F = { $q_0$ }
+
+| q | σ | δ(q,σ) |
+|---|---|---|
+| $q_0$ | a | $q_0$ |
+| $q_0$ | b | $q_1$ |
+| $q_1$ | a | $q_1$ |
+| $q_1$ | b | $q_0$ |
+
+$(q_0,aabba) ⊢_M (q_0,abba)$  
+$(q_0,abba) ⊢_M (q_0,bb)$  
+$(q_0,bba) ⊢_M (q_1,ba)$  
+$(q_1,ba) ⊢_M (q_0,a)$  
+$(q_0,a) ⊢_M (q_0,λ)$  
+
+L(M) = $(a ∨ ba^{\ast}b)^{\ast}$. We can write the grammar as:  
+V = S ∪ Σ  
+I = Σ = {a,b}  
+$s_0 = q_0 = n_0$  
+\<$q_0$\> ::= λ | a\<$q_0$\> | b\<$q_1$\> | a  
+\<$q_1$\> ::= b\<$q_0$\> | a\<$q_1$\> | b  
+
+#### Example 2 
+
+L(M) = { ω | ω ∈ $\{a,b\}^{\ast}$ ∧ ω should not include three successive b’s }  
+S = { $q_0,q_1,q_2,q_3$ }, Σ = {a,b}, $s_0 = q_0$, F = { $q_0,q_1,q_2$ }
+
+| q | σ | δ(q,σ) |
+|---|---|---|
+| $q_0$ | a | $q_0$ |
+| $q_0$ | b | $q_1$ |
+| $q_1$ | a | $q_0$ |
+| $q_1$ | b | $q_2$ |
+| $q_2$ | a | $q_0$ |
+| $q_2$ | b | $q_3$ |
+| $q_3$ | a | $q_3$ |
+| $q_3$ | b | $q_3$ |
+
+We have a dead state q3 where the automaton is not able to change state once it visits the dead state.  
+L(M) = $[(λ ∨ b ∨ bb)a]^{\ast}$(λ ∨ b ∨ bb)
+
+####　Example 3
+
+S = { $q_0,q_1,q_2$ }, Σ = {x,y}, $s_0 = q_0$, F = { $q_2$ }
+
+\<$q_0$\> ::= x\<$q_0$\> | y\<$q_1$\>  
+\<$q_1$\> ::= y\<$q_2$\> | y | x\<$q_0$\>  
+\<$q_2$\> ::= y | y\<$q_2$\> | x\<$q_0$\>  
+
