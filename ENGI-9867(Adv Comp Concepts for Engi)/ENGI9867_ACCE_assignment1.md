@@ -1,7 +1,7 @@
 **(1)** Consider the following grammar  
 
 S → AB | BC  
-B → AB|BC  
+B → AB | BC  
 AB → ab  
 BC → bc  
 A → a  
