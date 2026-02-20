@@ -1,4 +1,5 @@
 **(1)** Consider the following grammar  
+
 S → AB | BC  
 B → AB|BC  
 AB → ab  
