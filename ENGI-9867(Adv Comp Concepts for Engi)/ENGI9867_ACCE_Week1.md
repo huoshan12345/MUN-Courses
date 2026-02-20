@@ -280,7 +280,7 @@ A definition of a term within which the term itself appears, and that is well-fo
 
 In order to define a set E inductively, we need to have:
 
-- Basis: An initial set S of elements where S $\subseteq$ E. Members of S are called basis elements
+- Basis: An initial set S of elements where S ⊆ E. Members of S are called basis elements
 which are used to derive members of E. An alphabet contains basis elements for natural
 languages.
 - Rules: Functions that are used to transform elements of E into new elements.  
@@ -288,7 +288,7 @@ languages.
 $f_{i}$: E × E ×...× E -> E  
 ∀ $x_{1}$, $x_{2}$,... $x_{p}$ ∈ E, $f_{i}$($x_{1}$, $x_{2}$,..., $x_{p}$) = X ∈ E
 - Closure: Performing the rules on members of E always produces a member of E. In
-another way Ω(E) $\subseteq$ E
+another way Ω(E) ⊆ E
 
 ## Inductively Defined Sets
 
@@ -298,7 +298,7 @@ S0 = S
 S1 = Ω(S0) ∪ S0 Rules applied  
 S2 = Ω(S1) ∪ S1  
 ...  
-Si+1 = Si ∪ Ω(Si) = Si $\subseteq$ E (closure)  
+Si+1 = Si ∪ Ω(Si) = Si ⊆ E (closure)  
 i can be finite or infinite.
 - Element height: Defined as the cardinality of the set in which an element is derived for the first time. H(x) = min{i | ∈ 2 Si}
 

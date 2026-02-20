@@ -50,7 +50,7 @@ A deterministic finite state machine is a quintuple M = ($Σ,S,s_0,δ,F$), where
 - Σ: Input alphabet (a finite, non-empty set of symbols)
 - $s_0$: An initial state, an element of S.
 - δ: The state-transition function δ: S × Σ → S
-- F: The set of final states where F $\subseteq$ S.
+- F: The set of final states where F ⊆ S.
 
 This machine is a Moore machine where each state produces the output in set Z = {0,1}
 corresponding to the machine’s accepting/rejecting conditions.
@@ -152,12 +152,12 @@ A non-deterministic finite state machine is a quintuple M = ($Σ,S,s_0,Δ,F$), w
 - Σ: Input alphabet (a finite, non-empty set of symbols)
 - $s_0$: An initial state, an element of S.
 - Δ: The state-transition relation Δ: S × $Σ^{\ast}$ × S
-- F: The set of final states where F $\subseteq$ S.
+- F: The set of final states where F ⊆ S.
 
 A configuration is defined as a tuple in set S × $Σ^{\ast}$. Considering the definition of derivation in one step:  
 (q,ω) $⊢_M$ (q',ω') ⇒ ∃u ∈ $Σ^{\ast}$(ω = uω' ∧ (q,u,q') ∈ Δ)
 
-For deterministic automata $Δ \subseteq S × Σ^{\ast} × S$ relation becomes a function S × Σ → S. For (q,u,q') triplets |u| = 1 ∧ (∀q ∈ S ∧ ∀u ∈ Σ)∃!q' ∈ S  
+For deterministic automata $Δ ⊆ S × Σ^{\ast} × S$ relation becomes a function S × Σ → S. For (q,u,q') triplets |u| = 1 ∧ (∀q ∈ S ∧ ∀u ∈ Σ)∃!q' ∈ S  
 NOTE: ∃! means **exists and is unique**
 
 The language that an NFA recognizes is $L(M) = \{ω | (s,ω)⊢_m^{\ast}(q,λ) ∧ q ∈ F\}$
@@ -216,6 +216,6 @@ Every regular language can be recognized by a finite automaton and every finite 
 
 $M = (S,Σ,Δ,s_0,F) ⇔ G = (N,Σ,n_0,↦), L = L(G)$ where G is a grammar of type-3.  
 $S = N ∪ f_i$  
-$F \subseteq S$  
+$F ⊆ S$  
 $s_0 = n_0$
 
