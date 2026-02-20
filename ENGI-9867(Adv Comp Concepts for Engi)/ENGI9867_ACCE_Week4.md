@@ -14,7 +14,7 @@ For the NFA M = ($Σ,S,s_0,Δ,F$) our aim is to...
 
 Interim steps are populated to eliminate the |u| > 1 in (q,u,q') of Δ.
 
-This expansion transforms Δ into Δ' by replacing triples of (q,u,q') with triples like $(q,σ_1,p_1),(p_1,σ_2,p_2),...,(p_{k-1},σ_k,q')$. A new machine is formed M' = $(Σ,S',s_0,Δ',F')$ where $F' \equiv F$ and $s_0' \equiv s_0$
+This expansion transforms Δ into Δ' by replacing triples of (q,u,q') with triples like $(q,σ_1,p_1),(p_1,σ_2,p_2),...,(p_{k-1},σ_k,q')$. A new machine is formed M' = $(Σ,S',s_0,Δ',F')$ where $F' ≡ F$ and $s_0' ≡ s_0$
 
 ## NFA/DFA equivalency-Phase 2
 
