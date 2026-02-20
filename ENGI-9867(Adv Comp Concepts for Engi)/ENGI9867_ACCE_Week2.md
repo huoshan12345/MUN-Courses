@@ -147,7 +147,7 @@ $A^{\ast}B$ = $AA^{\ast}B$ ∪ B
 = ($A^+$ ∪ {λ}) ∪ B  
 = $A^{\ast}B$
 
-A similar proof can be done for the only solution of X = AX ∪ B being X = $A^{\ast}B$
+A similar proof can be done for the only solution of X = XA ∪ B being X = $BA^{\ast}$
 
 # Formal Grammars, Languages and Chomsky Hierarchy
 
