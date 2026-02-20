@@ -105,6 +105,8 @@ $(q_3,λ,q_0)$
 start: $q_0$
 final: $q_3$
 
+# NFA & DFA
+
 ## Example#4
 
 Consider the following grammar:  
