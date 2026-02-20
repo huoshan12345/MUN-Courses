@@ -1,5 +1,7 @@
 # MUN-Courses (Markdown Edition)
 
+[English](README.md) | [中文](README.zh-CN.md)
+
 > Unofficial personal study notes.
 
 This repository contains my Markdown rewrites of course slides and assignments that were originally provided in PDF format.
