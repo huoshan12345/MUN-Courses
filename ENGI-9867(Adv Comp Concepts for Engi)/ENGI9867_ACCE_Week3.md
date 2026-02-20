@@ -157,7 +157,7 @@ A non-deterministic finite state machine is a quintuple M = ($Σ,S,s_0,Δ,F$), w
 A configuration is defined as a tuple in set S × $Σ^{\ast}$. Considering the definition of derivation in one step:  
 (q,ω) $⊢_M$ (q',ω') ⇒ ∃u ∈ $Σ^{\ast}$(ω = uω' ∧ (q,u,q') ∈ Δ)
 
-For deterministic automata Δ $\subseteq$ S × $Σ^{\ast}$ × S relation becomes a function S × Σ → S. For (q,u,q') triplets |u| = 1 ∧ (∀q ∈ S ∧ ∀u ∈ Σ)∃!q' ∈ S  
+For deterministic automata $Δ \subseteq S × Σ^{\ast} × S$ relation becomes a function S × Σ → S. For (q,u,q') triplets |u| = 1 ∧ (∀q ∈ S ∧ ∀u ∈ Σ)∃!q' ∈ S  
 NOTE: ∃! means **exists and is unique**
 
 The language that an NFA recognizes is $L(M) = \{ω | (s,ω)⊢_m^{\ast}(q,λ) ∧ q ∈ F\}$
