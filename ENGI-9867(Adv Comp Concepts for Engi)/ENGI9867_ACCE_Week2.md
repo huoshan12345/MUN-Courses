@@ -7,26 +7,26 @@ Let ∅ denote empty language; A,B,C,D denote different languages defined over t
 1. A∅ = ∅A = ∅
 2. A{λ} = {λ}A = A
 3. (AB)C = A(BC)
-4. (A $\subseteq$ B) ∧ (C $\subseteq$ D) ⇒ AC $\subseteq$ BD
+4. (A ⊆ B) ∧ (C ⊆ D) ⇒ AC ⊆ BD
 5. A(B ∪ C) = AB ∪ AC
 6. (B ∪ C)A = BA ∪ CA
-7. A(B ∩ C) $\subseteq$ AB ∩ AC
-8. (B ∩ C)A $\subseteq$ BA ∩ CA
+7. A(B ∩ C) ⊆ AB ∩ AC
+8. (B ∩ C)A ⊆ BA ∩ CA
 
 #### Selected Proofs.
 
 - A∅ = {xy | (x ∈ A) ∧ (y ∈ ∅)} doesn’t hold since ∀y, y ∉ ∅.  
 Since there doesn’t exist any x,y couples satisfying the condition A∅ = ∅
 
-- (A $\subseteq$ B) ∧ (C $\subseteq$ D) ⇒ AC $\subseteq$ BD  
+- (A ⊆ B) ∧ (C ⊆ D) ⇒ AC ⊆ BD  
 We are going to use a direct proof. We assume  
-(A $\subseteq$ B) ∧ (C $\subseteq$ D) and z ∈ AC  
+(A ⊆ B) ∧ (C ⊆ D) and z ∈ AC  
 z = xy ⇔ x ∈ A ∧ y ∈ C  
-((A $\subseteq$ B) ∧ (x ∈ A) ⇒ (x ∈ B)) ∧ ((C $\subseteq$ D) ∧ (y ∈ C) ⇒ y ∈ D)  
+((A ⊆ B) ∧ (x ∈ A) ⇒ (x ∈ B)) ∧ ((C ⊆ D) ∧ (y ∈ C) ⇒ y ∈ D)  
 ((x ∈ B) ∧ (y ∈ D)) ⇒ xy ∈ BD  
-(xy ∈ AC ⇒ xy ∈ BD) ⇔ AC $\subseteq$ BD
+(xy ∈ AC ⇒ xy ∈ BD) ⇔ AC ⊆ BD
 
-- A(B ∩ C) $\subseteq$ AB ∩ AC  
+- A(B ∩ C) ⊆ AB ∩ AC  
 ∀z[z ∈ A(B ∩ C)] ⇔ ∃x,y[(z = xy) ∧ (x ∈ A) ∧ (y ∈ B ∩ C)]  
 (x ∈ A) ∧ (y ∈ B ∩ C)  
 ⇔ (x ∈ A) ∧ (y ∈ B) ∧ (y ∈ C)  
@@ -35,13 +35,13 @@ z = xy ⇔ x ∈ A ∧ y ∈ C
 ⇔ (xy ∈ AB ∩ AC)  
 ∀z[z ∈ A(B ∩ C) ⇒ z ∈ AB ∩ AC]  
 
-- AB ∩ AC $\subseteq$ A(B ∩ C) ❌  
+- AB ∩ AC ⊆ A(B ∩ C) ❌  
 ∀z[z ∈ AB ∩ AC ⇔ z ∈ AB ∩ z ∈ AC]  
 z ∈ AB ⇔ ∃ $x_1,y_1$[(z = $x_1y_1$) ∧ ($x_1$ ∈ A) ∧ ($y_1$ ∈ B)]  
 z ∈ AC ⇔ ∃ $x_2,y_2$[(z = $x_2y_2$) ∧ ($x_2$ ∈ A) ∧ ($y_2$ ∈ C)]  
 ($x_1$ = $x_2$) ∧ ($y_1$ = $y_2$) ❌
 
-- Let’s give a counter example to show that AB ∩ AC $\not\subseteq$ A(B ∩ C)  
+- Let’s give a counter example to show that AB ∩ AC ⊈ A(B ∩ C)  
 A = { $a^n$ | n ∈ N }  
 B = { $a^nb^n$ | n ∈ N }  
 C = { $b^n$ | n ∈ N }  
@@ -66,7 +66,7 @@ $A^2$ = {λ,a,b,aa,ab,ba,bb}
 Let A and B denote different languages defined over the alphabet Σ.
 1. $A^mA^n$ = $A^{m+n}$
 2. $(A^m)^n$ = $A^{mn}$
-3. A $\subseteq$ B ⇒ $A^n$ $\subseteq$ $B^n$ ...
+3. A ⊆ B ⇒ $A^n$ ⊆ $B^n$ ...
 
 #### Proof.
 1. $A^mA^n$ = $A^{m+n}$  
@@ -80,13 +80,13 @@ We are going to use induction.
 For the base case n = 1: $A^m$ = $A^m$  
 Inductive step: $(A^m)^{n+1}$ = $(A^m)^n(A^m)^1$ = $A^{mn+m}$ = $A^{m(n+1)}$
 
-3. A $\subseteq$ B ⇒ $A^n$ $\subseteq$ $B^n$ ...  
-Let’s remember $A^2$ = A × A, $B^2$ = B × B and A $\subseteq$ B ⇒ (∀x(x ∈ A → x ∈ B))  
+3. A ⊆ B ⇒ $A^n$ ⊆ $B^n$ ...  
+Let’s remember $A^2$ = A × A, $B^2$ = B × B and A ⊆ B ⇒ (∀x(x ∈ A → x ∈ B))  
 For n = 2:  
 $A^2$ = {xy | x ∈ A ∧ y ∈ A}  
-A $\subseteq$ B ⇒ (x ∈ A → x ∈ B)  
-A $\subseteq$ B ⇒ (y ∈ A → y ∈ B)  
-(∀xy(xy ∈ $A^2$ → xy ∈ $B^2$)) ⇒ $A^2$ $\subseteq$ $B^2$  
+A ⊆ B ⇒ (x ∈ A → x ∈ B)  
+A ⊆ B ⇒ (y ∈ A → y ∈ B)  
+(∀xy(xy ∈ $A^2$ → xy ∈ $B^2$)) ⇒ $A^2$ ⊆ $B^2$  
 Proof continues similarly for n := n +1
 
 ## Star closure (Kleene Star, Kleen Closure)
@@ -103,13 +103,13 @@ $A^{\ast}$: $∪_{n=0}A^n$ = $A^0$ ∪ $A^1$ ∪ $A^2$ ∪ $A^3$ ...
 
 Let A and B denote different languages defined over the alphabet Σ and let n ∈ N.
 1. $A^{\ast}$ = {λ} ∪ $A^+$. Derived from the definition
-2. $A^n$ $\subseteq$ $A^{\ast}$, n ≥ 0. Derived from the definition
-3. $A^n$ $\subseteq$ $A^+$, n ≥ 1. Derived from the definition
-4. A $\subseteq$ $AB^{\ast}$ Proof tip: $A^0$ $\subseteq$ $B^{\ast}$ ⇒ A $\subseteq$ $AB^{\ast}$
-5. A $\subseteq$ $B^{\ast}A$
-6. A $\subseteq$ B ⇒ $A^{\ast}$ $\subseteq$ $B^{\ast}$. Can be proven by using A $\subseteq$ B ⇒ $A^n$ $\subseteq$ $B^n$. Once true for all n, then
+2. $A^n$ ⊆ $A^{\ast}$, n ≥ 0. Derived from the definition
+3. $A^n$ ⊆ $A^+$, n ≥ 1. Derived from the definition
+4. A ⊆ $AB^{\ast}$ Proof tip: $A^0$ ⊆ $B^{\ast}$ ⇒ A ⊆ $AB^{\ast}$
+5. A ⊆ $B^{\ast}A$
+6. A ⊆ B ⇒ $A^{\ast}$ ⊆ $B^{\ast}$. Can be proven by using A ⊆ B ⇒ $A^n$ ⊆ $B^n$. Once true for all n, then
 it is true for union of all n.
-7. A $\subseteq$ B ⇒ $A^+$ $\subseteq$ $B^+$
+7. A ⊆ B ⇒ $A^+$ ⊆ $B^+$
 8. $AA^{\ast}$ = $A^{\ast}A$ = $A^+$
 9. λ ∈ A ⇔ $A^+$ = $A^{\ast}$
 10. $(A^{\ast})^{\ast}$ = $A^{\ast}A^{\ast}$ = $A^{\ast}$
@@ -302,7 +302,7 @@ The Chomsky hierarchy is a containment hierarchy of classes of formal grammars. 
 
 Only Type-2 and Type-3 grammars have syntax trees.  
 $n_0$ → λ rule can be added to any type to support empty sentences  
-Type-3 $\subseteq$ Type-2 $\subseteq$ Type-1 $\subseteq$ Type-0
+Type-3 ⊆ Type-2 ⊆ Type-1 ⊆ Type-0
 
 | Type | Language Type<br>(Grammars)  | Form of Productions<br>in Grammar  | Accepting<br>Device  |
 |-------|-----|-----|-----|
@@ -342,7 +342,7 @@ L($α^{\ast}$) = $(L(α))^{\ast}$
 
 #### Theorem
 
-Let L be a language described over S s.t.  L $\subseteq$ $S^{\ast}$. L is called a regular language if it conforms to a regular grammar G. In other words L = L(G).  
+Let L be a language described over S s.t.  L ⊆ $S^{\ast}$. L is called a regular language if it conforms to a regular grammar G. In other words L = L(G).  
 Regular expressions describe regular languages in formal language theory. There exists an isomorphism between the described language and the regular expression. They have the same expressive power as regular grammars.
 
 Syntax diagrams can be used define regular expressions. The following three diagrams describe basic properties of regular expressions.

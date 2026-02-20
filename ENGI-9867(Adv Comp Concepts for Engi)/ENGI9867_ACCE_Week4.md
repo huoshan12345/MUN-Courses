@@ -30,11 +30,11 @@ $R(q_4) = \{q_3,q_4\}$
 
 Constructing an equivalent deterministic machine:   
 $M'' = (S'',Σ,δ'',F'')$  
-$S'' \subseteq φ(S') = 2^{S'}$  
+$S'' ⊆ φ(S') = 2^{S'}$  
 $s''_0 = R(s'_0)$ The states that can be reached from the initial state by λ transitions  
-$F'' = \{ Q \subseteq S'\ |\ Q ∩ F' ≠ ∅ \}$
+$F'' = \{ Q ⊆ S'\ |\ Q ∩ F' ≠ ∅ \}$
 
-Constructing an equivalent deterministic machine, definition of $δ'': ∀Q \subseteq S' ∧ ∀σ ∈ Σ$  
+Constructing an equivalent deterministic machine, definition of $δ'': ∀Q ⊆ S' ∧ ∀σ ∈ Σ$  
 $δ''(Q,σ) = U_p\{ R(p)\ |\ ∀q ∈ Q ∧ ∀p ∈ S' ∧ ∀(q,σ,p) ∈ Δ' \}$  
 Let’s write all the possible triplets except empty string:  
 Transitions with a: $(q_1,a,q_0),(q_1,a,q_4),(q_3,a,q_4)$,

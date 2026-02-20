@@ -203,16 +203,16 @@ NOTE: The new final states are all the original states except the original final
 
 $L(M_1) ∩ L(M_2) = L(M)$
 
-$S \subseteq S_1 × S_2$  
+$S ⊆ S_1 × S_2$  
 NOTE: The state set of M consists of ordered pairs of states formed by the **Cartesian product** of $M_1$ and $M_2$
 
 $s_0 = (s_{01},s_{02})$  
 NOTE: The new start state combines the start states of $M_1$ and $M_2$
 
-$F \subseteq F_1 × F_2$ where $[(p_1,p_2) ∈ F] ⇔ [[p_1 ∈ F_1] ∧ [p_2 ∈ F_2]]$  
+$F ⊆ F_1 × F_2$ where $[(p_1,p_2) ∈ F] ⇔ [[p_1 ∈ F_1] ∧ [p_2 ∈ F_2]]$  
 NOTE: A new state is accepting only if both component states are accepting.  
 
-$Δ \subseteq Δ_1 × Δ_2$ where $[((p_1,p_2),σ,(q_1,q_2)) ∈ Δ] ⇔ [[(p_1,σ,q_1) ∈ Δ_1] ∧ [(p_2,σ,q_2) ∈ Δ_2]]$  
+$Δ ⊆ Δ_1 × Δ_2$ where $[((p_1,p_2),σ,(q_1,q_2)) ∈ Δ] ⇔ [[(p_1,σ,q_1) ∈ Δ_1] ∧ [(p_2,σ,q_2) ∈ Δ_2]]$  
 NOTE: M moves from $(p_1,p_2)$ to $(q_1,q_2)$ on input σ  
 ⇔ This transition occurs exactly when both $M_1$ and $M_2$ move accordingly on the same input σ
 
