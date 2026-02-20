@@ -160,7 +160,7 @@ A configuration is defined as a tuple in set S × $Σ^{\ast}$. Considering the d
 For deterministic automata Δ $\subseteq$ S × $Σ^{\ast}$ × S relation becomes a function S × Σ → S. For (q,u,q') triplets |u| = 1 ∧ (∀q ∈ S ∧ ∀u ∈ Σ)∃!q' ∈ S  
 NOTE: ∃! means **exists and is unique**
 
-The language that an NFA recognizes is L(M) = { ω | (s,ω)$⊢_m^{\ast}$(q,λ) ∧ q ∈ F }
+The language that an NFA recognizes is $L(M) = \{ω | (s,ω)⊢_m^{\ast}(q,λ) ∧ q ∈ F\}$
 
 ## An example NFA
 
@@ -172,7 +172,7 @@ $s_0 = q_0$
 $F = \{q_3\}$  
 $Δ = \{(q_0,a,q_0),(q_0,b,q_0),(q_0,ba,q_1),(q_1,b,q_3),(q_1,a,q_2), (q_2,b,q_3),(q_3,a,q_3),(q_3,b,q_3)\}$  
 
-M = (S,Σ,Δ,$s_0$,F)  
+$M = (S,Σ,Δ,s_0,F)$  
 $\langle q_0 \rangle$ ::= $a \langle q_0 \rangle$ | $b \langle q_0 \rangle$ | $ba \langle q_1 \rangle$  
 $\langle q_1 \rangle$ ::= $b \langle q_3 \rangle$ | b | $a \langle q_2 \rangle$  
 $\langle q_2 \rangle$ ::= $b \langle q_3 \rangle$ | b  
