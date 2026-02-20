@@ -2,7 +2,7 @@
 - λ Σ,σ ε Γ,γ α β Δ,δ Ω,ω
 - ∀ ∃
 - ∈ ∉ ∩ ∪ ∧ ∨ $\subseteq$ $\not\subseteq$ ∅
-- ≥ ≤
+- ≥ ≤ ≠
 - ⇒ ⇔ → ⊢
 - ↦ (Maplet Arrow)
 - $A^{\ast}$ $A^+$ $A_1$ 
