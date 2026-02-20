@@ -137,4 +137,32 @@ Try 3
 
 Construct an automaton recognizing strings containing 3k+1 b symbols and discover the corresponding regular expression. Σ = {a,b}
 
+$q_0 = q_0a ∨ q_2b ∨ λ$  
+$q_1 = q_0b ∨ q_1a$  
+$q_2 = q_1b ∨ q_2a$
 
+$q_2 = q_2a ∨ q_1b ⇒ q_2 = q_1ba^{\ast}$  
+NOTE: $X = XA ∪ B ⇒ X = BA^{\ast}$  
+$q_1 = q_1a ∨ q_0b ⇒ q_1 = q_0ba^{\ast}$  
+$q_2 = q_0(ba^{\ast})(ba^{\ast})$
+
+$q_0 = q_0a ∨ q_0(ba^{\ast})^2b ∨ λ$  
+$q_0 = q_0(a ∨ (ba^{\ast})^2b) ∨ λ$   
+$q_0 = (a ∨ (ba^{\ast})^2b)^{\ast}$  
+$q_1 = (a ∨ (ba^{\ast})^2b)^{\ast}ba^{\ast}$  
+Another possible reg-ex might be: $a^{\ast}ba^{\ast}[(ba^{\ast})^3]^{\ast}$
+
+#### Kleene Theorem
+
+Any language is regular which is constructed by applying closed language operations on regular
+languages. e.g. if we know $L_1$ and $L_2$ are regular languages, any language built by applying a
+closed operation on them produces a new regular language.
+
+Regular languages recognized by a finite automaton is closed under the following operations:
+- Union, Intersection, Complement, Difference
+- Concatenation
+- Kleene star
+- Reversal
+- Homomorphism, Inverse Homomorphism (will not be discussed in detail.)
+
+#### Union (Non-deterministic)

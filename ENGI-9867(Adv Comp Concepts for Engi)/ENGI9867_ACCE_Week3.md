@@ -191,8 +191,8 @@ $(q_2,bab) ⊢ (q_3,ab) ⊢ (q_3,b) ⊢ (q_3,λ)$
 
 #### Lemma
 
-M = (S,Σ,Δ,$s_0$,F) ∧ q,r ∈ S ∧ x,y ∈ $Σ^{\ast}$  
-∃p ∈ S ∧ (q,x)$⊢_M^{\ast}$(p,λ) ∧ (p,y)$⊢_M^{\ast}$(r,λ) ⇒ (q,xy)$⊢_M^{\ast}$(r,λ)
+$M = (S,Σ,Δ,s_0,F) ∧ q,r ∈ S ∧ x,y ∈ Σ^{\ast}$  
+$∃p ∈ S ∧ (q,x)⊢_M^{\ast}(p,λ) ∧ (p,y)⊢_M^{\ast}(r,λ) ⇒ (q,xy)⊢_M^{\ast}(r,λ)$
 
 #### Definition
 
@@ -214,8 +214,8 @@ Languages recognized by finite automata (Regular Languages) are closed under uni
 
 Every regular language can be recognized by a finite automaton and every finite automaton defines a regular language.
 
-M = (S,Σ,Δ,$s_0$,F) ⇔ G = (N, Σ, $n_0$, ↦), L = L(G) where G is a grammar of type-3.  
-S = N ∪ $f_i$  
-F $\subseteq$ S  
+$M = (S,Σ,Δ,s_0,F) ⇔ G = (N,Σ,n_0,↦), L = L(G)$ where G is a grammar of type-3.  
+$S = N ∪ f_i$  
+$F \subseteq S$  
 $s_0 = n_0$
 
