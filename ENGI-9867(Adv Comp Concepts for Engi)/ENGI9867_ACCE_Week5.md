@@ -166,3 +166,75 @@ Regular languages recognized by a finite automaton is closed under the following
 - Homomorphism, Inverse Homomorphism (will not be discussed in detail.)
 
 #### Union (Non-deterministic)
+$M_1 = (S_1,Σ,Δ_1,s_{01},F_1) ← L(M_1)$  
+$M_2 = (S_2,Σ,Δ_2,s_{02},F_2) ← L(M_2)$
+
+$M = (S,Σ,δ,s_0,F) ← L(M_1) ∪ L(M_2)$
+
+$S = S_1 ∪ S_2 ∪ \{s_0\}$  
+$F = F_1 ∪ F_2$  
+$F = F_1 ∪ F_2$  
+$δ = Δ_1 ∪ Δ_2 ∪ \{\{s_0,λ,s_{01}\},\{s_0,λ,s_{02}\}\}$
+
+#### Concatenation (Non-deterministic)
+
+$L(M_1) · L(M_2) = L(M)$
+
+$S = S_1 ∪ S_2$  
+$s_0 = s_{01}$  (NOTE: use $L(M_1)$'s start state)  
+$F = F_2$  (NOTE: use $L(M_2)$'s final state)   
+$δ = Δ_1 ∪ Δ_2 ∪ (F_1 × \{λ\} × \{s_{02}\})$ (NOTE: add a λ trasition that is from $F_1$ to $s_{02}$)  
+
+#### Kleene Star (Non-deterministic)
+
+$L(M_1)^{\ast} = L(M)$
+
+$S = S_1 ∪ \{s_0\}$  
+$F = \{f_0\}$  
+$δ = Δ_1 ∪ (F_1 × \{λ\} × \{s_{01}\}) ∪ (s_0 × λ × s_{01}) ∪ (F_1 × \{λ\} × F) ∪ (s_0 × λ × f_0)$  
+
+#### Complement (deterministic)
+
+$\overline{L(M_1)} = L(M)$  
+$F = \{S_1 - F_1\}$  
+NOTE: The new final states are all the original states except the original final states.
+
+#### Intersection (Deterministic)
+
+$L(M_1) ∩ L(M_2) = L(M)$
+
+$S \subseteq S_1 × S_2$  
+NOTE: The state set of M consists of ordered pairs of states formed by the **Cartesian product** of $M_1$ and $M_2$
+
+$s_0 = (s_{01},s_{02})$  
+NOTE: The new start state combines the start states of $M_1$ and $M_2$
+
+$F \subseteq F_1 × F_2$ where $[(p_1,p_2) ∈ F] ⇔ [[p_1 ∈ F_1] ∧ [p_2 ∈ F_2]]$  
+NOTE: A new state is accepting only if both component states are accepting.  
+
+$Δ \subseteq Δ_1 × Δ_2$ where $[((p_1,p_2),σ,(q_1,q_2)) ∈ Δ] ⇔ [[(p_1,σ,q_1) ∈ Δ_1] ∧ [(p_2,σ,q_2) ∈ Δ_2]]$  
+NOTE: M moves from $(p_1,p_2)$ to $(q_1,q_2)$ on input σ  
+⇔ This transition occurs exactly when both $M_1$ and $M_2$ move accordingly on the same input σ
+
+#### Difference (Deterministic)
+
+$L_1 - L_2 = L1 ∩ \overline{L_2}$  
+NOTE: The difference of $L_1$ and $L_2$ is the set of strings that are in $L_1$ but not in $L_2$, i.e. $L_1 ∩ \overline{L_2}$
+
+#### Reversal (Non-deterministic)
+
+$L(M) = L(M')^R$
+
+$S = S' ∪ \{s_0\}$  
+NOTE: The new state set consists of all original states plus a new start state
+$s_0$.  
+A new start $s_0$ is added to enable ε-transitions to all original accepting states, as only one start state is allowed.
+
+$F = s'_0$  
+NOTE: The new final state is the original start state.
+
+$δ = \{[(p,σ,q) ∈ Δ] ⇔ [(q,σ,p) ∈ Δ']\}$  
+$∪$  
+$\{[(s_0,λ,f_i) ∈ Δ ∀f_i ∈ F']\}$  
+NOTE: Each transition is the reverse of an original transition.  
+Add ε-transitions from the new start state to every original final state.
