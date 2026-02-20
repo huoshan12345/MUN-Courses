@@ -91,6 +91,50 @@ So shortest word: abbc
 
 ## Systematic way to find the regular language recognized by a DFA
 
-Remember the theorem that states the one and only solution to the equation
+Remember the theorem that states the one and only solution to the equation  
+$X = XA ∪ B ∧ λ ∉ A$ is $X = BA^{\ast}$  
+Let’s rewrite the statement using regular expressions:  
+$x = xa ∨ b ∧ λ ≠ a ⇒ x = ba^{\ast}$  
+We shall use this theorem in finding the regular language recognized by a DFA
 
-X = AX ∪ B ∧ λ ∉ A.  
+## Example
+
+$q_1 = q_1x ∨ q_2x ∨ q_3x ∨ λ$  
+$q_2 = q_1y$  
+$q_3 = q_2y ∨ q_3y$  
+
+We can use the theorem for $q_3$  
+$(q_3) = (q_3)y ∨ q_2y$ then we have $q_3 = q_2yy^{\ast} ⇒ q_3 = q_1yy^+$   
+Using this equality:  
+$q_1 = q_1x ∨ q_1yx ∨ q_1yy^+x ∨ λ$  
+$q_1 = q_1(x ∨ yx ∨ yy^+x) ∨ λ$  
+$q_1 = (x ∨ yx ∨ yy^+x)^{\ast} = (y^{\ast}x)^{\ast}$  
+$q_3 = (y^{\ast}x)^{\ast}yy^+$
+
+The example automaton is actually the DFA equivalent of the NFA given in the previous examples. Heuristically we have found $(x ∨ y)^{\ast}yy^+$ as the language of the NFA. Let’s show
+that these two are equivalent.
+
+##　Proof of Example#1
+We need to show　$(y^{\ast}x)^{\ast}yy^+ = (x ∨ y)^{\ast}yy^+$
+
+Try 1  
+(a) Draw the DFA of $(x ∨ y)^{\ast}$ and NFA of $(y^{\ast}x)^{\ast}$  
+(b) Transform the NFA to DFA  
+(c) FAIL!!!
+
+Try 2  
+(a) Draw the NFA of $(y^{\ast}x)^{\ast}yy^+$ and NFA of $(x ∨ y)^{\ast}yy^+$  
+(b) Transform each NFA to DFA  
+(c) Wait... but how???  
+
+Try 3  
+(a) Draw the NFA of $(y^{\ast}x)^{\ast}y^{\ast}$ and DFA of $(x ∨ y)^{\ast}$  
+(b) Transform the NFA to DFA
+(c) Simplify the resulting DFA
+(d) Surprise!!!
+
+## Example#2
+
+Construct an automaton recognizing strings containing 3k+1 b symbols and discover the corresponding regular expression. Σ = {a,b}
+
+
