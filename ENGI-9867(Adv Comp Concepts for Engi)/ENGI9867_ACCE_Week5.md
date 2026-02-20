@@ -114,8 +114,8 @@ $q_3 = (y^{\ast}x)^{\ast}yy^+$
 The example automaton is actually the DFA equivalent of the NFA given in the previous examples. Heuristically we have found $(x ∨ y)^{\ast}yy^+$ as the language of the NFA. Let’s show
 that these two are equivalent.
 
-##　Proof of Example#1
-We need to show　$(y^{\ast}x)^{\ast}yy^+ = (x ∨ y)^{\ast}yy^+$
+## Proof of Example#1
+We need to show $(y^{\ast}x)^{\ast}yy^+ = (x ∨ y)^{\ast}yy^+$
 
 Try 1  
 (a) Draw the DFA of $(x ∨ y)^{\ast}$ and NFA of $(y^{\ast}x)^{\ast}$  
