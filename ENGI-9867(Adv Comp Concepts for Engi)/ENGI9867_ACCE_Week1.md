@@ -305,9 +305,9 @@ i can be finite or infinite.
 ## Inductively Defined Sets
 
 Let’s build the set of even numbers inductively:
-1. 0 ∈ E basis element
-2. n ∈ E ⇒ (n+2) ∈ E
-3. No other number can be identified as even number, apart from the rule number (2)
+**(i)** 0 ∈ E basis element
+**(ii)** n ∈ E ⇒ (n+2) ∈ E
+**(iii)** No other number can be identified as even number, apart from the rule number (ii)
 
 ## Definitions
 
