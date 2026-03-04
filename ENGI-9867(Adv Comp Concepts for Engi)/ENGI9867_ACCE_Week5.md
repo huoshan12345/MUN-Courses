@@ -183,7 +183,7 @@ $L(M_1) · L(M_2) = L(M)$
 $S = S_1 ∪ S_2$  
 $s_0 = s_{01}$  (NOTE: use $L(M_1)$'s start state)  
 $F = F_2$  (NOTE: use $L(M_2)$'s final state)   
-$δ = Δ_1 ∪ Δ_2 ∪ (F_1 × \{λ\} × \{s_{02}\})$ (NOTE: add a λ trasition that is from $F_1$ to $s_{02}$)  
+$δ = Δ_1 ∪ Δ_2 ∪ (F_1 × \{λ\} × \{s_{02}\})$ (NOTE: add a λ transition that is from $F_1$ to $s_{02}$)  
 
 #### Kleene Star (Non-deterministic)
 
