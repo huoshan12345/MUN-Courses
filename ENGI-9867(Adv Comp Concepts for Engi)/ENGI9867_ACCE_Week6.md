@@ -14,17 +14,17 @@ $\langle S \rangle ::= 0 \langle S \rangle 1\ |\ 01$
 
 #### CFG for well-formed parentheses
 
-$\langle S \rangle ::= \langle S \rangle \langle S \rangle \ |\ (\langle S \rangle)\ |\ ()$
+$\langle S \rangle ::= \langle S \rangle \langle S \rangle\ |\ (\langle S \rangle)\ |\ ()$
 
 #### CFG for $\{ 0^m1^n\ |\ m ≥ n \}$
 
 $\langle S \rangle ::= 0 \langle S \rangle 1\ |\ \langle A \rangle$  
-$\langle A \rangle ::= 0 \langle A \rangle \ |\ 0$
+$\langle A \rangle ::= 0 \langle A \rangle\ |\ 0$
 
 #### CFG for Boolean arithmetic expressions
 
-$\langle E \rangle ::= \langle E \rangle + \langle E \rangle \ |\ \langle E \rangle × \langle E \rangle\ |\ (\langle E \rangle)\ |\ \langle F \rangle$  
-$\langle F \rangle ::= x\langle F \rangle \ |\ y\langle F \rangle \ |\ 1\langle F \rangle$  
+$\langle E \rangle ::= \langle E \rangle + \langle E \rangle\ |\ \langle E \rangle × \langle E \rangle\ |\ (\langle E \rangle)\ |\ \langle F \rangle$  
+$\langle F \rangle ::= x\langle F \rangle\ |\ y\langle F \rangle\ |\ 1\langle F \rangle$  
 $\langle F \rangle ::= x\ |\ y\ |\ 0\ |\ 1$
 
 
@@ -47,7 +47,7 @@ $⇒ x × (xy + 10)$
 
 ## Rightmost Derivations
 
-$E ⇒^{\ast} x×(xy+10)$ ($⇒^{\ast}$ denotes zero or more derivation steps)
+$E ⇒^{\ast} x×(xy+10)$
 
 $\langle E \rangle$  
 $⇒ \langle E \rangle × \langle E \rangle$  
@@ -90,14 +90,21 @@ $⇒ \langle E \rangle × (\langle E \rangle)$
 $⇒ \langle E \rangle × (\langle E \rangle + \langle E \rangle)$  
 $\langle E \rangle × (\langle E \rangle + \langle E \rangle)$ is a right sentential form
 
+
+
+# Context Free Grammars, Parsing and Ambiguous Grammars
+
 ## Parsing and Parse Trees
 
-We can represent a particular derivation by a CFG using a parse tree, where
-- Each internal node is labeled by a non-terminal symbol
-- Each leaf is labeled by terminal symbol
-- Root is labeled by the start symbol
+- Parsing, syntax analysis, or syntactic analysis is the process of analyzing a string of symbols, conforming to the rules of a formal grammar.
+- A parser is a software component that takes input data and builds a data structure–often some kind of parse tree, abstract syntax tree, giving a structural representation of the input while checking for correct syntax.
+- Parser repeatedly matches left/right hand-side of a production against a substring in the current left/right-sentential form.
+- We can represent a particular derivation by a CFG using a parse tree, where
+  - Each internal node is labeled by a non-terminal symbol
+  - Each leaf is labeled by terminal symbol
+  - Root is labeled by the start symbol
 
-$\langle S \rangle ::= \langle S \rangle \langle S \rangle \ |\ (\langle S \rangle)\ |\ ()$  
+$\langle S \rangle ::= \langle S \rangle \langle S \rangle\ |\ (\langle S \rangle)\ |\ ()$  
 Parse tree for $ω = (())()$
 
 ```mermaid
@@ -110,14 +117,296 @@ graph TD
     3 --- 7(("("))
     3 --- 8((")"))
     5 --- 9(("("))
-    5 --- 10((")"))     
+    5 --- 10((")"))
 ```
 
+## Recap: Example CFG
+
+#### CFG for Boolean arithmetic expressions
+
+$\langle E \rangle ::= \langle E \rangle + \langle E \rangle\ |\ \langle E \rangle * \langle E \rangle\ |\ (\langle E \rangle)\ |\ \langle F \rangle$  
+$\langle F \rangle ::= x\langle F \rangle\ |\ y\langle F \rangle\ |\ 1\langle F \rangle$  
+$\langle F \rangle ::= x\ |\ y\ |\ 0\ |\ 1$
+
+Please note that × (i.e., multiplication symbol) has been replaced with * to avoid any
+confusion between the symbol × and the terminal x, based on the feedback I received from
+you yesterday.
+
+## Parsing and Parse Trees- Example#1
+
+$E ⇒^{\ast} x*(xy+10)$
+
+## Parsing and Parse Trees- Example#1- Leftmost Derivation
+
+```mermaid
+graph TD
+    11(E)
+    21(E)
+    22(#42;)
+    23(E)
+    31(F)
+    32("(")
+    33(E)
+    34(")")
+    41(x)
+    42(E)
+    43(#43;)
+    44(E)
+    51(F)
+    52(F)
+    61(x)
+    62(F)
+    63(1)
+    64(F)
+    71(y)
+    72(0)
+
+    11 --- 21
+    11 --- 22
+    11 --- 23
+    21 --- 31
+    23 --- 32
+    23 --- 33
+    23 --- 34
+    31 --- 41
+    33 --- 42
+    33 --- 43
+    33 --- 44
+    42 --- 51
+    44 --- 52
+    51 --- 61
+    51 --- 62
+    52 --- 63
+    52 --- 64
+    62 --- 71
+    64 --- 72
+
+    classDef default fill:none,stroke:none;
+```
+
+$\langle E \rangle$  
+$⇒ \langle E \rangle * \langle E \rangle$  
+$⇒ \langle F \rangle * \langle E \rangle$  
+$⇒ x * \langle E \rangle$  
+$⇒ x * (\langle E \rangle)$  
+$⇒ x * (\langle E \rangle + \langle E \rangle)$  
+$⇒ x * (\langle F \rangle + \langle E \rangle)$  
+$⇒ x * (x\langle F \rangle + \langle E \rangle)$  
+$⇒ x * (xy + \langle E \rangle)$  
+$⇒ x * (xy + \langle F \rangle)$  
+$⇒ x * (xy + 1\langle F \rangle)$  
+$⇒ x * (xy + 10)$  
+
+## Parsing and Parse Trees- Example#1- Rightmost Derivation
+
+```mermaid
+graph TD
+    11(E)
+    21(E)
+    22(#42;)
+    23(E)
+    31(F)
+    32("(")
+    33(E)
+    34(")")
+    41(x)
+    42(E)
+    43(#43;)
+    44(E)
+    51(F)
+    52(F)
+    61(x)
+    62(F)
+    63(1)
+    64(F)
+    71(y)
+    72(0)
+
+    11 --- 21
+    11 --- 22
+    11 --- 23
+    21 --- 31
+    23 --- 32
+    23 --- 33
+    23 --- 34
+    31 --- 41
+    33 --- 42
+    33 --- 43
+    33 --- 44
+    42 --- 51
+    44 --- 52
+    51 --- 61
+    51 --- 62
+    52 --- 63
+    52 --- 64
+    62 --- 71
+    64 --- 72
+
+    classDef default fill:none,stroke:none;
+```
+
+$\langle E \rangle$  
+$⇒ \langle E \rangle * \langle E \rangle$  
+$⇒ \langle E \rangle * (\langle E \rangle)$  
+$⇒ \langle E \rangle * (\langle E \rangle + \langle E \rangle)$  
+$⇒ \langle E \rangle * (\langle E \rangle + \langle F \rangle)$  
+$⇒ \langle E \rangle * (\langle E \rangle + 1\langle F \rangle)$  
+$⇒ \langle E \rangle * (\langle E \rangle + 10)$  
+$⇒ \langle E \rangle * (\langle F \rangle + 10)$  
+$⇒ \langle E \rangle * (x\langle F \rangle + 10)$  
+$⇒ \langle E \rangle * (xy + 10)$  
+$⇒ \langle F \rangle * (xy + 10)$  
+$⇒ x × (xy + 10)$  
+
+## Parsing and Parse Trees- Example#1- Notes
+
+- To every left (right) most derivation there exists a unique parse tree (and vice versa).
+- What is a Parse Tree? A parse tree shows the structure of how a string is derived from the grammar.  
+It shows what was produced, not in what order.
+- What is a Derivation? A derivation is the step-by-step process of expanding nonterminals.  
+Leftmost derivation always expand the leftmost nonterminal first.  
+Rightmost derivation always expand the rightmost nonterminal first.
+
+## Question
+
+Given a grammar, is it possible that every (left/right) derivation for a string (i.e., sentence) is
+unique?  
+Let’s consider the following string:  
+
+$x + y * 0$
+
+## Parsing and Parse Trees- Example#2- Leftmost Derivation
+
+$E ⇒^{\ast} x + y * 0$
+
+```mermaid
+graph TD
+    11(E)
+    21(E)
+    22(#42;)
+    23(E)
+    31(E)
+    32(#43;)
+    33(E)
+    34(F)
+    41(F)
+    42(F)
+    43(0)
+    51(x)
+    52(y)
+
+    11 --- 21
+    11 --- 22
+    11 --- 23
+    21 --- 31
+    21 --- 32
+    21 --- 33
+    23 --- 34
+    31 --- 41
+    33 --- 42
+    34 --- 43
+    41 --- 51
+    42 --- 52
+
+    classDef default fill:none,stroke:none;
+```
+
+$\langle E \rangle$  
+$⇒ \langle E \rangle * \langle E \rangle$  
+$⇒ \langle E \rangle + \langle E \rangle * \langle E \rangle$  
+$⇒ \langle F \rangle + \langle E \rangle * \langle E \rangle$  
+$⇒ x + \langle E \rangle * \langle E \rangle$  
+$⇒ x + \langle F \rangle * \langle E \rangle$  
+$⇒ x + y * \langle E \rangle$  
+$⇒ x + y * \langle F \rangle$  
+$⇒ x + y * 0$  
 
 
+## Ambiguous Grammars
 
+A CFG is said to be ambiguous if there exists a string which has more than one left-most/right-most derivation.
 
+$\langle S \rangle ::= \langle S \rangle 1\ |\ 0 \langle S \rangle 1\ |\ 01$
 
+$S ⇒^{\ast} 00111$
+
+$\langle S \rangle$  
+$⇒ 0 \langle S \rangle 1$  
+$⇒ 0 \langle S \rangle 11$  
+$⇒ 00111$  
+
+$\langle S \rangle$  
+$⇒ \langle S \rangle 1$  
+$⇒ 0 \langle S \rangle 11$  
+$⇒ 00111$  
+
+## Ambiguous Grammars
+
+$\langle E \rangle ::= \langle E \rangle × \langle E \rangle\ |\ \langle E \rangle + \langle E \rangle\ |\ (\langle E \rangle)\ |\ x\ |\ y\ |\ z$  
+
+$E ⇒^{\ast} x×y+z$
+
+```mermaid
+graph TD
+    11((E)) --- 21((E))
+    11 --- 22((#43;))
+    11 --- 23((E))
+    21 --- 31((E))
+    21 --- 32((×))
+    21 --- 33((E))
+    23 --- 34((z))
+    31 --- 41((x))
+    33 --- 42((y))
+    
+    111((E)) --- 121((E))
+    111 --- 122((×))
+    111 --- 123((E))
+    121 --- 131((x))
+    123 --- 132((E))
+    123 --- 133((#43;))
+    123 --- 134((E))
+    132 --- 141((y))
+    134 --- 142((z))    
+```
+
+## Ambiguous Grammars
+
+It may be possible to remove ambiguity for some CFGs by rewriting the grammar and imposing rules and restrictions such as precedence.
+Let’s assume the precedence: $(),×,+$
+
+#### Ambiguous grammar
+
+$\langle S \rangle ::= \langle S \rangle + \langle S \rangle$  
+$\langle S \rangle ::= \langle S \rangle × \langle S \rangle$  
+$\langle S \rangle ::= (\langle S \rangle)$  
+$\langle S \rangle ::= x\ |\ y\ |\ z\ |\ 0\ |\ 1$  
+
+#### Unambiguous grammar
+
+$\langle A \rangle ::= \langle A \rangle + \langle B \rangle\ | \ \langle B \rangle$  
+$\langle B \rangle ::= \langle B \rangle × \langle C \rangle\ | \ \langle C \rangle$  
+$\langle C \rangle ::= (\langle A \rangle) \ | \ \langle D \rangle$   
+$\langle D \rangle ::= x\ |\ y\ |\ z\ |\ 0\ |\ 1$
+
+Another example for the balanced parentheses grammar 
+
+#### Ambiguous grammar
+
+$\langle S \rangle ::= \langle S \rangle \langle S \rangle$  
+$\langle S \rangle ::= (\langle S \rangle)$  
+$\langle S \rangle ::= ()$  
+
+#### Unambiguous grammar
+
+$\langle B \rangle ::= (\langle R \rangle \langle B \rangle\ |\ λ$  
+$\langle R \rangle ::=\ )\ |\ (\langle R \rangle \langle R \rangle$  
+
+However, for some languages, it may not be possible to remove ambiguity.  
+A CFL is said to be inherently ambiguous if every CFG that describes it is ambiguous.  
+
+$L = \{a^nb^nc^md^m\ |\ n,m ≥ 1 \} ∪ \{a^nb^mc^md^n\ |\ n,m ≥ 1 \}$
+
+Example: Derivation of $a^nb^nc^nd^n$
 
 
 
