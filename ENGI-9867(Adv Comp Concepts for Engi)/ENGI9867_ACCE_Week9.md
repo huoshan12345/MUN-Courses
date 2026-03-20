@@ -141,6 +141,50 @@ at the middle of the input string.
 - length is odd and middle symbol is a “b”
 - length is even
 
+| state | tape      | stack | trans. rule         |
+|-------|-----------|-------|---------------------|
+| $s_0$ | abbbba | λ     |  [($s_0$,a,λ),($s_0$,a)] |
+| $s_0$ | bbbba  | a     |  [($s_0$,b,λ),($s_0$,b)] |
+| $s_0$ | bbba   | ba    |  [($s_0$,b,λ),($s_0$,b)] |
+| $s_0$ | bba    | bba   |  [($s_0$,λ,λ),(f,λ)]     |
+| f     | bba    | bba   |  [(f,b,b),(f,λ)]         |
+| f     | ba     | ba    |  [(f,b,b),(f,λ)]         |
+| f     | a      | a     |  [(f,a,a),(f,λ)]         |
+| f     | λ      | λ     |                          |
+
+$G = (N,Σ,n_0,↦)$  
+$N = \{S\}$  
+$Σ = \{a,b\}$  
+$n_0 = S$  
+$\langle S \rangle ::= a \langle S \rangle a\ |\ b \langle S \rangle b\ |\ aa\ |\ bb$
+
+## Deterministic PDA
+
+1. $∀s ∈ S ∧ ∀γ ∈ Γ$ if $δ(s,λ,γ) ≠ ∅ ⇒ δ(s,σ,γ) = ∅;∀σ ∈ Σ$
+2. if $a ∈ Σ ∪ {λ}$ then $∀s,∀y$ and $∀a\ |δ(s,a,γ)|≤1$
+
+- In a DPDA
+  1. If there exists a lambda transition no other transitions should be present for any other input.
+  2. There should be a unique transition for any (s,σ,γ) tuple
+- For nondeterministic PDA, the equivalence problem to deterministic PDA is proven to be
+undecidable.
+- It is proved in 1997 that the equivalence problem for deterministic
+pushdown automata (DPDA) is decidable. That is, given two DPDAs A and B, it is
+possible to determine whether they accept the same language L(A) = L(B).
+- The way a DPDA works is exactly the same as an NPDA, with several modes of
+acceptance: acceptance on final state, acceptance on empty stack, and acceptance on
+final state and empty stack.
+- However, unlike a NPDA, these acceptance methods are not equivalent. It can be shown
+that the set of languages accepted on empty stack is a proper subset of the set of
+languages determined on final state.
+- Any regular language can be accepted by a DPDA on empty stack
+- Any language accepted by a DPDA on final state is unambiguous, note that the reverse
+may not hold all the time.
+
+
+
+
+
 
 
 
