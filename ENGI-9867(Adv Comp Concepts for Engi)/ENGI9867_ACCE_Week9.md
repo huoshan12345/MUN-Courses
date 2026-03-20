@@ -181,10 +181,37 @@ languages determined on final state.
 - Any language accepted by a DPDA on final state is unambiguous, note that the reverse
 may not hold all the time.
 
+#### An example language that can only be recognized by an NPDA
 
+The set of palindromes is unambiguous, but not deterministic. The language of even length
+palindromes $ωω^R$ cannot be recognized by a DPDA, it can only be recognized by an NPDA.
 
+#### An example language that can be recognized by an DPDA
 
+$\{a^nb^n\ |\ n ≥ 0\}$ can be accepted by a DPDA on empty stack, and the language is not regular.
 
+Every language recognized by a DPDA can also be recognized by an NPDA, but the converse is not true. Therefore, deterministic context-free languages form a proper subset of context-free languages.
+
+#### Example #3
+
+$ω ∈ \{\{α,β\}^{\ast}\ |\ \#(a) = \#(b)\}$
+$M = (S,Σ,Γ,δ,s_0,F)$  
+$δ = \{[(s_0,λ,λ),(q,c)],[(q,a,c),(q,ac)],[(q,a,a),(q,aa)],[(q,a,b),(q,λ)],[(q,b,c),(q,bc)],[(q,b,b),(q,bb)],$
+$[(q,b,a),(q,λ)],[(q,λ,c),(f,λ)]\}$
+
+| state | tape      | stack | trans. rule         |
+|-------|-----------|-------|---------------------|
+| $s_0$ | abbbabaa  | λ     | [($s_0$,λ,λ),(q,c)] |
+| q     | abbbabaa  | c     | [(q,a,c),(q,ac)]    |
+| q     | bbbabaa   | ac    | [(q,b,a),(q,λ)]     |
+| q     | bbabaa    | c     | [(q,b,c),(q,bc)]    |
+| q     | babaa     | bc    | [(q,b,b),(q,bb)]    |
+| q     | abaa      | bbc   | [(q,a,b),(q,λ)]     |
+| q     | baa       | bc    | [(q,b,b),(q,bb)]    |
+| q     | aa        | bbc   | [(q,a,b),(q,λ)]     |
+| q     | a         | bc    | [(q,a,b),(q,λ)]     |
+| q     | λ         | c     | [(q,λ,c),(f,λ)]     |
+| f     | λ         | λ     |                     |
 
 
 
