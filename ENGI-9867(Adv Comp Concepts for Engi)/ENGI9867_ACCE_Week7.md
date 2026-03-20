@@ -4,8 +4,8 @@
 
 | Type | Language Type<br>(Grammars)  | Form of Productions<br>in Grammar  | Accepting<br>Device  |
 |------|-----|-----|-----|
-| 0    | Recursively<br>enumerable<br>(unrestricted) | $α → β$<br>$α,β ∈ (N ∪ Σ)^+$,<br>α contains a variable | Turing machine |
-| 1    | Context-sensitive | $α → β$<br>$α,β ∈ (N ∪ Σ)^{\ast}, \|α\|≤\|β\|,$<br>α contains a variable | Linear-bounded<br>automaton |
+| 0    | Recursively<br>enumerable<br>(unrestricted) | $α → β$<br>$α,β ∈ (N ∪ Σ)^+$<br>α contains a variable | Turing machine |
+| 1    | Context-sensitive | $α → β$<br>$α,β ∈ (N ∪ Σ)^{\ast}, \|α\|≤\|β\|$<br>α contains a variable | Linear-bounded<br>automaton |
 | 2    | Context-free | $A → α$<br>$A ∈ N, α ∈ (N ∪ Σ)^{\ast}$ | Pushdown<br>automaton |
 | 3    | Regular | $A → σB, A → σ$<br>$A,B ∈ N, σ ∈ Σ^{\ast}$ | Finite<br>automaton |
 
