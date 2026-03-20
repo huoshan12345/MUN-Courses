@@ -4,14 +4,15 @@
 - ∀ ∃
 - ∈ ∉ ∅
 - ∩ ∪ ∧ ∨ ¬
-- ⊆ ⊈ ⊇ ⊉ 
+- ⊆ ⊈ ⊇ ⊉ ⊊ ⊋
 - ⊂ ⊄ ⊃ ⊅
 - ≥ ≤ ≠ ≡
 - ⇒ ⇔ → ← 
 - ⊢ ⊥
 - ↦ (Maplet Arrow)
-- $A^{\ast}$ $A^+$ $A_1$  
-NOTE: When inputting the Kleene star, use the escaped version to avoid display issues on GitHub.
+- $A^{\ast}$ $A^+$ $A_1$ (for the Kleene star, use the escaped version to avoid display issues on GitHub.)
+- $\langle E \rangle$ (use them in latex instead of <> to avoid escape issue on Github)
+- $\lbrace \rbrace$ (use them in latex instead of {} to avoid escape issue on Github)
 
 ## references
 - [see unicode symbols](https://www.compart.com/en/unicode/)

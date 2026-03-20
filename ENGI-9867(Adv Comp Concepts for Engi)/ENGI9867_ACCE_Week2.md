@@ -138,7 +138,7 @@ X = ... ∪ $A^3B$ ∪ $A^2B$ ∪ AB ∪ B
 X = (... ∪ $A^3$ ∪ $A^2$ ∪ $A^1$ ∪ $A^0$)B  
 X = $A^{\ast}B$
 
-####　Demonstration
+#### Demonstration
 
 X = $A^{\ast}B$ is a solution of X = AX ∪ B
 Considering {λ}B = B,  
@@ -163,7 +163,7 @@ In our context
 - Grammar is the set of formation rules to construct a subset of $Σ^{\ast}$
 
 For example, to construct an arithmetic expressions:  
-- Z + - × / ( ) is sucient
+- Z + - × / ( ) is sufficient
 - All the well-formed arithmetic expressions are meaningful except division by zero.
 - (((2 - 1) / 3) + 4 × 6) is a well-formed and meaningful
 - 2 + (3 / (5 - (10 / 2))) is well-formed as well but not meaningful
@@ -212,7 +212,7 @@ Parsing, or, syntactic analysis, is the process of analyzing a text, made of a s
 N = { $n_0$,w }  
 ↦ = { $n_0$ → aw | w → bbw | w → c }
 
-L(G) = {a} · $\{bb\}^{\ast}$ · {c}  
+L(G) = {a} · $\lbrace bb \rbrace^{\ast}$ · {c}  
 = $a(bb)^{\ast}c$  
 = { $a(bb)^nc$ | n ∈ N }
 
@@ -327,13 +327,13 @@ language.
 
 #### Regular Expression
 
-Regular expressions (abbrv.: regex, regexp) provide a concise and flexible means to ”match” (specify and recognize) strings of text, such as particular characters, words, or patterns of characters.  
+Regular expressions (abbr.: regex, regexp) provide a concise and flexible means to ”match” (specify and recognize) strings of text, such as particular characters, words, or patterns of characters.  
 A regular expression can be defined over an alphabet Σ by induction:
 1. Each and every element of λ and Σ is a regular expression
   - L(λ) = {λ}
   - L(a) = {a} ∀a ∈ Σ
   - L(∅) = ∅
-2. Concatanation operation(·)  
+2. Concatenation operation(·)  
 L(αβ) = L(α)L(β)
 3. Alternation operation(∨)  
 L(α ∨ β) = L(α) ∪ L(β)
@@ -347,7 +347,7 @@ Regular expressions describe regular languages in formal language theory. There 
 
 Syntax diagrams can be used define regular expressions. The following three diagrams describe basic properties of regular expressions.
 
-- Concetanation ($α_1α_2$)
+- Concatenation ($α_1α_2$)
 - Alternation ($α_1 ∨ α_2$)
 - Kleene star ($(α_1)^{\ast}$)
 
