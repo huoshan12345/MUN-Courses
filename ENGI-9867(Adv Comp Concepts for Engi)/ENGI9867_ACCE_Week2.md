@@ -307,7 +307,7 @@ Type-3 ⊆ Type-2 ⊆ Type-1 ⊆ Type-0
 | Type | Language Type<br>(Grammars)  | Form of Productions<br>in Grammar  | Accepting<br>Device  |
 |-------|-----|-----|-----|
 | 0     | Recursively<br>enumerable<br>(unrestricted) | α → β<br>α,β ∈ $(N ∪ Σ)^+$ | Turing machine |
-| 1     | Context-sensitive | α → β<br>α,β ∈ $(N ∪ Σ)^+$, |α|≤|β| | Linear-bounded<br>automaton |
+| 1     | Context-sensitive | α → β<br>α,β ∈ $(N ∪ Σ)^+$, \|α\|≤\|β\| | Linear-bounded<br>automaton |
 | 2     | Context-free | A → α<br>A ∈ N, α ∈ $(N ∪ Σ)^+$ | Pushdown<br>automaton |
 | 3     | Regular | A → σB, A → σ<br>A,B ∈ N, σ ∈ $Σ^+$ | Finite<br>automaton |
 
