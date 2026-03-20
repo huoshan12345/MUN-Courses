@@ -33,5 +33,128 @@ Following algorithm that can be used to construct the CNF grammar $G_1$ from a T
 2. Break-down productions whose right side has at least two terminal symbols.
 3. Replace each production having more than two non-terminal occurrences on the right by an equivalent set of double-non-terminal productions.
 
+## Example CNF Transformation
+
+#### CNF Transformation
+
+CNF grammar G1 from a Type-2 grammar G:
+
+#### A Type-2 Grammar
+
+$S = a,b,c$  
+$N = S,T,U,V,W$  
+$↦ = \{$  
+$S → TU\ |\ V$  
+$T → aTb\ |\ λ$  
+$U → cU\ |\ λ$  
+$V → aVc\ |\ W$  
+$W → bW\ |\ λ$  
+}
+
+which generates the language $a^ib^jc^k$ | i = j or i = k.
+
+#### CNF Transformation
+
+1. Eliminate unit productions **and then** λ productions.  
+Unit production ex.: $V → W$  
+λ production ex.: $T → λ$
+
+#### Unit productions eliminated
+
+$S → TU\ |\ aVc\ |\ bW\ |\ λ$  
+$T → aTb\ |\ λ$  
+$U → cU\ |\ λ$  
+$V → aVc\ |\ bW\ |\ λ$  
+$W → bW\ |\ λ$  
+
+#### λ productions eliminated
+
+NOTE: Eliminating λ-productions may introduce unit productions, which must be removed subsequently.  
+
+$S → TU\ |\ aVc\ |\ bW\ |\ aTb\ |\ ab\ |\ cU\ |\ c\ |\ b\ |\ ac$  
+$T → aTb\ |\ ab$  
+$U → cU\ |\ c$  
+$V → aVc\ |\ bW\ |\ b\ |\ ac$  
+$W → bW\ |\ b$  
+
+#### CNF Transformation
+
+2. Break-down productions whose right side has at least two terminals.  
+For each terminal σ introduce a variable $X_σ$ and a rule $X_σ → σ$
+
+#### Non-single-terminals eliminated
+
+$S → TU\ |\ X_aTX_b\ |\ X_aVX_c\ |\ X_cU$  
+$S → X_aX_b\ |\ X_aX_c\ |\ c\ |\ b\ |\ X_bW$  
+$T → X_aTX_b\ |\ X_aX_b$  
+$U → X_cU\ |\ c$  
+$V → X_aVX_c\ |\ X_aX_c\ |\ X_bW\ |\ b$  
+$W → X_bW\ |\ b$  
+$X_a → a$  
+$X_b → b$  
+$X_c → c$  
+
+#### CNF Transformation
+
+3. Replace each production having more than two non-terminal occurrences on the right by an equivalent set of double-non-terminal productions.
+
+$S → TU\ |\ X_aY_1\ |\ X_cU\ |\ X_aY_2$  
+$Y_1 → TX_b$  
+$Y_2 → VX_c$  
+$S → X_aX_b\ |\ X_aX_c\ |\ c\ |\ b\ |\ X_bW$  
+$T → X_aY_1\ |\ X_aX_b$  
+$U → X_cU\ |\ c$  
+$V → X_aY_2\ |\ X_aX_c\ |\ X_bW\ |\ b$  
+$W → X_bW\ |\ b$  
+$X_a → a$  
+$X_b → b$  
+$X_c → c$  
+
+## Another Example
+
+#### A Type-2 Grammar
+
+$S → AaA\ |\ bA\ |\ BaB$  
+$A → aaBa\ |\ CDA\ |\ aa\ |\ DC$  
+$B → bB\ |\ bAB\ |\ bb\ |\ aS$  
+$C → Ca\ |\ bC\ |\ D$  
+$D → bD\ |\ λ$  
+
+#### Unit productions partly eliminated
+
+$S → AaA\ |\ bA\ |\ BaB$  
+$A → aaBa\ |\ CDA\ |\ aa\ |\ DC$  
+$B → bB\ |\ bAB\ |\ bb\ |\ aS$  
+$C → Ca\ |\ bC\ |\ bD\ |\ λ$  
+$D → bD\ |\ λ$  
+
+#### λ productions partly eliminated
+
+$S → AaA\ |\ bA\ |\ BaB$  
+$A → aaBa\ |\ CDA\ |\ aa\ |\ DC\ |\ CA$  
+$A → DA\ |\ C\ |\ D\ |\ λ$  
+$B → bB\ |\ bAB\ |\ bb\ |\ aS$  
+$C → Ca\ |\ bC\ |\ bD\ |\ b\ |\ a$  
+$D → bD\ |\ b$  
+
+#### λ productions eliminated
+
+$S → AaA\ |\ bA\ |\ BaB\ |\ aA\ |\ Aa\ |\ a\ |\ b$  
+$A → aaBa\ |\ CDA\ |\ aa\ |\ DC\ |\ CA$  
+$A → DA\ |\ C\ |\ D\ |\ CD$  
+$B → bB\ |\ bAB\ |\ bb\ |\ aS$  
+$C → Ca\ |\ bC\ |\ bD\ |\ b\ |\ a$  
+$D → bD\ |\ b$  
+
+#### Unit productions eliminated
+
+$S → AaA\ |\ bA\ |\ BaB\ |\ aA\ |\ Aa\ |\ a\ |\ b$  
+$A → aaBa\ |\ CDA\ |\ DC\ |\ CA\ |\ aa$  
+$A → DA\ |\ CD\ |\ Ca\ |\ bC\ |\ bD\ |\ b\ |\ a$  
+$B → bB\ |\ bAB\ |\ bb\ |\ aS$  
+$C → Ca\ |\ bC\ |\ bD\ |\ a\ |\ b$  
+$D → bD\ |\ b$  
+
+Transformation continues with the 2nd and 3rd steps.
 
 
