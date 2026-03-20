@@ -1,6 +1,6 @@
 **(1)** Considerthelanguage L defined below.
 
-$L = \lbracea^nb^m\ |\ n + m ≡ 1\ (mod\ 2)\ and\ n,m ≥ 0\rbrace$
+$L = \lbrace a^nb^m\ |\ n + m ≡ 1\ (mod\ 2)\ and\ n,m ≥ 0 \rbrace$
 
 Draw the deterministic finite automaton (DFA) that accepts L as a state transition diagram.
 
@@ -10,13 +10,13 @@ Draw the deterministic finite automaton (DFA) that accepts L as a state transiti
 
 However, further laboratory analysis has revealed an important structural constraint: the “C” nucleotides in the recognition site must appear in consecutive pairs. That is, every group of consecutive C’s in the sequence must contain an even number of C’s (e.g., CC, CCCC, etc.). A group containing an odd number of consecutive C’s (such as a single isolated “C” or “CCC”) will not be recognized by the enzyme, even though the total number of C’s in the sequence may still be even.
 
-To model the behaviour of Formalase, create a Deterministic Finite Automaton (DFA) **by drawing a state transition diagram and table**. Keep in mind that a DNA sequence consists of A, T, G, and C. Possible acceptable strings include TAG, TACCG, TCCACCG, TCCACCCCG, etc. However, strings such as TCACACCG or TCAACCG are not accepted.
+To model the behavior of Formalase, create a Deterministic Finite Automaton (DFA) **by drawing a state transition diagram and table**. Keep in mind that a DNA sequence consists of A, T, G, and C. Possible acceptable strings include TAG, TACCG, TCCACCG, TCCACCCCG, etc. However, strings such as TCACACCG or TCAACCG are not accepted.
 
 ---
 
 **(3)** Consider the following scenario in the context of formal verification:
 
-A legacy authentication system uses a pattern-matching mechanism that accepts input strings over the alphabet $Σ = \lbracex,y\rbrace$. The system’s specification was originally documented as a nondeterministic finite automaton (NFA), which was sufficient for theoretical analysis of the accepted language.
+A legacy authentication system uses a pattern-matching mechanism that accepts input strings over the alphabet $Σ = \lbrace x,y \rbrace$. The system’s specification was originally documented as a nondeterministic finite automaton (NFA), which was sufficient for theoretical analysis of the accepted language.
 
 However, the system is now being integrated into a safety-critical environment where runtime verification must occur in real-time with O(n) complexity and constant space per input symbol. The verification module can only perform a single left-to-right scan of the input without backtracking or parallel state exploration. This operational constraint necessitates a deterministic implementation.
 
