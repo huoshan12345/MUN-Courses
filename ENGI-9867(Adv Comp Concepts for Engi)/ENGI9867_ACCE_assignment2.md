@@ -1,6 +1,6 @@
 **(1)** Considerthelanguage L defined below.
 
-$L = \{a^nb^m\ |\ n + m ≡ 1\ (mod\ 2)\ and\ n,m ≥ 0\}$
+$L = \lbracea^nb^m\ |\ n + m ≡ 1\ (mod\ 2)\ and\ n,m ≥ 0\rbrace$
 
 Draw the deterministic finite automaton (DFA) that accepts L as a state transition diagram.
 
@@ -16,7 +16,7 @@ To model the behaviour of Formalase, create a Deterministic Finite Automaton (DF
 
 **(3)** Consider the following scenario in the context of formal verification:
 
-A legacy authentication system uses a pattern-matching mechanism that accepts input strings over the alphabet $Σ = \{x,y\}$. The system’s specification was originally documented as a nondeterministic finite automaton (NFA), which was sufficient for theoretical analysis of the accepted language.
+A legacy authentication system uses a pattern-matching mechanism that accepts input strings over the alphabet $Σ = \lbracex,y\rbrace$. The system’s specification was originally documented as a nondeterministic finite automaton (NFA), which was sufficient for theoretical analysis of the accepted language.
 
 However, the system is now being integrated into a safety-critical environment where runtime verification must occur in real-time with O(n) complexity and constant space per input symbol. The verification module can only perform a single left-to-right scan of the input without backtracking or parallel state exploration. This operational constraint necessitates a deterministic implementation.
 

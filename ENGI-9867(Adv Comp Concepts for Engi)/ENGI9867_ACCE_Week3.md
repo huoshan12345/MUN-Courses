@@ -111,7 +111,7 @@ $\langle q_1 \rangle$ ::= $b \langle q_0 \rangle$ | $a \langle q_1 \rangle$ | b
 
 #### Example 2 
 
-L(M) = { ω | ω ∈ $\{a,b\}^{\ast}$ ∧ ω should not include three successive b’s }  
+L(M) = { ω | ω ∈ $\lbracea,b\rbrace^{\ast}$ ∧ ω should not include three successive b’s }  
 S = { $q_0,q_1,q_2,q_3$ }, Σ = {a,b}, $s_0 = q_0$, F = { $q_0,q_1,q_2$ }
 
 | q | σ | δ(q,σ) |
@@ -160,17 +160,17 @@ A configuration is defined as a tuple in set S × $Σ^{\ast}$. Considering the d
 For deterministic automata $Δ ⊆ S × Σ^{\ast} × S$ relation becomes a function S × Σ → S. For (q,u,q') triplets |u| = 1 ∧ (∀q ∈ S ∧ ∀u ∈ Σ)∃!q' ∈ S  
 NOTE: ∃! means **exists and is unique**
 
-The language that an NFA recognizes is $L(M) = \{ω | (s,ω)⊢_m^{\ast}(q,λ) ∧ q ∈ F\}$
+The language that an NFA recognizes is $L(M) = \lbraceω | (s,ω)⊢_m^{\ast}(q,λ) ∧ q ∈ F\rbrace$
 
 ## An example NFA
 
 Build an NFA that recognizes languages including bab or baab as substrings.
 
-$S = \{q_0,q_1,q_2,q_3\}$  
+$S = \lbraceq_0,q_1,q_2,q_3\rbrace$  
 Σ = {a,b}  
 $s_0 = q_0$  
-$F = \{q_3\}$  
-$Δ = \{(q_0,a,q_0),(q_0,b,q_0),(q_0,ba,q_1),(q_1,b,q_3),(q_1,a,q_2), (q_2,b,q_3),(q_3,a,q_3),(q_3,b,q_3)\}$  
+$F = \lbraceq_3\rbrace$  
+$Δ = \lbrace(q_0,a,q_0),(q_0,b,q_0),(q_0,ba,q_1),(q_1,b,q_3),(q_1,a,q_2), (q_2,b,q_3),(q_3,a,q_3),(q_3,b,q_3)\rbrace$  
 
 $M = (S,Σ,Δ,s_0,F)$  
 $\langle q_0 \rangle$ ::= $a \langle q_0 \rangle$ | $b \langle q_0 \rangle$ | $ba \langle q_1 \rangle$  

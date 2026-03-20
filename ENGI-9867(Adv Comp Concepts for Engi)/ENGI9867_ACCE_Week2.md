@@ -212,7 +212,7 @@ Parsing, or, syntactic analysis, is the process of analyzing a text, made of a s
 N = { $n_0$,w }  
 ↦ = { $n_0$ → aw | w → bbw | w → c }
 
-L(G) = {a} · $\{bb\}^{\ast}$ · {c}  
+L(G) = {a} · $\lbracebb\rbrace^{\ast}$ · {c}  
 = $a(bb)^{\ast}c$  
 = { $a(bb)^nc$ | n ∈ N }
 
