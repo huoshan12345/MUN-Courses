@@ -170,7 +170,7 @@ $S = \lbrace q_0,q_1,q_2,q_3 \rbrace$
 Σ = {a,b}  
 $s_0 = q_0$  
 $F = \lbrace q_3 \rbrace$  
-$Δ = \lbrace(q_0,a,q_0),(q_0,b,q_0),(q_0,ba,q_1),(q_1,b,q_3),(q_1,a,q_2), (q_2,b,q_3),(q_3,a,q_3),(q_3,b,q_3)\rbrace$  
+$Δ = \lbrace (q_0,a,q_0),(q_0,b,q_0),(q_0,ba,q_1),(q_1,b,q_3),(q_1,a,q_2), (q_2,b,q_3),(q_3,a,q_3),(q_3,b,q_3) \rbrace$  
 
 $M = (S,Σ,Δ,s_0,F)$  
 $\langle q_0 \rangle$ ::= $a \langle q_0 \rangle$ | $b \langle q_0 \rangle$ | $ba \langle q_1 \rangle$  

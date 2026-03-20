@@ -22,11 +22,11 @@ This expansion transforms Δ into Δ' by replacing triples of (q,u,q') with trip
 
 R(q) = { p ∈ S' | (q,ω) $⊢_{M'}^{\ast}$ (p,ω) where ω ∈ $Σ^{\ast}$ }  
 
-$R(q_0) = \lbraceq_0,q_1,q_2,q_3\rbrace$  
-$R(q_1) = \lbraceq_1,q_2,q_3\rbrace$  
-$R(q_2) = \lbraceq_2\rbrace$  
-$R(q_3) = \lbraceq_3\rbrace$  
-$R(q_4) = \lbraceq_3,q_4\rbrace$  
+$R(q_0) = \lbrace q_0,q_1,q_2,q_3 \rbrace$  
+$R(q_1) = \lbrace q_1,q_2,q_3 \rbrace$  
+$R(q_2) = \lbrace q_2 \rbrace$  
+$R(q_3) = \lbrace q_3 \rbrace$  
+$R(q_4) = \lbrace q_3,q_4 \rbrace$  
 
 Constructing an equivalent deterministic machine:   
 $M'' = (S'',Σ,δ'',F'')$  
@@ -41,14 +41,14 @@ Transitions with a: $(q_1,a,q_0),(q_1,a,q_4),(q_3,a,q_4)$,
 Transitions with b: $(q_0,b,q_2),(q_2,b,q_4)$
 
 Let’s build $δ''$ using those transitions:  
-$s''_0 = R(q_0) = \lbraceq_0,q_1,q_2,q_3\rbrace(d_0)$  
-$δ''(d_0,a) = R(q_0) ∪ R(q_4) = \lbraceq_0,q_1,q_2,q_3,q_4\rbrace(d_1)$  
-$δ''(d_0,b) = R(q_2) ∪ R(q_4) = \lbraceq_2,q_3,q_4\rbrace(d_2)$  
-$δ''(d_1,a) = \lbraceq_0,q_1,q_2,q_3,q_4\rbrace(d_1)$  
-$δ''(d_1,b) = \lbraceq_2,q_3,q_4\rbrace(d_2)$  
-$δ''(d_2,a) = R(q_4) = \lbraceq_3,q_4\rbrace(d_3)$  
-$δ''(d_2,b) = R(q_4) = \lbraceq_3,q_4\rbrace(d_3)$  
-$δ''(d_3,a) = R(q_4) = \lbraceq_3,q_4\rbrace(d_3)$  
+$s''_0 = R(q_0) = \lbrace q_0,q_1,q_2,q_3 \rbrace(d_0)$  
+$δ''(d_0,a) = R(q_0) ∪ R(q_4) = \lbrace q_0,q_1,q_2,q_3,q_4 \rbrace(d_1)$  
+$δ''(d_0,b) = R(q_2) ∪ R(q_4) = \lbrace q_2,q_3,q_4 \rbrace(d_2)$  
+$δ''(d_1,a) = \lbrace q_0,q_1,q_2,q_3,q_4 \rbrace(d_1)$  
+$δ''(d_1,b) = \lbrace q_2,q_3,q_4 \rbrace(d_2)$  
+$δ''(d_2,a) = R(q_4) = \lbrace q_3,q_4 \rbrace(d_3)$  
+$δ''(d_2,b) = R(q_4) = \lbrace q_3,q_4 \rbrace(d_3)$  
+$δ''(d_3,a) = R(q_4) = \lbrace q_3,q_4 \rbrace(d_3)$  
 $δ''(d_3,b) = ∅(d_4)$  
 $δ''(d_4,a) = δ''(d_4,b) = ∅(d_4)$
 
@@ -70,19 +70,19 @@ For the NFA M = ($Σ,S,s_0,Δ,F$) our aim is to...
 
 An NFA recognizing the language $L(M) = (x ∨ y)^{\ast}yy^+$. Let’s build an equivalent DFA.  
 
-$R(q_0) = \lbraceq0\rbrace$  
-$R(q_1) = \lbraceq1\rbrace$  
-$R(q_2) = \lbraceq2\rbrace$  
+$R(q_0) = \lbrace q0 \rbrace$  
+$R(q_1) = \lbrace q1 \rbrace$  
+$R(q_2) = \lbrace q2 \rbrace$  
 
-$Δ' = \lbrace(q_0,x,q_0),(q_0,y,q_0),(q_0,y,q_1),(q_1,y,q_2),(q_2,y,q_2)\rbrace$  
+$Δ' = \lbrace (q_0,x,q_0),(q_0,y,q_0),(q_0,y,q_1),(q_1,y,q_2),(q_2,y,q_2) \rbrace$  
 
-$s''_0 = R(q_0) = \lbraceq_0\rbrace$  
-$δ(s''_0,x) = R(q_0) = \lbraceq_0\rbrace$  
-$δ(s''_0,y) = R(q_0) ∪ R(q_1) = \lbraceq_0,q_1\rbrace$  
-$δ(\lbraceq_0,q_1\rbrace,x) = R(q_0) = \lbraceq_0\rbrace$  
-$δ(\lbraceq_0,q_1\rbrace,y) = R(q_0) ∪ R(q_1) ∪ R(q_2) = \lbraceq_0,q_1,q_2\rbrace$  
-$δ(\lbraceq_0,q_1,q_2\rbrace,x) = R(q_0) = \lbraceq_0\rbrace$  
-$δ(\lbraceq_0,q_1,q_2\rbrace,y) = R(q_0) ∪ R(q_1) ∪ R(q_2) = \lbraceq_0,q_1,q_2\rbrace$  
+$s''_0 = R(q_0) = \lbrace q_0 \rbrace$  
+$δ(s''_0,x) = R(q_0) = \lbrace q_0 \rbrace$  
+$δ(s''_0,y) = R(q_0) ∪ R(q_1) = \lbrace q_0,q_1 \rbrace$  
+$δ(\lbrace q_0,q_1 \rbrace,x) = R(q_0) = \lbrace q_0 \rbrace$  
+$δ(\lbrace q_0,q_1 \rbrace,y) = R(q_0) ∪ R(q_1) ∪ R(q_2) = \lbrace q_0,q_1,q_2 \rbrace$  
+$δ(\lbrace q_0,q_1,q_2 \rbrace,x) = R(q_0) = \lbrace q_0 \rbrace$  
+$δ(\lbrace q_0,q_1,q_2 \rbrace,y) = R(q_0) ∪ R(q_1) ∪ R(q_2) = \lbrace q_0,q_1,q_2 \rbrace$  
 
 $L(M) = ((λ ∨ y ∨ yy^+)x)^{\ast}yy^+$
 

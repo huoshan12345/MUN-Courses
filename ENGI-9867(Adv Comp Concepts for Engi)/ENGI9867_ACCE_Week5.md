@@ -171,10 +171,10 @@ $M_2 = (S_2,Σ,Δ_2,s_{02},F_2) ← L(M_2)$
 
 $M = (S,Σ,δ,s_0,F) ← L(M_1) ∪ L(M_2)$
 
-$S = S_1 ∪ S_2 ∪ \lbraces_0\rbrace$  
+$S = S_1 ∪ S_2 ∪ \lbrace s_0\ \rbrace  
 $F = F_1 ∪ F_2$  
 $F = F_1 ∪ F_2$  
-$δ = Δ_1 ∪ Δ_2 ∪ \lbrace\lbraces_0,λ,s_{01}\rbrace,\lbraces_0,λ,s_{02}\rbrace\rbrace$
+$δ = Δ_1 ∪ Δ_2 ∪ \lbrace \lbrace s_0,λ,s_{01}\r \rbracel \rbrace0,λ,s_{02}\rb \rbrace \rbrace
 
 #### Concatenation (Non-deterministic)
 
@@ -183,20 +183,20 @@ $L(M_1) · L(M_2) = L(M)$
 $S = S_1 ∪ S_2$  
 $s_0 = s_{01}$  (NOTE: use $L(M_1)$'s start state)  
 $F = F_2$  (NOTE: use $L(M_2)$'s final state)   
-$δ = Δ_1 ∪ Δ_2 ∪ (F_1 × \lbraceλ\rbrace × \lbraces_{02}\rbrace)$ (NOTE: add a λ transition that is from $F_1$ to $s_{02}$)  
+$δ = Δ_1 ∪ Δ_2 ∪ (F_1 × \lbrace λ\ \rbrace× \lbrace s_{02}\r \rbrace (NOTE: add a λ transition that is from $F_1$ to $s_{02}$)  
 
 #### Kleene Star (Non-deterministic)
 
 $L(M_1)^{\ast} = L(M)$
 
-$S = S_1 ∪ \lbraces_0\rbrace$  
-$F = \lbracef_0\rbrace$  
-$δ = Δ_1 ∪ (F_1 × \lbraceλ\rbrace × \lbraces_{01}\rbrace) ∪ (s_0 × λ × s_{01}) ∪ (F_1 × \lbraceλ\rbrace × F) ∪ (s_0 × λ × f_0)$  
+$S = S_1 ∪ \lbrace s_0\ \rbrace  
+$F = \lbrace f_0\ \rbrace  
+$δ = Δ_1 ∪ (F_1 × \lbrace λ\ \rbrace× \lbrace s_{01}\r \rbrace∪ (s_0 × λ × s_{01}) ∪ (F_1 × \lbrace λ\rb \rbraceF) ∪ (s_0 × λ × f_0)$  
 
 #### Complement (deterministic)
 
 $\overline{L(M_1)} = L(M)$  
-$F = \lbraceS_1 - F_1\rbrace$  
+$F = \lbrace S_1 - F_1\ \rbrace  
 NOTE: The new final states are all the original states except the original final states.
 
 #### Intersection (Deterministic)
@@ -225,7 +225,7 @@ NOTE: The difference of $L_1$ and $L_2$ is the set of strings that are in $L_1$ 
 
 $L(M) = L(M')^R$
 
-$S = S' ∪ \lbraces_0\rbrace$  
+$S = S' ∪ \lbrace s_0\ \rbrace  
 NOTE: The new state set consists of all original states plus a new start state
 $s_0$.  
 A new start $s_0$ is added to enable ε-transitions to all original accepting states, as only one start state is allowed.
@@ -233,8 +233,8 @@ A new start $s_0$ is added to enable ε-transitions to all original accepting st
 $F = s'_0$  
 NOTE: The new final state is the original start state.
 
-$δ = \lbrace[(p,σ,q) ∈ Δ] ⇔ [(q,σ,p) ∈ Δ']\rbrace$  
+$δ = \lbrace [(p,σ,q) ∈ Δ] ⇔ [(q,σ,p) ∈ Δ']\ \rbrace  
 $∪$  
-$\lbrace[(s_0,λ,f_i) ∈ Δ ∀f_i ∈ F']\rbrace$  
+$ \rbrace[(s_0,λ,f_i) ∈ Δ ∀f_i ∈ F']\ \rbrace  
 NOTE: Each transition is the reverse of an original transition.  
 Add ε-transitions from the new start state to every original final state.
