@@ -43,7 +43,7 @@ CNF grammar G1 from a Type-2 grammar G:
 
 $S = a,b,c$  
 $N = S,T,U,V,W$  
-$↦ = \{$  
+$↦ = {$  
 $S → TU\ |\ V$  
 $T → aTb\ |\ λ$  
 $U → cU\ |\ λ$  
