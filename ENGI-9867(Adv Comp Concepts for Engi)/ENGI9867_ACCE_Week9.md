@@ -87,6 +87,60 @@ $Σ = \{a,b,c\}$
 $n_0 = S$  
 $\langle S \rangle ::= a \langle S \rangle a\ |\ b \langle S \rangle b\ |\ c$
 
+## Recap: Formal Definition of a PDA
+
+A pushdown automaton (PDA) is a 6-tuple $M = (S,Σ,Γ,δ,s_0,F)$, where:
+- S: A finite, non-empty set of states where $s ∈ S$.
+- Σ: Input alphabet (a finite, non-empty set of symbols)
+- Γ: Stack alphabet
+- $s_0 ∈ S$: An initial state, an element of S.
+- δ: The state-transition function $δ ⊆ (S × Σ ∪ \{λ\} × Γ ∪ \{λ\}) × (S × Γ^{\ast})$
+- F: The set of final states where $F ⊆ S$.
+
+#### Definitions
+
+Push: To add a symbol to the stack [(p,u,λ),(q,a)]  
+
+Pop: To remove a symbol from the stack [(p,u,a),(q,λ)]  
+
+Configuration: An element of $S × Σ^{\ast} × Γ^{\ast}$. For instance (q,xyz,abc) where a is the top of
+the stack, c is the bottom of the stack. 
+
+Instantaneous description (or snapshot) (to yield in one step):  
+Let $[(p,u,β),(q,γ)] ∈ δ$ and $∀x ∈ Σ^{\ast} ∧ ∀α ∈ Γ^{\ast}$  
+$(p,ux,βα) ⊢_M  (q,x,γα)$  
+Here u is read from the input tape and β is read from the stack while γ is written to the stack.
+
+#### Definitions
+
+$(p,ux,βα) ⊢_M  (q,x,γα)$  
+
+Let ${⊢_M}^{\ast}$ be the reflexive transitive closure of $⊢_M$ and let $ω ∈ Σ^{\ast}$ and $s_0$ be the initial state.  
+For M automaton to accept ω string:
+
+$(s,ω,λ){⊢_M}^{\ast}(p,λ,λ)$ and $p ∈ F$  
+$C_0 = (s,ω,λ)$ and $C_n = (p,λ,λ)$ where $C_0 ⊢_M C_1⊢_M ... ⊢_M C_{n-1} ⊢_M C_n$
+
+This operation is called *computation* of automaton M, this computation involves n steps.
+
+Let L(M) be the set of string accepted by M.  
+$L(M) = \{ ω\ |\ (s,ω,λ) {⊢_M}^{\ast} (p,λ,λ) ∧ p ∈ F \}$
+
+## Example #2
+
+$xx^R\ |\ x ∈ \{a,b\}^{\ast}$  
+$M = (S,Σ,Γ,δ,s_0,F)$  
+$δ = \{[(s_0,a,λ),(s_0,a)],[(s_0,b,λ),(s_0,b)],[(s_0,λ,λ),(f,λ)],[(f,a,a),(f,λ)],[(f,b,b),(f,λ)]\}$
+
+Behaves almost like the previous PDA except that it non-deterministically “guesses” when it is
+at the middle of the input string.
+
+3 possibilities:
+
+- length is odd and middle symbol is a “a”
+- length is odd and middle symbol is a “b”
+- length is even
+
 
 
 
