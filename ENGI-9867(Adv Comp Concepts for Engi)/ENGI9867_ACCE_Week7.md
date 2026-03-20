@@ -59,6 +59,14 @@ which generates the language $a^ib^jc^k$ | i = j or i = k.
 Unit production ex.: $V → W$  
 λ production ex.: $T → λ$
 
+#### #### A Type-2 Grammar
+
+$S → TU\ |\ V$  
+$T → aTb\ |\ λ$  
+$U → cU\ |\ λ$  
+$V → aVc\ |\ W$  
+$W → bW\ |\ λ$  
+
 #### Unit productions eliminated
 
 $S → TU\ |\ aVc\ |\ bW\ |\ λ$  
