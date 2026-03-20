@@ -52,13 +52,21 @@ Below are several example transitions from state q to state r on input a, along 
 You can also define transitions that do not read any character from the input tape and instead perform only stack operations.
 
 5. q ——— λ, λ → c ———> r&emsp;&emsp;don’t read anything, just push c onto the stack
-5. q ——— λ, c → λ ———> r&emsp;&emsp;don’t read anything, just pop c from the stack
+6. q ——— λ, c → λ ———> r&emsp;&emsp;don’t read anything, just pop c from the stack
 
 ## Revisit NFA/DFA
 
+Every NFA can be viewed as a PDA that never uses its stack, but PDAs can recognize strictly more languages because of their stack memory.  
+DFA = NFA ⊊ PDA
 
+## An example
 
-
+$L = (ωcω^R\ |\ ω ∈ \{a,b\}^{\ast})$  
+$M = (S,Σ,Γ,δ,s_0,F)$  
+$S = \{s_0,f\}$  
+$Σ = \{a,b,c\}$  
+$Γ = \{a,b\}$  
+$F = \{f\}$
 
 
 
