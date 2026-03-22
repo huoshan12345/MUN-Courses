@@ -194,9 +194,8 @@ Every language recognized by a DPDA can also be recognized by an NPDA, but the c
 
 #### Example #3
 
-$ω ∈ \lbrace \lbrace α,β \rbrace ^{\ast}$ | \#(a) = \#(b) $\rbrace$
 <!-- GitHub KaTeX does not support # in math mode, so this is split as a workaround -->
-<!-- Spaces are added around # to avoid breaking the inline math parsing. -->
+$ω ∈ \lbrace \lbrace α,β \rbrace ^{\ast}$ | \#(a) = \#(b) $\rbrace$  
 $M = (S,Σ,Γ,δ,s_0,F)$  
 $δ = \lbrace [(s_0,λ,λ),(q,c)],[(q,a,c),(q,ac)],[(q,a,a),(q,aa)],[(q,a,b),(q,λ)],[(q,b,c),(q,bc)],[(q,b,b),(q,bb)],$
 $[(q,b,a),(q,λ)],[(q,λ,c),(f,λ)] \rbrace$
