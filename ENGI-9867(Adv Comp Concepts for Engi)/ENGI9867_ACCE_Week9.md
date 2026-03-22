@@ -33,7 +33,7 @@ A pushdown automaton (PDA) is a 6-tuple $M = (S,Σ,Γ,δ,s_0,F)$, where:
 - Σ: Input alphabet (a finite, non-empty set of symbols)
 - Γ: Stack alphabet
 - $s_0 ∈ S$: An initial state, an element of S.
-- δ: The state-transition function $δ ⊆ (S × Σ ∪ \lbrace λ\ \rbrace× Γ ∪ \lbrace λ\r \rbrace× (S × Γ^{\ast})$
+- δ: The state-transition function $δ ⊆ (S × Σ ∪ \lbrace λ\ \rbrace× Γ ∪ \lbrace λ\r \rbrace) × (S × Γ^{\ast})$
 - F: The set of final states where $F ⊆ S$.
 
 NOTE:
