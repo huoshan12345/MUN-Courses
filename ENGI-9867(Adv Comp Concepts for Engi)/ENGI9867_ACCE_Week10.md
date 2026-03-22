@@ -4,9 +4,9 @@
 
 Can the following languages be recognized by PDAs?
 
-(1) $L_1 = \lbrace a^k \# w\ |\ k > 0, w ∈ {\lbrace a,b \rbrace}^{\ast}, and\ |w|=k \rbrace$  
+(1) $L_1 = \lbrace a^k$ \# $w\ |\ k > 0, w ∈ {\lbrace a,b \rbrace}^{\ast}, and\ |w|=k \rbrace$  
 (2) $L_2 = \lbrace a^ib^jc^k\ |\ i = j\ or\ j = k \rbrace$  
-(3) $L_3 = \lbrace w \# w\ |\ w ∈ {\lbrace a,b \rbrace}^{\ast} \rbrace$  
+(3) $L_3 = \lbrace w$ \# $w\ |\ w ∈ {\lbrace a,b \rbrace}^{\ast} \rbrace$  
 
 ## Closure of CFLs
 
