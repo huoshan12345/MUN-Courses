@@ -1,11 +1,15 @@
 **(1)** Design a pushdown automaton (PDA) that recognizes the following language.
 
-$L(G) = \lbrace a^kb^mc^n\ |\ k,m,n > 0 and k = 2m + n \rbrace$
+$L(G) = \lbrace a^kb^mc^n\ |\ k,m,n > 0$ and $k = 2m + n \rbrace$
+
+---
 
 **(2)** Is this grammar ambiguous? If so, prove it and construct a non-ambiguous grammar that derives the
 same language.
 
 $S → aS\ |\ aSbS\ |\ c$
+
+---
 
 **(3)** Provide Chomsky Normal Form for the following grammar
 
@@ -22,6 +26,8 @@ $A → B\ |\ S$
 $B → b\ |\ Λ$  
 
 Since the start symbol must not appear on the right-hand side (RHS) during the CNF transformation, this step is performed first. The remaining steps then follow the standard algorithm discussed in the lecture.
+
+---
 
 **(4)** Prove or disprove that $L = L_1 − L_2$ is CFL. Design an automaton for L (it might be any automaton
 according to the answer you found regarding L, i.e., NFA/DFA, PDA or Turing).
