@@ -8,7 +8,7 @@ Can the following languages be recognized by PDAs?
 (2) $L_2 = \lbrace a^ib^jc^k\ |\ i = j\ or\ j = k \rbrace$  
 (3) $L_3 = \lbrace w$ \# $w\ |\ w ∈ {\lbrace a,b \rbrace}^{\ast} \rbrace$  
 <!-- GitHub KaTeX does not support # in math mode, so this is split as a workaround -->
-
+<!-- Spaces are added around # to avoid breaking the inline math parsing. -->
 ## Closure of CFLs
 
 - CFL’s are closed under  
