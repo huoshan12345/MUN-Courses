@@ -235,6 +235,6 @@ NOTE: The new final state is the original start state.
 
 $δ = \lbrace [(p,σ,q) ∈ Δ] ⇔ [(q,σ,p) ∈ Δ'] \rbrace$  
 $∪$  
-$ \lbrace [(s_0,λ,f_i) ∈ Δ ∀f_i ∈ F'] \rbrace$  
+$\lbrace [(s_0,λ,f_i) ∈ Δ ∀f_i ∈ F'] \rbrace$  
 NOTE: Each transition is the reverse of an original transition.  
 Add ε-transitions from the new start state to every original final state.
