@@ -1,4 +1,4 @@
-**(1)** Considerthelanguage L defined below.
+**(1)** Consider the language L defined below.
 
 $L = \lbrace a^nb^m\ |\ n + m ≡ 1\ (mod\ 2)\ and\ n,m ≥ 0 \rbrace$
 
