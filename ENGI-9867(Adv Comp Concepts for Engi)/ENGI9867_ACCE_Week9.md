@@ -2,7 +2,7 @@
 
 DFAs and NFAs are finite state machines and that turns out to be too limiting
 
-Even simple languages like $ \lbrace a^nb^n\ |\ n ≥ 0 \rbrace $ are too complicated
+Even simple languages like $\lbrace a^nb^n\ |\ n ≥ 0 \rbrace$ are too complicated
 
 What we want is some way to remember things about the input that we’ve seen so far which
 can be arbitrarily long
