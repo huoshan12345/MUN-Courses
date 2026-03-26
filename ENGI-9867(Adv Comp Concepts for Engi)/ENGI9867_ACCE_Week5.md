@@ -28,7 +28,7 @@ $(q_1, c) → q_3$
 start: $q_0$  
 final: $q_3$
 
-##　Example#6
+## Example#6
 
 Consider the following BNF grammars that belong to the languages $L_1$ and $L_2$ respectively  
 
