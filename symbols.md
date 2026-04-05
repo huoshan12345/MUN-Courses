@@ -13,6 +13,7 @@
 - $A^{\ast}$ $A^+$ $A_1$ (for the Kleene star, use the escaped version to avoid display issues on GitHub.)
 - $\langle E \rangle$ (use them in latex instead of <> to avoid escape issue on Github)
 - $\lbrace \rbrace$ (use them in latex instead of {} to avoid escape issue on Github)
+- ${\\\#}$ (Use 3 backslashes (instead of 1) to escape the hash symbol so that it renders correctly on GitHub.)
 
 ## references
 - [see unicode symbols](https://www.compart.com/en/unicode/)
