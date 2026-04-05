@@ -8,11 +8,11 @@ Provide the state transition diagram for this Turing machine, along with the con
 
 **(2)** Design a Deterministic Turing Machine that deletes the 0s from a given binary string. Binary string will start after the first blank (#) and initially, the tape head is over the first blank after the input (underlined symbol shows tape head position). Write your TM as a **state diagram**. Consider the following examples carefully. You may use additional symbols if necessary.
 
-$\#0011001010111011\underline{\\\#}\ {⊢_M}^{\ast}\ {\\\#}111111111\underline{\\\#}$
+${\\\#}0011001010111011\underline{\\\#}\ {⊢_M}^{\ast}\ {\\\#}111111111\underline{\\\#}$
 
-$\#0010010\underline{\\\#}\ {⊢_M}^{\ast}\ {\\\#}11\underline{\\\#}$
+${\\\#}0010010\underline{\\\#}\ {⊢_M}^{\ast}\ {\\\#}11\underline{\\\#}$
 
-$\#0000000\underline{\\\#}\ {⊢_M}^{\ast}\ {\\\#}\underline{\\\#}$
+${\\\#}0000000\underline{\\\#}\ {⊢_M}^{\ast}\ {\\\#}\underline{\\\#}$
 
 ---
 
