@@ -1,6 +1,6 @@
 **(1)** Design a Turing machine that finds the modulo 3 equivalent of a given number represented using I’s where the I count indicates the number. Initially the tape head will be on the blank symbol (#) before the number. At the end of execution, the machine will append I’s to the number to represent the result. The following example shows the initial and final configurations for 5 ≡ 2 (mod 3).
 
-$\underline{ \# }\ IIIII\ \# \ {⊢_M}^{\ast}\ \# \ IIIII\ II\ \underline{ \# }$
+$\underline{\\\#}\ IIIII\ {\\\#} \ {⊢_M}^{\ast}\ {\\\#} \ IIIII\ II\ \underline{\\\#}$
 
 Provide the state transition diagram for this Turing machine, along with the configuration corresponding to a sample input.
 
