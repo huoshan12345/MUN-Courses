@@ -18,7 +18,7 @@ ${\\\#}0000000\underline{\\\#}\ {⊢_M}^{\ast}\ {\\\#}\underline{\\\#}$
 
 **(3)** Consider the following task definition:
 
-A random string is provided on a tape that contains a’s and b’s in a random order, such as $\underline{\\\#}abbbaaab...\#$. A machine should reorder the characters in the given string where a’s always come before b’s. Thus, the final state of the tape will be as $\underline{\\\#}aaaa...bbbb...\#$ where number of a’s and b’s remain the same.
+A random string is provided on a tape that contains a’s and b’s in a random order, such as $\underline{\\\#}abbbaaab...{\\\#}$. A machine should reorder the characters in the given string where a’s always come before b’s. Thus, the final state of the tape will be as $\underline{\\\#}aaaa...bbbb...{\\\#}$ where number of a’s and b’s remain the same.
 
 Although there exist different algorithms/solutions that can be implemented for the task, please **use the flow in the provided pseudocode** below to accomplish the described task.
 
@@ -51,9 +51,9 @@ func lookForA_Swap:
 
 **(4)** Design and sketch the state transition diagram of a Turing Machine that can perform 2’s complement operation on a given binary string as an input (if you are not familiar with the 2’s complement operation, please review it beforehand.). A possible way to take 2’s complement of a binary number is to take 1’s complement first (transform each 1 to 0 and each 0 to 1) and then add 1 to the resulting number. You can see how the machine works from the following examples. As you can see from the examples, initially the tape head is on the first blank after the input. You can assume that input will never be an empty string. The output will be overwritten. (Underlined symbol represents the position of the tape head.)
 
-$\#001110110\underline{\\\#}\ {⊢_M}^{\ast}\ \#110001010\underline{\\\#}$
+${\\\#}001110110\underline{\\\#}\ {⊢_M}^{\ast}\ {\\\#}110001010\underline{\\\#}$
 
-$\#1111\underline{\\\#}\ {⊢_M}^{\ast}\ \#0001\underline{\\\#}$
+${\\\#}1111\underline{\\\#}\ {⊢_M}^{\ast}\ {\\\#}0001\underline{\\\#}$
 
-$\#000\underline{\\\#}\ {⊢_M}^{\ast}\ \#000\underline{\\\#}$
+${\\\#}000\underline{\\\#}\ {⊢_M}^{\ast}\ {\\\#}000\underline{\\\#}$
 
