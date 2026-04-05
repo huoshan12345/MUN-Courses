@@ -157,10 +157,18 @@ $M = (S,Σ,Γ,δ,s_0,F)$
   - Are two CFL’s disjoint? (Empty intersection)
   - For a given CFG G, is L(G) equal to $Σ^{\ast}$?
 
+# Turing Machine
 
+Classical automata (a.k.a. language recognizers(DFA,NFA,PDA)) sometimes is incapable of recognizing very simple language(e.g. $a^nb^nc^n : n ≥ 0$).  
+There exists more general language recognizers which perform transformation between chains of tokens. Turing machine is an example to this kind of language recognizers.
 
+#### Church-Turing Thesis
 
+In computability theory, the Church-Turing thesis is a combined hypothesis about the nature of functions whose values are effectively calculable; or, in more modern terms, functions whose values are algorithmically computable. In simple terms, the Church-Turing thesis states that a function is algorithmically computable if and only if it is computable by a Turing machine.  
+Informally the Church-Turing thesis states that if some method (algorithm) exists to carry out a calculation, then the same calculation can also be carried out by a Turing machine (as well as by a recursively definable
+function, and by a λ-function).
 
+The Church-Turing thesis is a statement that characterizes the nature of computation and cannot be formally proven. Even though the three processes mentioned above proved to be equivalent, the fundamental premise behind the thesis- the notion of what it means for a function to be effectively calculable- is “a somewhat vague intuitive one”. Thus, the “thesis” remains a conjecture.
 
 
 
