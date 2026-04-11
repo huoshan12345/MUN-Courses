@@ -211,7 +211,7 @@ $S = \{q_0,q_1\}$
 $Σ = \{a,{\\\#}\}$  
 $s_0 = q_0$  
 
-| q     | σ | δ(q,σ)         |
+| q     | σ | $δ(q,σ)$       |
 |-------|---|----------------|
 | $q_0$ | a | $(q_1,{\\\#})$ |
 | $q_0$ | # | $(h,{\\\#})$   |
@@ -222,7 +222,7 @@ $^1$: This row is to conform to the formal definition of a function
 
 Now the same machine with a different notion and fewer lines
 
-| q     | σ | δ(q,σ),HM        |
+| q     | σ | $δ(q,σ)$,HM      |
 |-------|---|------------------|
 | $q_0$ | a | $(q_0,{\\\#}),1$ |
 | $q_0$ | # | $(h,{\\\#}),0$   |
@@ -235,7 +235,7 @@ $S = \{q_0\}$
 $Σ = \{a,{\\\#}\}$  
 $s_0 = q_0$  
 
-| q     | σ | δ(q,σ)         |
+| q     | σ | $δ(q,σ)$       |
 |-------|---|----------------|
 | $q_0$ | a | $(q_0,L)$      |
 | $q_0$ | # | $(h,{\\\#})$   |
@@ -305,7 +305,7 @@ $C_0 ⊢_M C_1 ⊢_M C_2 ⊢_M...C_{n−1} ⊢_M C_n$
 
 Example 1: A machine that erases all the symbols from left to right.
 
-| q     | σ | δ(q,σ)         |
+| q     | σ | $δ(q,σ)$       |
 |-------|---|----------------|
 | $q_0$ | a | $(q_1,{\\\#})$ |
 | $q_0$ | # | $(h,{\\\#})$   |
@@ -314,3 +314,74 @@ Example 1: A machine that erases all the symbols from left to right.
 
 $(q_0,\underline{a}aaa) ⊢_M (q_1,\underline{\\\#}aaa) ⊢_M (q_0,{\\\#}\underline{a}aa) ⊢_M (q_1,{\\\#}\underline{\\\#}aa) ⊢_M (q_0,{\\\#\\\#}\underline{a}a) ⊢_M$  
 $(q_1,{\\\#\\\#}\underline{\\\#}a) ⊢_M (q_0,{\\\#\\\#\\\#}\underline{a}) ⊢_M (q_1,{\\\#\\\#\\\#}\underline{\\\#}) ⊢_M (q_0,{\\\#\\\#\\\#\\\#}\underline{\\\#}) ⊢_M (h,{\\\#\\\#\\\#\\\#}\underline{\\\#})$
+
+## Turing Computable Function
+
+#### Turing Computable Function
+
+Turing computable functions can perform transformations over character strings.
+
+$M = (S,Σ,δ,s_0)$  
+Let’s distinguish $Σ_I$ as input alphabet and $Σ_O$ as output alphabet;  
+$f(ω) = u ∧ ω ∈ {Σ_I}^{\ast} ∧ u ∈ {Σ_O}^{\ast} ⊆ Σ^{\ast}$ and  
+$(s_0,{\\\#}ω\underline{\\\#})\ {⊢_M}^{\ast}\ (h,{\\\#}u\underline{\\\#}),{\\\#} ∉ Σ_I ∧ {\\\#} ∈ Σ_O$
+
+## Example 4
+
+A machine that inverses strings (writes b in place of a ; a in place of b)  
+NOTE: The initial position is at the rightmost # of the string, and after completion, the head is required to remain positioned at this same rightmost #.
+
+$S = \{q_0,q_1,q_2\}$  
+$Σ = \{a,b,{\\\#}\}$  
+$s_0 = q_0$  
+
+| q     | σ | $δ(q,σ)$       |
+|-------|---|----------------|
+| $q_0$ | a | $(q_1,L)$      |
+| $q_0$ | b | $(q_1,L)$      |
+| $q_0$ | # | $(q_1,L)$      |
+| $q_1$ | a | $(q_0,b)$      |
+| $q_1$ | b | $(q_0,a)$      |
+| $q_1$ | # | $(q_2,R)$      |
+| $q_2$ | a | $(q_2,R)$      |
+| $q_2$ | b | $(q_2,R)$      |
+| $q_2$ | # | $(h,{\\\#})$   |
+
+$(q_0,{\\\#}aab\underline{\\\#}) ⊢_M (q_1,{\\\#}aa\underline{b}) ⊢_M$  
+$(q_0,{\\\#}aa\underline{a}) ⊢_M (q_1,{\\\#}a\underline{a}a) ⊢_M$  
+$(q_0,{\\\#}a\underline{b}a) ⊢_M (q_1,{\\\#}\underline{a}ba) ⊢_M$  
+$(q_0,{\\\#}\underline{b}ba) ⊢_M (q_1,\underline{\\\#}bba) ⊢_M$  
+$(q_2,{\\\#}\underline{b}ba) ⊢_M (q_2,{\\\#}b\underline{b}a) ⊢_M$  
+$(q_2,{\\\#}bb\underline{a}) ⊢_M (q_2,{\\\#}bba\underline{\\\#}) ⊢_M$  
+$(h,{\\\#}bba\underline{\\\#})$  
+
+## Example 5
+
+Let’s represent a number n with n $I$ symbols like $III ...I$. Let’s build a machine that computes  
+$f(n) = n + 1$
+
+$S = \{q_0\}$  
+$Σ = \{I,{\\\#}\}$  
+$s_0 = q_0$  
+
+**(a)** $(q_0,{\\\#}II\underline{\\\#}) ⊢_M (q_0,{\\\#}II\underline{I}) ⊢_M (h,{\\\#}III\underline{\\\#})$  
+**(b)** $(q_0,{\\\#}I^n\underline{\\\#}) ⊢_M (h,{\\\#}I^{n+1}\underline{\\\#})$  
+**(c)** $(q_0,{\\\#}\underline{\\\#}) ⊢_M (q_0,{\\\#}\underline{I}) ⊢_M (h,{\\\#}I\underline{\\\#})$  
+
+## Turing Decidable Machine
+
+#### Turing Decidable Machine
+
+Let $Σ_0$ be our alphabet and ${\\\#} ∉ Σ_0$ and $L$ be a language $L ⊆ {Σ_0}^{\ast}$  
+If we can compute the function $x_L$ like:  
+
+$∀ω ∈ {Σ_0}^{\ast},F_L(ω) = \begin{cases}
+Ⓨ ⇒ ω ∈ L \\
+Ⓝ ⇒ ω ∉ L
+\end{cases}$
+
+
+
+
+
+
