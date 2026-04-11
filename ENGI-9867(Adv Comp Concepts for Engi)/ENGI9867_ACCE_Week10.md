@@ -157,6 +157,8 @@ $M = (S,Σ,Γ,δ,s_0,F)$
   - Are two CFL’s disjoint? (Empty intersection)
   - For a given CFG G, is L(G) equal to $Σ^{\ast}$?
 
+---
+
 # Turing Machine
 
 Classical automata (a.k.a. language recognizers(DFA,NFA,PDA)) sometimes is incapable of recognizing very simple language(e.g. $a^nb^nc^n : n ≥ 0$).  
@@ -165,16 +167,150 @@ There exists more general language recognizers which perform transformation betw
 #### Church-Turing Thesis
 
 In computability theory, the Church-Turing thesis is a combined hypothesis about the nature of functions whose values are effectively calculable; or, in more modern terms, functions whose values are algorithmically computable. In simple terms, the Church-Turing thesis states that a function is algorithmically computable if and only if it is computable by a Turing machine.  
-Informally the Church-Turing thesis states that if some method (algorithm) exists to carry out a calculation, then the same calculation can also be carried out by a Turing machine (as well as by a recursively definable
-function, and by a λ-function).
+Informally the Church-Turing thesis states that if some method (algorithm) exists to carry out a calculation, then the same calculation can also be carried out by a Turing machine (as well as by a recursively definable function, and by a λ-function).
 
 The Church-Turing thesis is a statement that characterizes the nature of computation and cannot be formally proven. Even though the three processes mentioned above proved to be equivalent, the fundamental premise behind the thesis- the notion of what it means for a function to be effectively calculable- is “a somewhat vague intuitive one”. Thus, the “thesis” remains a conjecture.
 
+Read/write head reads the corresponding symbol on the tape and according to the state of the control machine it either writes a new symbol, or it moves left(L) or right(R). If the machine attempts to move further left from the leftmost symbol on the tape than this situation is denoted as the “machine hangs”. Head may move as much as possible towards right.
 
+Symbols:
+- h: End of computation. Machine halts. Halt is not included in input, output and state alphabet.
+- #: blank symbol
+- L,R: Symbols indicating left and right movement. Those are not included in input or output alphabet.
+- Input symbols are written on the leftmost side by convention.
 
+## Formal Definition of a TM
 
+- A turing machine(TM) is a quadruple $M = (S,Σ,δ,s_0)$, where:
+- S: A finite, non-empty set of states. Usually h ∉ S.
+- Σ: Input/output alphabet. ${\\\#} ∈ Σ$ but $L,R ∉ Σ$
+- $s_0 ∈ S$: An initial state, an element of S.
+- δ: The state-transition function $S × Σ → (S ∪ \{h\}) × (Σ ∪ \{L,R\})$  
+NOTE: (current state, tape symbol) → (the next state or halt, writes a symbol or moves left/right)
 
+$q ∈ S ∧ a ∈ Σ ∧ δ(q,a) = (p,b)$  
+$q → p$
 
+1. (Read) $a → b ∈ Σ$ (write on tape, in place of a)
+2. $b = L$ (head left)
+3. $b = R$ (head right)
 
+We can match modern computers with Turing Machines; RAM can be matched with the tape, computer programs can be matched with the state table, microprocessor(excluding I/O units) can be matched with control unit of the TM. In order to improve understandability of the state table, following notion can be used:  
+$q,σ,q',σ',HM$ where
+- $q$ stands for current state of the machine
+- $q'$ stands for the next state
+- $σ$ stands for read symbol
+- $σ'$ stands for symbol to be written (same with σ for no write)
+- $HM$ stands for head move where $HM ∈ −1:L,0:None,1:R$
 
+## Example 1
 
+A machine that erases all the symbols from left to right.
+
+$S = \{q_0,q_1\}$  
+$Σ = \{a,{\\\#}\}$  
+$s_0 = q_0$  
+
+| q     | σ | δ(q,σ)         |
+|-------|---|----------------|
+| $q_0$ | a | $(q_1,{\\\#})$ |
+| $q_0$ | # | $(h,{\\\#})$   |
+| $q_1$ | a | $(q_0,a)^1$    |
+| $q_1$ | # | $(q_0,R)$      |
+
+$^1$: This row is to conform to the formal definition of a function
+
+Now the same machine with a different notion and fewer lines
+
+| q     | σ | δ(q,σ),HM        |
+|-------|---|------------------|
+| $q_0$ | a | $(q_0,{\\\#}),1$ |
+| $q_0$ | # | $(h,{\\\#}),0$   |
+
+## Example 2
+
+A machine that moves towards left and recognizes a symbols, halting with the first # symbol
+
+$S = \{q_0\}$  
+$Σ = \{a,{\\\#}\}$  
+$s_0 = q_0$  
+
+| q     | σ | δ(q,σ)         |
+|-------|---|----------------|
+| $q_0$ | a | $(q_0,L)$      |
+| $q_0$ | # | $(h,{\\\#})$   |
+
+## Configuration of a TM
+
+A configuration is an element of the following set:  
+$S ∪ \{h\} × Σ^{\ast} × Σ × (Σ^{\ast}(Σ − \{ {\\\#} \}) ∪ {Λ})$  
+NOTE: it means a quadruple:   
+Current state  
+left tape content  
+current tape symbol under the head  
+right tape content (without trailing blanks), can be empty
+
+For instance(assume the head is on the underlined symbol):  
+$(q,aba,a,bab)$ or $(q,aba\underline{a}bab)$  
+$(h,{\\\#}{\\\#},{\\\#},{\\\#}a)$ or $(h,{\\\#}{\\\#}\underline{\\\#}{\\\#}a)$  
+$(q,Λ,a,aba)$ or $(q,Λ\underline{a}aba)$ or $(q,\underline{a}aba)$  
+$(q,{\\\#}a{\\\#},{\\\#},Λ)$ or $(q,{\\\#}a{\\\#}\underline{\\\#}Λ)$ or $(q,{\\\#}a{\\\#}\underline{\\\#})$  
+
+Following situation doesn’t conform with configuration definition:  
+$(q,baa,a,bc{\\\#})$ or $(q,baa\underline{a}bc{\\\#})$  
+NOTE: Right string must not end with #
+
+#### Yields in one step for TM
+$(q_1,ω_1,a_1,u_1) ⊢_M (q_2,ω_2,a_2,u_2)$  
+Here $δ(q_1,a_1) = (q_2,b)$ and $b ∈ Σ ∪ {L,R}$
+
+(1) $b ∈ Σ, ω_2 = ω_1, u_2 = u_1, a_2 = b$ ($a_2$ is written over $a_1$)  
+(2) $b = L, ω_1 = ω_2a_2;(a_1 = {\\\#} ∧ u_1 = Λ ⇒ u_2 = Λ) ∨ (a_1 ≠ {\\\#} ∨ u_1 ≠ Λ ⇒ u_2 = a_1u_1)$  
+Left movement:   
+If the head is on a blank and no more symbols to the right blank is erased.   
+If the head is on a symbol or some symbols exist on the right the situation is preserved.  
+(3) $b = R, ω_2 = ω_1a_1;(u_1 = a_2u_2) ∨ (u_1 = Λ ⇒ u_2 = Λ ∧ a_2 = {\\\#})$  
+Right movement: If there are no more symbols on the right blank is written.
+
+NOTE: 
+For left movement, we need to remove trailing '#'.  
+Because if trailing '#' were allowed in u, the same tape could be represented in infinitely many ways:  
+(q, ω, a, Λ)  
+(q, ω, a, #)  
+(q, ω, a, ##)  
+...  
+Thus u must be normalized (no trailing '#'), but ω does not need normalization.
+
+For right movement, if the right side is empty, we need to write a '#'.
+
+## Example 3
+$ω,u ∈ Σ^{\ast};a,b ∈ Σ$ (u cannot end with #)
+
+$δ(q_1,a) = (q_2,b) ⇒ (q_1,ω\underline{a}u) ⊢_M (q_2,ω\underline{b}u)$ &ensp; (b is written over a)
+
+$δ(q_1,a) = (q_2,L) ⇒$  
+ (i) $(q_1,ωb\underline{a}u) ⊢_M (q_2,ω\underline{b}au)$ &ensp; (shift one character to the left)  
+(ii) $(q_1,ωb\underline{\\\#}) ⊢_M (q_2,ω\underline{b})$ &ensp;&ensp;&ensp;&ensp; (shift one character to the left, and remove a trailing '#')  
+
+$δ(q_1,a) = (q_2,R) ⇒$  
+ (i) $(q_1,ω\underline{a}bu) ⊢_M (q_2,ωa\underline{b}u)$ &nbsp; (shift one character to the right)  
+(ii) $(q_1,ω\underline{a}) ⊢_M (q_2,ωa\underline{\\\#})$ &ensp;&ensp;&ensp; (shift one character to the right, and write a '#')  
+
+## n steps computation
+
+#### A computation of length n
+
+A computation of length n or in other words n steps computation can be defined as:  
+$C_0 ⊢_M C_1 ⊢_M C_2 ⊢_M...C_{n−1} ⊢_M C_n$
+
+Example 1: A machine that erases all the symbols from left to right.
+
+| q     | σ | δ(q,σ)         |
+|-------|---|----------------|
+| $q_0$ | a | $(q_1,{\\\#})$ |
+| $q_0$ | # | $(h,{\\\#})$   |
+| $q_1$ | a | $(q_0,a)^1$    |
+| $q_1$ | # | $(q_0,R)$      |
+
+$(q_0,\underline{a}aaa) ⊢_M (q_1,\underline{\\\#}aaa) ⊢_M (q_0,{\\\#}aaa) ⊢_M (q_1,{\\\#}\underline{\\\#}aa) ⊢_M (q_0,{\\\#\\\#}\underline{a}a) ⊢_M$  
+$(q_1,{\\\#\\\#}\underline{\\\#}a) ⊢_M (q_0,{\\\#\\\#\\\#}\underline{a}) ⊢_M (q_1,{\\\#\\\#\\\#}\underline{\\\#}) ⊢_M (q_0,{\\\#\\\#\\\#\\\#}\underline{\\\#}) ⊢_M (h,{\\\#\\\#\\\#\\\#}\underline{\\\#})$
