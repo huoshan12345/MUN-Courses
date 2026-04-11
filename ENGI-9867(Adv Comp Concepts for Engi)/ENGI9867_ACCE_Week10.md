@@ -437,20 +437,75 @@ ${\\\#}abαγab\underline{a} →...→ {\\\#}ab\underline{α}γaba → {\\\#}ab\
 $...→ {\\\#}aba{\\\#}aba\underline{\\\#}$
 
 NOTE:
-- Scan ω and process one symbol at a time.
-- Mark processed symbols to avoid repetition: a → α, b → β
-- For each marked symbol, move to the right end (after γ) and append its copy.
-- γ marks the boundary of the copy region.
-- After all symbols are processed, restore: α → a,  β → b, and replace γ with '#'. 
+1. γ marks the boundary of the copy region.
+2. Move left until meets a or b, and mark processed symbols: a → α, b → β
+3. Move to the right end (after γ) and append its copy.
+4. Move left until meets α or β, and restore: α → a,  β → b
+5. Move right,
+   - if meets γ, write '#', then move to the right end, and halt.
+   - if meets a or b, goto 2.
 
 Let’s consider a special situation:  
 Example run:  
 ${\\\#}\underline{\\\#} → {\\\#}\underline{γ} → \underline{\\\#}γ → {\\\#}\underline{\\\#} → {\\\#}{\\\#}\underline{\\\#}$  
 
+(2) ${\\\#}ω\underline{\\\#} ⇒ {\\\#}ωω^R\underline{\\\#}$  
 
+Example run:  
+${\\\#}abb\underline{\\\#} → {\\\#}ab\underline{b} → {\\\#}ab\underline{β} → {\\\#}abβ\underline{\\\#} → {\\\#}abβ\underline{b} → {\\\#}ab\underline{β}b → {\\\#}ab\underline{b}b →$  
+${\\\#}a\underline{b}bb →$  
+${\\\#}a\underline{β}bb → {\\\#}aβ\underline{b}b → {\\\#}aβb\underline{b} → {\\\#}aβbb\underline{\\\#} → {\\\#}aβbb\underline{b} →...→ {\\\#}a\underline{β}bbb → {\\\#}a\underline{b}bbb →$  
+${\\\#}\underline{a}bbbb →$   
+${\\\#}\underline{α}bbbb → {\\\#}αbbb\underline{b} → {\\\#}αbbbb\underline{\\\#} → {\\\#}αbbbb\underline{a} → {\\\#}αbbb\underline{b}a →...→ {\\\#}\underline{α}bbbba →$  
+${\\\#}\underline{a}bbbba → \underline{\\\#}abbbba$  
+${\\\#}\underline{a}bbbba →...→ {\\\#}abbbb\underline{a} → {\\\#}abbbba\underline{\\\#}$
 
+NOTE:
+1. Move left until meets a or b, and mark processed symbols: a → α, b → β
+2. Move to the right end (#) and append its copy.
+3. Move left until meets α or β, and restore: α → a,  β → b
+4. Move left,
+   - if meets #, then move to the right end and write # and halt.
+   - if meets a or b, goto 1.
 
+(3) ${\\\#}ωω^R\underline{\\\#} ⇒ {\\\#}Ⓨ\underline{\\\#}$  
 
+Example run:  
+${\\\#}abbbba\underline{\\\#} → {\\\#}abbbb\underline{a}{\\\#} → {\\\#}abbb\underline{b}a →...→ \underline{\\\#}abbbba → {\\\#}\underline{a}bbbba → {\\\#}\underline{θ}bbbba →$  
+$...→ {\\\#}θbbbba\underline{\\\#} → {\\\#}θbbbb\underline{a}{\\\#} → {\\\#}θbbbb\underline{\\\#} → {\\\#}θbbb\underline{b} → {\\\#}θbb\underline{b}b →...→ {\\\#}\underline{θ}bbbb →$  
+${\\\#}θ\underline{b}bbb → {\\\#}θ\underline{θ}bbb →...→ {\\\#}θθbb\underline{b} → {\\\#}θθbbb\underline{\\\#} → {\\\#}θθbb\underline{b} → {\\\#}θθbb\underline{\\\#} → {\\\#}θθb\underline{b} →$  
+${\\\#}θθ\underline{b}b → {\\\#}θ\underline{θ}bb → {\\\#}θθ\underline{b}b →$  
+${\\\#}θθ\underline{θ}b → {\\\#}θθθ\underline{b} → {\\\#}θθθb\underline{\\\#} → {\\\#}θθθ\underline{b} → {\\\#}θθθ\underline{\\\#} → {\\\#}θθ\underline{θ}^1 →$  
+${\\\#}θθ\underline{θ} → {\\\#}θ\underline{θ} → {\\\#}\underline{θ} → \underline{\\\#} → {\\\#}\underline{Ⓨ} → {\\\#}Ⓨ\underline{\\\#}$  
+
+$^1$ Point where machine decides to output YES
+
+NOTE:  
+1. Move to the leftmost #
+2. Scan right for the first letter (a or b),
+   - If found: Memorize it, overwrite with θ.
+   - If # is hit: Accept (all paired).
+3. Move to the rightmost #
+4. Move left one character and compare
+   - if match: Overwrite with #, then goto 1.
+   - if mismatch: Reject.
+5. Finalize (Accept/Reject): Clear all θ and write the result (#Ⓨ# or #Ⓝ#).
+
+Example run:  
+${\\\#}θθbbb\underline{b} →...→ {\\\#}θθ\underline{b}bb →...→ {\\\#}θθθb\underline{\\\#} →...→ {\\\#}θθθ\underline{b} → {\\\#}θθθ\underline{θ} →$  
+${\\\#}θθθθ{\\\#}^2 →...→$  
+${\\\#}θθθ\underline{θ} →...→ {\\\#}\underline{θ} → \underline{\\\#} → {\\\#}Ⓝ{\\\#}$
+
+$^2$ Point where machine decides to output NO
+
+Example run:  
+${\\\#}ab\underline{\\\#} → {\\\#}a\underline{b} → {\\\#}\underline{a}b → \underline{\\\#}ab → {\\\#}\underline{a}b → {\\\#}θ\underline{b}^3 → {\\\#}\underline{θ} → \underline{\\\#} → {\\\#}\underline{Ⓝ} → {\\\#}Ⓝ\underline{\\\#}$
+
+$^3$ Point where machine decides to output NO
+
+Example run:  
+${\\\#}aaab\underline{\\\#} → {\\\#}aaa\underline{b} → {\\\#}aa\underline{a}b →...→ \underline{\\\#}aaab → {\\\#}\underline{a}aab^4 → {\\\#}aaa\underline{b} → {\\\#}aaa\underline{\\\#} → {\\\#}aa\underline{a} →$  
+${\\\#}a\underline{a} → {\\\#}\underline{a} → \underline{\\\#} → {\\\#}\underline{Ⓝ} → {\\\#}Ⓝ\underline{\\\#}$
 
 
 
