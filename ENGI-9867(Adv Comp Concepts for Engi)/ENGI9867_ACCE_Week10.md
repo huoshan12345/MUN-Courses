@@ -312,5 +312,5 @@ Example 1: A machine that erases all the symbols from left to right.
 | $q_1$ | a | $(q_0,a)^1$    |
 | $q_1$ | # | $(q_0,R)$      |
 
-$(q_0,\underline{a}aaa) ⊢_M (q_1,\underline{\\\#}aaa) ⊢_M (q_0,{\\\#}aaa) ⊢_M (q_1,{\\\#}\underline{\\\#}aa) ⊢_M (q_0,{\\\#\\\#}\underline{a}a) ⊢_M$  
+$(q_0,\underline{a}aaa) ⊢_M (q_1,\underline{\\\#}aaa) ⊢_M (q_0,{\\\#}\underline{a}aa) ⊢_M (q_1,{\\\#}\underline{\\\#}aa) ⊢_M (q_0,{\\\#\\\#}\underline{a}a) ⊢_M$  
 $(q_1,{\\\#\\\#}\underline{\\\#}a) ⊢_M (q_0,{\\\#\\\#\\\#}\underline{a}) ⊢_M (q_1,{\\\#\\\#\\\#}\underline{\\\#}) ⊢_M (q_0,{\\\#\\\#\\\#\\\#}\underline{\\\#}) ⊢_M (h,{\\\#\\\#\\\#\\\#}\underline{\\\#})$
