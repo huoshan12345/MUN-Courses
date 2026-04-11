@@ -375,10 +375,12 @@ $s_0 = q_0$
 Let $Σ_0$ be our alphabet and ${\\\#} ∉ Σ_0$ and $L$ be a language $L ⊆ {Σ_0}^{\ast}$  
 If we can compute the function $x_L$ like:  
 
-$∀ω ∈ {Σ_0}^{\ast},F_L(ω) = \begin{cases}
+$$
+∀ω ∈ {Σ_0}^{\ast},F_L(ω) = \begin{cases}
 Ⓨ ⇒ ω ∈ L \\
 Ⓝ ⇒ ω ∉ L
-\end{cases}$
+\end{cases}
+$$
 
 
 
