@@ -211,7 +211,7 @@ $S = \{q_0,q_1\}$
 $Σ = \{a,{\\\#}\}$  
 $s_0 = q_0$  
 
-| q     | σ | δ(q,σ)         |
+| q     | σ | $δ(q,σ)$       |
 |-------|---|----------------|
 | $q_0$ | a | $(q_1,{\\\#})$ |
 | $q_0$ | # | $(h,{\\\#})$   |
@@ -222,7 +222,7 @@ $^1$: This row is to conform to the formal definition of a function
 
 Now the same machine with a different notion and fewer lines
 
-| q     | σ | δ(q,σ),HM        |
+| q     | σ | $δ(q,σ)$,HM      |
 |-------|---|------------------|
 | $q_0$ | a | $(q_0,{\\\#}),1$ |
 | $q_0$ | # | $(h,{\\\#}),0$   |
@@ -235,7 +235,7 @@ $S = \{q_0\}$
 $Σ = \{a,{\\\#}\}$  
 $s_0 = q_0$  
 
-| q     | σ | δ(q,σ)         |
+| q     | σ | $δ(q,σ)$       |
 |-------|---|----------------|
 | $q_0$ | a | $(q_0,L)$      |
 | $q_0$ | # | $(h,{\\\#})$   |
@@ -305,7 +305,7 @@ $C_0 ⊢_M C_1 ⊢_M C_2 ⊢_M...C_{n−1} ⊢_M C_n$
 
 Example 1: A machine that erases all the symbols from left to right.
 
-| q     | σ | δ(q,σ)         |
+| q     | σ | $δ(q,σ)$       |
 |-------|---|----------------|
 | $q_0$ | a | $(q_1,{\\\#})$ |
 | $q_0$ | # | $(h,{\\\#})$   |
@@ -314,3 +314,209 @@ Example 1: A machine that erases all the symbols from left to right.
 
 $(q_0,\underline{a}aaa) ⊢_M (q_1,\underline{\\\#}aaa) ⊢_M (q_0,{\\\#}\underline{a}aa) ⊢_M (q_1,{\\\#}\underline{\\\#}aa) ⊢_M (q_0,{\\\#\\\#}\underline{a}a) ⊢_M$  
 $(q_1,{\\\#\\\#}\underline{\\\#}a) ⊢_M (q_0,{\\\#\\\#\\\#}\underline{a}) ⊢_M (q_1,{\\\#\\\#\\\#}\underline{\\\#}) ⊢_M (q_0,{\\\#\\\#\\\#\\\#}\underline{\\\#}) ⊢_M (h,{\\\#\\\#\\\#\\\#}\underline{\\\#})$
+
+## Turing Computable Function
+
+#### Turing Computable Function
+
+Turing computable functions can perform transformations over character strings.
+
+$M = (S,Σ,δ,s_0)$  
+Let’s distinguish $Σ_I$ as input alphabet and $Σ_O$ as output alphabet;  
+$f(ω) = u ∧ ω ∈ {Σ_I}^{\ast} ∧ u ∈ {Σ_O}^{\ast} ⊆ Σ^{\ast}$ and  
+$(s_0,{\\\#}ω\underline{\\\#})\ {⊢_M}^{\ast}\ (h,{\\\#}u\underline{\\\#}),{\\\#} ∉ Σ_I ∧ {\\\#} ∈ Σ_O$
+
+## Example 4
+
+A machine that inverses strings (writes b in place of a ; a in place of b)  
+NOTE: The initial position is at the rightmost # of the string, and after completion, the head is required to remain positioned at this same rightmost #.
+
+$S = \{q_0,q_1,q_2\}$  
+$Σ = \{a,b,{\\\#}\}$  
+$s_0 = q_0$  
+
+| q     | σ | $δ(q,σ)$       |
+|-------|---|----------------|
+| $q_0$ | a | $(q_1,L)$      |
+| $q_0$ | b | $(q_1,L)$      |
+| $q_0$ | # | $(q_1,L)$      |
+| $q_1$ | a | $(q_0,b)$      |
+| $q_1$ | b | $(q_0,a)$      |
+| $q_1$ | # | $(q_2,R)$      |
+| $q_2$ | a | $(q_2,R)$      |
+| $q_2$ | b | $(q_2,R)$      |
+| $q_2$ | # | $(h,{\\\#})$   |
+
+$(q_0,{\\\#}aab\underline{\\\#}) ⊢_M (q_1,{\\\#}aa\underline{b}) ⊢_M$  
+$(q_0,{\\\#}aa\underline{a}) ⊢_M (q_1,{\\\#}a\underline{a}a) ⊢_M$  
+$(q_0,{\\\#}a\underline{b}a) ⊢_M (q_1,{\\\#}\underline{a}ba) ⊢_M$  
+$(q_0,{\\\#}\underline{b}ba) ⊢_M (q_1,\underline{\\\#}bba) ⊢_M$  
+$(q_2,{\\\#}\underline{b}ba) ⊢_M (q_2,{\\\#}b\underline{b}a) ⊢_M$  
+$(q_2,{\\\#}bb\underline{a}) ⊢_M (q_2,{\\\#}bba\underline{\\\#}) ⊢_M$  
+$(h,{\\\#}bba\underline{\\\#})$  
+
+## Example 5
+
+Let’s represent a number n with n $I$ symbols like $III ...I$. Let’s build a machine that computes  
+$f(n) = n + 1$
+
+$S = \{q_0\}$  
+$Σ = \{I,{\\\#}\}$  
+$s_0 = q_0$  
+
+**(a)** $(q_0,{\\\#}II\underline{\\\#}) ⊢_M (q_0,{\\\#}II\underline{I}) ⊢_M (h,{\\\#}III\underline{\\\#})$  
+**(b)** $(q_0,{\\\#}I^n\underline{\\\#}) ⊢_M (h,{\\\#}I^{n+1}\underline{\\\#})$  
+**(c)** $(q_0,{\\\#}\underline{\\\#}) ⊢_M (q_0,{\\\#}\underline{I}) ⊢_M (h,{\\\#}I\underline{\\\#})$  
+
+## Turing Decidable Machine
+
+#### Turing Decidable Machine
+
+Let $Σ_0$ be our alphabet and ${\\\#} ∉ Σ_0$ and $L$ be a language $L ⊆ {Σ_0}^{\ast}$  
+If we can compute the function $x_L$ like:  
+
+$$
+∀ω ∈ {Σ_0}^{\ast},F_L(ω) = \begin{cases}
+Ⓨ ⇒ ω ∈ L \\
+Ⓝ ⇒ ω ∉ L
+\end{cases}
+$$
+
+## Turing Decidable Machine
+
+Example:
+
+$Σ_0 = \{a\};L = \{ω ∈ {Σ_0}^{\ast}|\ ||ω||even\ number\}$  
+$S = \{q_0,...,q_6\}$  
+$Σ = \{a,Ⓨ,Ⓝ,{\\\#}\}$  
+$s_0 = q_0$
+
+| q     | σ  | $δ(q,σ)$       |
+|-------|----|----------------|
+| $q_0$ | #  | $(q_1,L)$      |
+| $q_1$ | a  | $(q_2,{\\\#})$ |
+| $q_1$ | #  | $(q_4,R)$      |
+| $q_2$ | #  | $(q_3,L)$      |
+| $q_3$ | a  | $(q_0,{\\\#})$ |
+| $q_3$ | #  | $(q_6,R)$      |
+| $q_4$ | #  | $(q_5,Ⓨ)$     |
+| $q_5$ | Ⓨ | $(h,R)$        |
+| $q_5$ | Ⓝ | $(h,R)$        |
+| $q_6$ | #  | $(q_5,Ⓝ)$     |
+
+**(a)**  
+$(q_0,{\\\#}aa\underline{\\\#}) ⊢_M (q_1,{\\\#}a\underline{a}) ⊢_M (q_2,{\\\#}a\underline{\\\#}) ⊢_M$  
+$(q_3,{\\\#}\underline{a}) ⊢_M (q_0,{\\\#}\underline{\\\#}) ⊢_M (q_1,\underline{\\\#}) ⊢_M$  
+$(q_4,{\\\#}\underline{\\\#}) ⊢_M (q_5,{\\\#}\underline{Ⓨ}) ⊢_M (h,{\\\#}Ⓨ\underline{\\\#})$
+
+**(b)**  
+$(q_0,{\\\#}aaa\underline{\\\#}) ⊢_M (q_1,{\\\#}aa\underline{a}) ⊢_M (q_2,{\\\#}aa\underline{\\\#}) ⊢_M$  
+$(q_3,{\\\#}a\underline{a}) ⊢_M (q_0,{\\\#}a\underline{\\\#}) ⊢_M (q_1,{\\\#}\underline{a}) ⊢_M$  
+$(q_2,{\\\#}\underline{\\\#}) ⊢_M (q_3,\underline{\\\#}) ⊢_M (q_6,{\\\#}\underline{\\\#}) ⊢_M$  
+$(q_5,{\\\#}\underline{Ⓝ}) ⊢_M (h,{\\\#}Ⓝ\underline{\\\#})$
+
+**(a)** $(q_0,{\\\#}a^n\underline{\\\#}) {⊢_M}^{\ast} (h,{\\\#}Ⓨ{\\\#}) ⇒$ n is even  
+**(b)** $(q_0,{\\\#}a^n\underline{\\\#}) {⊢_M}^{\ast} (h,{\\\#}Ⓝ{\\\#}) ⇒$ n is odd
+
+## Some examples on decidability
+
+(1) ${\\\#}ω\underline{\\\#} ⇒ {\\\#}ω{\\\#}ω\underline{\\\#}$  
+(2) ${\\\#}ω\underline{\\\#} ⇒ {\\\#}ωω^R\underline{\\\#}$  
+(3) ${\\\#}ωω^R\underline{\\\#} ⇒ {\\\#}Ⓨ\underline{\\\#}$  
+
+Let’s make a demonstration run for each of these machines and try to construct a transition table.
+
+(1) ${\\\#}ω\underline{\\\#} ⇒ {\\\#}ω{\\\#}ω\underline{\\\#}$  
+
+Example run:  
+
+${\\\#}aba\underline{\\\#} → {\\\#}aba\underline{γ} → {\\\#}ab\underline{a}γ →...→ \underline{\\\#}abaγ → {\\\#}\underline{a}baγ → {\\\#}\underline{α}baγ →...→ {\\\#}αbaγ\underline{\\\#} →$  
+${\\\#}αbaγ\underline{a} →...→ {\\\#}\underline{α}baγa → {\\\#}\underline{a}baγa → {\\\#}a\underline{b}aγa → {\\\#}a\underline{β}aγa →...→ {\\\#}aβaγa\underline{\\\#} →$  
+${\\\#}aβaγa\underline{b} →...→ {\\\#}a\underline{β}aγab → {\\\#}a\underline{b}aγab → {\\\#}ab\underline{a}γab → {\\\#}ab\underline{α}γab →...→ {\\\#}abαγab\underline{\\\#} →$  
+${\\\#}abαγab\underline{a} →...→ {\\\#}ab\underline{α}γaba → {\\\#}ab\underline{a}γaba → {\\\#}aba\underline{γ}aba → {\\\#}aba\underline{\\\#}aba →$  
+$...→ {\\\#}aba{\\\#}aba\underline{\\\#}$
+
+NOTE:
+1. γ marks the boundary of the copy region.
+2. Move left until meets a or b, and mark processed symbols: a → α, b → β
+3. Move to the right end (after γ) and append its copy.
+4. Move left until meets α or β, and restore: α → a,  β → b
+5. Move right,
+   - if meets γ, write '#', then move to the right end, and halt.
+   - if meets a or b, goto 2.
+
+Let’s consider a special situation:  
+Example run:  
+${\\\#}\underline{\\\#} → {\\\#}\underline{γ} → \underline{\\\#}γ → {\\\#}\underline{\\\#} → {\\\#}{\\\#}\underline{\\\#}$  
+
+(2) ${\\\#}ω\underline{\\\#} ⇒ {\\\#}ωω^R\underline{\\\#}$  
+
+Example run:  
+${\\\#}abb\underline{\\\#} → {\\\#}ab\underline{b} → {\\\#}ab\underline{β} → {\\\#}abβ\underline{\\\#} → {\\\#}abβ\underline{b} → {\\\#}ab\underline{β}b → {\\\#}ab\underline{b}b →$  
+${\\\#}a\underline{b}bb →$  
+${\\\#}a\underline{β}bb → {\\\#}aβ\underline{b}b → {\\\#}aβb\underline{b} → {\\\#}aβbb\underline{\\\#} → {\\\#}aβbb\underline{b} →...→ {\\\#}a\underline{β}bbb → {\\\#}a\underline{b}bbb →$  
+${\\\#}\underline{a}bbbb →$   
+${\\\#}\underline{α}bbbb → {\\\#}αbbb\underline{b} → {\\\#}αbbbb\underline{\\\#} → {\\\#}αbbbb\underline{a} → {\\\#}αbbb\underline{b}a →...→ {\\\#}\underline{α}bbbba →$  
+${\\\#}\underline{a}bbbba → \underline{\\\#}abbbba$  
+${\\\#}\underline{a}bbbba →...→ {\\\#}abbbb\underline{a} → {\\\#}abbbba\underline{\\\#}$
+
+NOTE:
+1. Move left until meets a or b, and mark processed symbols: a → α, b → β
+2. Move to the right end (#) and append its copy.
+3. Move left until meets α or β, and restore: α → a,  β → b
+4. Move left,
+   - if meets #, then move to the right end and write # and halt.
+   - if meets a or b, goto 1.
+
+(3) ${\\\#}ωω^R\underline{\\\#} ⇒ {\\\#}Ⓨ\underline{\\\#}$  
+
+Example run:  
+${\\\#}abbbba\underline{\\\#} → {\\\#}abbbb\underline{a}{\\\#} → {\\\#}abbb\underline{b}a →...→ \underline{\\\#}abbbba → {\\\#}\underline{a}bbbba → {\\\#}\underline{θ}bbbba →$  
+$...→ {\\\#}θbbbba\underline{\\\#} → {\\\#}θbbbb\underline{a}{\\\#} → {\\\#}θbbbb\underline{\\\#} → {\\\#}θbbb\underline{b} → {\\\#}θbb\underline{b}b →...→ {\\\#}\underline{θ}bbbb →$  
+${\\\#}θ\underline{b}bbb → {\\\#}θ\underline{θ}bbb →...→ {\\\#}θθbb\underline{b} → {\\\#}θθbbb\underline{\\\#} → {\\\#}θθbb\underline{b} → {\\\#}θθbb\underline{\\\#} → {\\\#}θθb\underline{b} →$  
+${\\\#}θθ\underline{b}b → {\\\#}θ\underline{θ}bb → {\\\#}θθ\underline{b}b →$  
+${\\\#}θθ\underline{θ}b → {\\\#}θθθ\underline{b} → {\\\#}θθθb\underline{\\\#} → {\\\#}θθθ\underline{b} → {\\\#}θθθ\underline{\\\#} → {\\\#}θθ\underline{θ}^1 →$  
+${\\\#}θθ\underline{θ} → {\\\#}θ\underline{θ} → {\\\#}\underline{θ} → \underline{\\\#} → {\\\#}\underline{Ⓨ} → {\\\#}Ⓨ\underline{\\\#}$  
+
+$^1$ Point where machine decides to output YES
+
+NOTE:  
+1. Move to the leftmost #
+2. Scan right for the first letter (a or b),
+   - If found: Memorize it, overwrite with θ.
+   - If # is hit: Accept (all paired).
+3. Move to the rightmost #
+4. Move left one character and compare
+   - if match: Overwrite with #, then goto 1.
+   - if mismatch: Reject.
+5. Finalize (Accept/Reject): Clear all θ and write the result (#Ⓨ# or #Ⓝ#).
+
+Example run:  
+${\\\#}θθbbb\underline{b} →...→ {\\\#}θθ\underline{b}bb →...→ {\\\#}θθθb\underline{\\\#} →...→ {\\\#}θθθ\underline{b} → {\\\#}θθθ\underline{θ} →$  
+${\\\#}θθθθ{\\\#}^2 →...→$  
+${\\\#}θθθ\underline{θ} →...→ {\\\#}\underline{θ} → \underline{\\\#} → {\\\#}Ⓝ{\\\#}$
+
+$^2$ Point where machine decides to output NO
+
+Example run:  
+${\\\#}ab\underline{\\\#} → {\\\#}a\underline{b} → {\\\#}\underline{a}b → \underline{\\\#}ab → {\\\#}\underline{a}b → {\\\#}θ\underline{b}^3 → {\\\#}\underline{θ} → \underline{\\\#} → {\\\#}\underline{Ⓝ} → {\\\#}Ⓝ\underline{\\\#}$
+
+$^3$ Point where machine decides to output NO
+
+Example run:  
+${\\\#}aaab\underline{\\\#} → {\\\#}aaa\underline{b} → {\\\#}aa\underline{a}b →...→ \underline{\\\#}aaab → {\\\#}\underline{a}aab^4 → {\\\#}aaa\underline{b} → {\\\#}aaa\underline{\\\#} → {\\\#}aa\underline{a} →$  
+${\\\#}a\underline{a} → {\\\#}\underline{a} → \underline{\\\#} → {\\\#}\underline{Ⓝ} → {\\\#}Ⓝ\underline{\\\#}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
