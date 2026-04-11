@@ -14,6 +14,7 @@
 - $\langle E \rangle$ (use them in latex instead of <> to avoid escape issue on Github)
 - $\lbrace \rbrace$ (use them in latex instead of {} to avoid escape issue on Github)
 - ${\\\#}$ (Use 3 backslashes (instead of 1) to escape the hash symbol so that it renders correctly on GitHub.)
+- $II\underline{I}IIII$ (underline)
 
 ## references
 - [see unicode symbols](https://www.compart.com/en/unicode/)
