@@ -376,10 +376,12 @@ Let $Σ_0$ be our alphabet and ${\\\#} ∉ Σ_0$ and $L$ be a language $L ⊆ {�
 If we can compute the function $x_L$ like:  
 
 $$
+\begin{aligned}
 ∀ω ∈ {Σ_0}^{\ast},F_L(ω) = \begin{cases}
 Ⓨ ⇒ ω ∈ L \\
 Ⓝ ⇒ ω ∉ L
 \end{cases}
+\end{aligned}
 $$
 
 
