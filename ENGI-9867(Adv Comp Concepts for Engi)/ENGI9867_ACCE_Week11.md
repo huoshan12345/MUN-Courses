@@ -223,7 +223,7 @@ if there exists a Turing machine that is a recognizer for L.
 Recap: The Hailstone Turing Machine
 
 - Let $Σ = \{a\}$ and consider the language  
-$L = \{a^n\ |\ n > 0$ and the hailstone sequence terminates for $n\}$.
+$L = \{a^n\ |\ n > 0 \text{ and the hailstone sequence terminates for } n\}$.
 - We can build a TM for L as follows:
   - If the input is $λ$, reject.
   - While the string is not $a$:
