@@ -108,8 +108,6 @@ For string w
 </div>
 <br>
 
----
-
 <br>
 <center style="font-size: 2em; color: #87CEFA;">Recognizability and Decidability</center>
 <div style="font-size: 1.5em;">
