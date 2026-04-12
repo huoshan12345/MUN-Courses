@@ -71,7 +71,7 @@ for i in range(len(A)):
 return "ACCEPT"
 ```
 
-M decides $A = \{ {\\\#}x1{\\\#}x2{\\\#}...{\\\#}x\ |\ \text{ each } x_i ∈ \{0,1\}^{\ast} \text{ and } x_i ≠ x_j \text{ for each } i ≠ j \}$
+M decides $A = \lbrace  {\\\#}x1{\\\#}x2{\\\#}...{\\\#}x\ |\ \text{ each } x_i ∈ \lbrace 0,1 \rbrace^{\ast} \text{ and } x_i ≠ x_j \text{ for each } i ≠ j \rbrace$
 
 For string w
 1. Place a mark on top of the leftmost tape symbol. If that symbol was a blank, accept. If that symbol was a #, continue with the next step. Otherwise, reject.
@@ -149,8 +149,8 @@ The conjecture (unproven claim) that the Hailstone Sequence always terminates is
 
 Let’s represent the problem with TM.  
 Remember: *any algorithm can be simulated by a Turing machine*.
-- Let $Σ = \{a\}$ and consider the language  
-$L = \{a^n\ |\ n > 0 \text{ and the hailstone sequence terminates for } n\}$.
+- Let $Σ = \lbrace a \rbrace$ and consider the language  
+$L = \lbrace a^n\ |\ n > 0 \text{ and the hailstone sequence terminates for } n \rbrace$.
 - We can build a TM for L as follows:
   - If the input is $λ$, reject.
   - While the string is not $a$:
@@ -220,8 +220,8 @@ if there exists a Turing machine that is a recognizer for L.
 
 Recap: The Hailstone Turing Machine
 
-- Let $Σ = \{a\}$ and consider the language  
-$L = \{a^n\ |\ n > 0 \text{ and the hailstone sequence terminates for } n\}$.
+- Let $Σ = \lbrace a \rbrace$ and consider the language  
+$L = \lbrace a^n\ |\ n > 0 \text{ and the hailstone sequence terminates for } n \rbrace$.
 - We can build a TM for L as follows:
   - If the input is $λ$, reject.
   - While the string is not $a$:
@@ -280,10 +280,10 @@ Turing machine that is a recognizer for L.
 
 ## Deciders and Decidability- An Example
 
-$L = \{ω ∈ {Σ_0}^{\ast}|\ |ω|even\ number\}$  
-$Σ_0 = \{a\}$  
-$S = \{q_0,...,q_6\}$  
-$Σ = \{a,Ⓨ,Ⓝ,{\\\#}\}$  
+$L = \lbrace ω ∈ {Σ_0}^{\ast}|\ |ω|even\ number \rbrace$  
+$Σ_0 = \lbrace a \rbrace$  
+$S = \lbrace q_0,...,q_6 \rbrace$  
+$Σ = \lbrace a,Ⓨ,Ⓝ,{\\\#} \rbrace$  
 $s_0 = q_0$
 
 | q     | σ  | $δ(q,σ)$       |
@@ -318,18 +318,18 @@ We use “problem” informally, to denote “language”.
 
 Is this graph connected? <span style="color: #87CEFA;font-style: italic;">decidable by BFS/DFS</span>  
 
-$L_{conn} = \{ \langle G \rangle\ |\ G \text{ is a connected graph } \}$
+$L_{conn} = \lbrace \langle G \rangle\ |\ G \text{ is a connected graph } \rbrace$
 
 Is this matrix singular? <span style="color: #87CEFA;font-style: italic;">decidable by computing determinant or row reduction.</span>  
 
-$L_{sing} = \{ M |\ M \text{ is a square matrix over } Z \text{ and } det(M) = 0 \}$
+$L_{sing} = \lbrace M |\ M \text{ is a square matrix over } Z \text{ and } det(M) = 0 \rbrace$
 
 Is this proposition satisfiable? 
 <span style="color: #87CEFA;font-style: italic;">
 decidable, because there are finitely many truth assignments. it may be hard, but still decidable.
 </span>
 
-$L_{SAT} = \{ \langle ϕ \rangle\ |\ ϕ \text{ is satisfiable } \}$
+$L_{SAT} = \lbrace \langle ϕ \rangle\ |\ ϕ \text{ is satisfiable } \rbrace$
 
 ## Revisit
 
@@ -339,7 +339,7 @@ Testing whether a particular deterministic finite automaton accepts a given stri
 expressed as a language, $A_{DFA}$. This language contains the encodings of all DFAs together
 with strings that the DFAs accept.
 
-$A_{DFA} = \{ \langle B,ω \rangle\ |\ B \text{ is a DFA that accepts input string } ω\}$
+$A_{DFA} = \lbrace \langle B,ω \rangle\ |\ B \text{ is a DFA that accepts input string } ω \rbrace$
 
 <span style="color: #87CEFA;font-style: italic;">
 Collect every possible DFA, pair it with every possible string, and keep exactly the pairs where the DFA says accept.
@@ -361,7 +361,7 @@ M = On input $\langle B,ω \rangle$, where B is a DFA and ω is a string:
 
 ## Revisit:
 
-$A_{NFA} = \{ \langle B,ω \rangle\ |\ B \text{ is a NFA that accepts input string } ω\}$
+$A_{NFA} = \lbrace \langle B,ω \rangle\ |\ B \text{ is a NFA that accepts input string } ω \rbrace$
 
 #### Theorem
 
@@ -376,7 +376,7 @@ M = On input $\langle B,ω \rangle$, where B is a NFA and ω is a string:
 
 ## Revisit:
 
-$A_{CFG} = \{ \langle G,ω \rangle\ |\ G \text{ is a CFG that generates string } ω\}$
+$A_{CFG} = \lbrace \langle G,ω \rangle\ |\ G \text{ is a CFG that generates string } ω \rbrace$
 
 #### Theorem
 
@@ -391,7 +391,7 @@ F = On input $\langle G,ω \rangle$, where G is a CFG and ω is a string:
 
 ## Is $A_{TM}$ a decidable language?
 
-$A_{TM} = \{ \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω\}$
+$A_{TM} = \lbrace \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω \rbrace$
 
 #### Theorem
 
@@ -460,7 +460,7 @@ accepts L.
 #### Theorem
 
 If $L ⊆ Σ^{\ast}$ is accepted by a linear-bounded automaton M, then there is a context-sensitive
-grammar G generating $L−\{Λ\}$.
+grammar G generating $L−\lbrace Λ \rbrace$.
 
 #### Theorem
 
@@ -539,7 +539,7 @@ One single TM ($U_{TM}$) can simulate ANY other TM. It is a programmable compute
 
 - As a refresher, the language $A_{TM}$ is
 
-$A_{TM} = \{ \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω\}$
+$A_{TM} = \lbrace \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω \rbrace$
 
 - The universal TM $U_{TM}$ has the following behavior when given as input a TM M and a
 string w:
@@ -589,7 +589,7 @@ will M halt when run on w?
 
 $$
 \color{F08080}
-\text{HALT} = \{\langle M,w \rangle\ |\ M \text{ halts on } w \}
+\text{HALT} = \lbrace \langle M,w \rangle\ |\ M \text{ halts on } w \rbrace
 $$
 
 - Theorem: HALT is recognizable, but undecidable.
@@ -641,7 +641,7 @@ What exactly is the class **RE**?
 - Recall that the class **RE** is the class of all recognizable languages:
 
 $$
-RE = \{ L\ | \text{ there exists a TM } M \text{ that recognizes } L \}
+RE = \lbrace  L\ | \text{ there exists a TM } M \text{ that recognizes } L \rbrace
 $$
 
 - Since **R** ≠ **RE**, there is no general way to “solve” problems in **RE**, if by “solve” you mean:  
@@ -725,7 +725,7 @@ Examples: $\mathbb{N}, \mathbb{Z}, \mathbb{N} × \mathbb{N}, \mathbb{Q}, Σ^{\as
 
 #### Set of rational numbers
 
-Let $\mathbb{Q} = \{\frac{m}{n} | m,n ∈ \mathbb{N} \}$ be the set of positive rational numbers. To find a correspondence we
+Let $\mathbb{Q} = \lbrace \frac{m}{n} | m,n ∈ \mathbb{N} \rbrace$ be the set of positive rational numbers. To find a correspondence we
 make an infinite matrix containing all the positive rational numbers as below.
 
 ## Diagonalization
@@ -758,7 +758,7 @@ Some languages are not Turing-recognizable
 2. The set of all Turing machines is countable because each Turing machine M has an encoding into a string $\langle M \rangle$
 3. The set of all languages $\mathbb{L}$ over alphabet $Σ$ is uncountable.
    1. The set of all infinite binary sequences($\mathbb{B}$) is uncountable (use diagonalization).
-   2. Let $Σ^{\ast} = \{s_1,s_2,s_3,...\}$ Each language $A ∈ \mathbb{L}$ has a unique characteristic sequence in $\mathbb{B}$ where the $i^{th}$
+   2. Let $Σ^{\ast} = \lbrace s_1,s_2,s_3,... \rbrace$ Each language $A ∈ \mathbb{L}$ has a unique characteristic sequence in $\mathbb{B}$ where the $i^{th}$
 bit of that sequence is 1 if $s_i ∈ A$.
    3. The function defined above is a bijection and hence $\mathbb{L}$ and $\mathbb{B}$ is correspondent. $\mathbb{L}$ is uncountable.
 4. The set of all languages cannot be put into a correspondence with the set of all Turing machines. We
