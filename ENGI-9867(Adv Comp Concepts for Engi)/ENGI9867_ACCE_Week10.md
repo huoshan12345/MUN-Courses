@@ -290,11 +290,11 @@ $δ(q_1,a) = (q_2,b) ⇒ (q_1,ω\underline{a}u) ⊢_M (q_2,ω\underline{b}u)$ &e
 
 $δ(q_1,a) = (q_2,L) ⇒$  
  (i) $(q_1,ωb\underline{a}u) ⊢_M (q_2,ω\underline{b}au)$ &ensp; (shift one character to the left)  
-(ii) $(q_1,ωb\underline{\\\#}) ⊢_M (q_2,ω\underline{b})$ &ensp;&ensp;&ensp;&ensp; (shift one character to the left, and remove a trailing '#')  
+(ii) $(q_1,ωb\underline{\\\#}) ⊢_M (q_2,ω\underline{b})$ &emsp;&emsp; (shift one character to the left, and remove a trailing '#')  
 
 $δ(q_1,a) = (q_2,R) ⇒$  
  (i) $(q_1,ω\underline{a}bu) ⊢_M (q_2,ωa\underline{b}u)$ &nbsp; (shift one character to the right)  
-(ii) $(q_1,ω\underline{a}) ⊢_M (q_2,ωa\underline{\\\#})$ &ensp;&ensp;&ensp; (shift one character to the right, and write a '#')  
+(ii) $(q_1,ω\underline{a}) ⊢_M (q_2,ωa\underline{\\\#})$ &emsp;&ensp; (shift one character to the right, and write a '#')  
 
 ## n steps computation
 

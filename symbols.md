@@ -16,8 +16,15 @@
 - ${\\\#}$ (Use 3 backslashes (instead of 1) to escape the hash symbol so that it renders correctly on GitHub.)
 - $II\underline{I}IIII$ (underline)
 - $\stackrel{?}{=}$ $\overset{?}{=}$
-- spaces in html: &nbsp; &ensp; &emsp; &thinsp;
-- spaces in KeTax: $\qquad$ $\quad$
+- spaces in html: 
+  - &nbsp;(A standard-width space) 
+  - &ensp;(half the width of an em space) 
+  - &emsp;(equal to the current font's point size) 
+  - &thinsp;(A very narrow space, smaller than a standard space)
+- spaces in KeTax: 
+  - $\quad$(1em)
+  - $\qquad$(2em)
+  - $\hspace{3em}$(custom length)
 - $\mathbb{R}$
 - $\stackrel{?}{=}$
 
