@@ -411,6 +411,7 @@ $$
 $$
 
 2. Define a TM D where
+
 $$
 D(\langle M \rangle) = \begin{cases}
 \text{accept} \hspace{1em}\text{if H rejects } \langle M,ω \rangle \\
@@ -419,6 +420,7 @@ D(\langle M \rangle) = \begin{cases}
 $$
 
 3. Feed D unto itself to obtain a contradiction
+
 $$
 D(\langle D \rangle) = \begin{cases}
 \text{accept} \hspace{1em}\text{if D rejects } \langle D \rangle \\
