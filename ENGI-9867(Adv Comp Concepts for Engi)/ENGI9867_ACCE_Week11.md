@@ -548,14 +548,14 @@ string w:
   - If M accepts w, then $U_{TM}$ accepts $\langle M,w \rangle$.
   - If M rejects w, then $U_{TM}$ rejects $\langle M,w \rangle$.
   - If M loops on w, then $U_{TM}$ loops on $\langle M,w \rangle$.
-- $U_{TM}$ is a recognizer for $A_{TM}, but because of that last case it’s not a decider for $A_{TM}.  
+- $U_{TM}$ is a recognizer for $A_{TM}$, but because of that last case it’s not a decider for $A_{TM}$.  
 The proof on it will be skipped.
 
 ## What Does This Mean?
 
 - In one fell swoop, we’ve proven:
   - $A_{TM}$ is <span style="color: #87CEFA; font-style: italic;">undecidable</span> — no general algorithm can determine whether a TM accepts a string.
-  - **R** ≠ **RE** since $A_{TM} ∉ **R** but $A_{TM}$ ∈ **RE**.
+  - **R** ≠ **RE** since $A_{TM} ∉ **R** but A_{TM}$ ∈ **RE**.
 - This implies: computers cannot, in general, answer all questions about program behavior.
 - At a deeper level:
 <center style="color: #87CEFA; font-style: italic;">
