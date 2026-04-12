@@ -341,7 +341,7 @@ Testing whether a particular deterministic finite automaton accepts a given stri
 expressed as a language, $A_{DFA}$. This language contains the encodings of all DFAs together
 with strings that the DFAs accept.
 
-$A_{DFA} = \{ \langle B,ω \rangle\ |\ B$ is a DFA that accepts input string $ω\}$
+$A_{DFA} = \{ \langle B,ω \rangle\ |\ B \text{ is a DFA that accepts input string } ω\}$
 
 <span style="color: #87CEFA;font-style: italic;">
 Collect every possible DFA, pair it with every possible string, and keep exactly the pairs where the DFA says accept.
