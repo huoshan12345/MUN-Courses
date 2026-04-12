@@ -555,7 +555,7 @@ The proof on it will be skipped.
 
 - In one fell swoop, we’ve proven:
   - $A_{TM}$ is <span style="color: #87CEFA; font-style: italic;">undecidable</span> — no general algorithm can determine whether a TM accepts a string.
-  - **R** ≠ **RE** since $A_{TM} ∉ **R** but A_{TM}$ ∈ **RE**.
+  - **R** ≠ **RE** since $A_{TM} ∉ R \text{ but } A_{TM} ∈ RE$.
 - This implies: computers cannot, in general, answer all questions about program behavior.
 - At a deeper level:
 <center style="color: #87CEFA; font-style: italic;">
