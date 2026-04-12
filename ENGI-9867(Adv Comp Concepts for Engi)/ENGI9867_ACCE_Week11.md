@@ -654,6 +654,7 @@ A language L is in **RE** when, for any string w, if you’re convinced that $w 
 prove that to someone else.
 
 A language L is in RE if:
+
 $$
 w ∈ L ⇔ ∃ \text{ a finite certificate / checkable accepting computation}  
 $$
