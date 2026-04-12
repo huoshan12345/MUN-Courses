@@ -71,7 +71,7 @@ for i in range(len(A)):
 return "ACCEPT"
 ```
 
-M decides $A = \{{\\\#}x1{\\\#}x2{\\\#}...{\\\#}x$ | each $x_i ∈ \{0,1\}^{\ast}$ and $x_i ≠ x_j$ for each $i ≠ j \}$
+M decides $A = \{ {\\\#}x1{\\\#}x2{\\\#}...{\\\#}x\ |\ \text{ each } x_i ∈ \{0,1\}^{\ast} \text{ and } x_i ≠ x_j \text{ for each } i ≠ j \}$
 
 For string w
 1. Place a mark on top of the leftmost tape symbol. If that symbol was a blank, accept. If that symbol was a #, continue with the next step. Otherwise, reject.
