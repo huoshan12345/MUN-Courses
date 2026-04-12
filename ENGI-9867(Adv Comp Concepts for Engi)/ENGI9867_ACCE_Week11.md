@@ -320,18 +320,18 @@ We use “problem” informally, to denote “language”.
 
 Is this graph connected? <span style="color: #87CEFA;font-style: italic;">decidable by BFS/DFS</span>  
 
-$L_{conn} = \{ \langle G \rangle\ |\ G$ is a connected graph $\}$
+$L_{conn} = \{ \langle G \rangle\ |\ G \text{ is a connected graph } \}$
 
 Is this matrix singular? <span style="color: #87CEFA;font-style: italic;">decidable by computing determinant or row reduction.</span>  
 
-$L_{sing} = \{ M |\ M$ is a square matrix over $Z$ and $det(M) = 0 \}$
+$L_{sing} = \{ M |\ M \text{ is a square matrix over } Z \text{ and } det(M) = 0 \}$
 
 Is this proposition satisfiable? 
 <span style="color: #87CEFA;font-style: italic;">
 decidable, because there are finitely many truth assignments. it may be hard, but still decidable.
 </span>
 
-$L_{SAT} = \{ \langle ϕ \rangle\ |\ ϕ$ is satisfiable $\}$
+$L_{SAT} = \{ \langle ϕ \rangle\ |\ ϕ \text{ is satisfiable } \}$
 
 ## Revisit
 
