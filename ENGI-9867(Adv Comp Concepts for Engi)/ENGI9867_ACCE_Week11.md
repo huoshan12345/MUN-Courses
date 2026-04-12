@@ -539,7 +539,7 @@ One single TM ($U_{TM}$) can simulate ANY other TM. It is a programmable compute
 
 - As a refresher, the language $A_{TM}$ is
 
-$A_{TM} = \{ \langle M,ω \rangle\ |\ M$ is a TM and M accepts $ω\}$
+$A_{TM} = \{ \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω\}$
 
 - The universal TM $U_{TM}$ has the following behavior when given as input a TM M and a
 string w:
