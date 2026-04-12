@@ -658,6 +658,7 @@ A language L is in RE if:
 $$
 w ∈ L ⇔ ∃ \text{ a finite certificate / checkable accepting computation}  
 $$
+
 (not necessarily in polynomial time, just in finite time)
 
 ## Verifiers
