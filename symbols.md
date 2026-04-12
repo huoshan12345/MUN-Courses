@@ -15,6 +15,11 @@
 - $\lbrace \rbrace$ (use them in latex instead of {} to avoid escape issue on Github)
 - ${\\\#}$ (Use 3 backslashes (instead of 1) to escape the hash symbol so that it renders correctly on GitHub.)
 - $II\underline{I}IIII$ (underline)
+- $\stackrel{?}{=}$ $\overset{?}{=}$
+- spaces in html: &nbsp; &ensp; &emsp; &thinsp;
+- spaces in KeTax: $\qquad$ $\quad$
+- $\mathbb{R}$
+- $\stackrel{?}{=}$
 
 ## references
 - [see unicode symbols](https://www.compart.com/en/unicode/)
