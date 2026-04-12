@@ -363,7 +363,7 @@ M = On input $\langle B,ω \rangle$, where B is a DFA and ω is a string:
 
 ## Revisit:
 
-$A_{NFA} = \{ \langle B,ω \rangle\ |\ B$ is a NFA that accepts input string $ω\}$
+$A_{NFA} = \{ \langle B,ω \rangle\ |\ B \text{ is a NFA that accepts input string } ω\}$
 
 #### Theorem
 
@@ -378,7 +378,7 @@ M = On input $\langle B,ω \rangle$, where B is a NFA and ω is a string:
 
 ## Revisit:
 
-$A_{CFG} = \{ \langle G,ω \rangle\ |\ G$ is a CFG that generates string $ω\}$
+$A_{CFG} = \{ \langle G,ω \rangle\ |\ G \text{ is a CFG that generates string } ω\}$
 
 #### Theorem
 
@@ -393,7 +393,7 @@ F = On input $\langle G,ω \rangle$, where G is a CFG and ω is a string:
 
 ## Is $A_{TM}$ a decidable language?
 
-$A_{TM} = \{ \langle M,ω \rangle\ |\ M$ is a TM and M accepts $ω\}$
+$A_{TM} = \{ \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω\}$
 
 #### Theorem
 
