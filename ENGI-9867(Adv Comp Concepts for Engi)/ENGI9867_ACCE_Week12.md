@@ -20,7 +20,7 @@ In the Worst Case... (The Upper Bound)
 - Definition: $f(n) = O(g(n))$ if there exist constants c and $n_0$ such that $0 ≤ f(n) ≤ c*g(n)$ for all $n ≥ n_0$.
 
 Example: $f(n) = 2n + 10$ is $O(n)$ because for $c=3, n_0=10, 2n+10 ≤ 3n$ for all $n≥10$.  
-→ other values, $c=4, n₀=1 , c=2.5, n_0 = 20$ → condition requires existence
+→ other values, $c=4, n_0=1, c=2.5, n_0 = 20$ → condition requires existence
 
 - **Interpretation:** "f grows no faster than g." It's the **upper bound** on the growth rate.
 - **Engineering View:** This is our guarantee. The algorithm will not be slower than this.
