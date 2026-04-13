@@ -39,5 +39,5 @@ function mysterious(A[1..n])
 
 ## Question 4 – The Classes P and NP (25 points)
 
-(a) Give one example of a problem in P and one example of a problem in NP that is **not known** to be in P (other than SAT). (10 points) 
+(a) Give one example of a problem in P and one example of a problem in NP that is **not known** to be in P (other than SAT). (10 points)  
 (b) What is the practical consequence for an engineer if $P = NP$? What if $P ≠ NP$? (15 points)
