@@ -22,7 +22,7 @@
 
 (b) A language is Turing-recognizable if and only if it has a ______.
 
-The language $HALT = \lbrace \langle M,w \rangle\ |\ M \text{ halts on } w \rbrace $ is ______ but ______.
+The language $HALT = \lbrace \langle M,w \rangle\ |\ M \text{ halts on } w \rbrace $.
 
 (d) The set of all languages over an alphabet Σ is ______(countable/uncountable),
 while the set of all Turing machines is ______(countable/uncountable). 
