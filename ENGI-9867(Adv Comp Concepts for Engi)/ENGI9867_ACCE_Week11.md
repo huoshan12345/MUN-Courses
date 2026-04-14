@@ -395,7 +395,7 @@ $A_{TM} = \lbrace \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω \
 
 #### Theorem
 
-$A_{TM}$ is a decidable language
+$A_{TM}$ is undecidable.
 
 #### Proof.
 
@@ -535,11 +535,42 @@ One single TM ($U_{TM}$) can simulate ANY other TM. It is a programmable compute
   - $U_{TM}$ repeatedly consults the description of the simulated TM to determine the next action, then simulates that action.
   - If the simulated TM accepts or rejects, then $U_{TM}$ also accepts or rejects.
 
+## $U_{TM}$ as a Recognizer
+
+- $U_{TM}$, when run on a string $\langle M,w \rangle$, where M is a TM and w is a string, will
+  - ... accepts $\langle M,w \rangle$, if M accepts w,
+  - ... rejects $\langle M,w \rangle$, if M rejects w,
+  - ... loops on $\langle M,w \rangle$, if M loops on w.
+- Although we didn’t design $U_{TM}$ as a recognizer, it does recognize some language.
+- Which language is that?
+- Let $A_{TM}$ be the language recognized by the universal TM $U_{TM}$. This means that
+$$
+∀M.∀w ∈Σ^{\ast}.(M \text{ accepts } w ⇔ M,w ∈ A_{TM})
+$$
+- So we have
+$$
+A_{TM} = \lbrace \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω \rbrace
+$$
+
+$U_{TM}$ is a recognizer for $A_{TM}$
+
+## Thoughts on Loops
+
+- In practice, the programs we write sometimes go into infinite loops.
+- In theory, Turing machines are allowed to loop. This happens if they don’t accept and don’t reject.
+- Question: Why are infinite loops possible?
+- Or rather: are infinite loops an inherent part of computation, or are they some weird sort of “accident” in how we program computers?
+- [Major] Theorem: The language $A_{TM}$ is recognizable, but undecidable.
+  - There’s a recognizer for $A_{TM}$ (specifically, the universal Turing machine $U_{TM}$).
+  - It is impossible to build a decider for this language.
+- Stated differently, there’s a program we can write (a universal TM) that has to loop
+infinitely on some inputs.
+
 ## $U_{TM}$ as a Recognizer - Revisited
 
-- As a refresher, the language $U_{TM}$ is
+- As a refresher, the language $A_{TM}$ is
 
-$U_{TM} = \lbrace \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω \rbrace$
+$A_{TM} = \lbrace \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω \rbrace$
 
 - The universal TM $U_{TM}$ has the following behavior when given as input a TM M and a
 string w:
