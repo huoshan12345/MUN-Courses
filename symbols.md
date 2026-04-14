@@ -27,6 +27,7 @@
   - $\hspace{3em}$(custom length)
 - $\mathbb{R}$
 - $\stackrel{?}{=}$
+- Ⓨ Ⓝ
 
 ## references
 - [see unicode symbols](https://www.compart.com/en/unicode/)
