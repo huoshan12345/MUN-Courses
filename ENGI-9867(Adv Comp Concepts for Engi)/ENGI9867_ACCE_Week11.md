@@ -537,9 +537,9 @@ One single TM ($U_{TM}$) can simulate ANY other TM. It is a programmable compute
 
 ## $U_{TM}$ as a Recognizer - Revisited
 
-- As a refresher, the language $A_{TM}$ is
+- As a refresher, the language $U_{TM}$ is
 
-$A_{TM} = \lbrace \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω \rbrace$
+$U_{TM} = \lbrace \langle M,ω \rangle\ |\ M \text{ is a TM and M accepts } ω \rbrace$
 
 - The universal TM $U_{TM}$ has the following behavior when given as input a TM M and a
 string w:
