@@ -22,8 +22,7 @@
 
 (b) A language is Turing-recognizable if and only if it has a \_\_\_\_.
 
-(c) The language $HALT = \lbrace \langle M,w \rangle\ |\ M \text{ halts on } w \rbrace $ is 
-\_\_\_\_ but \_\_\_\_.
+(c) The language $HALT = \lbrace \langle M,w \rangle\ |\ M \text{ halts on } w \rbrace \text{ is \_\_\_\_ but \_\_\_\_.}$ 
 
 (d) The set of all languages over an alphabet Σ is \_\_\_\_(countable/uncountable),
 while the set of all Turing machines is \_\_\_\_(countable/uncountable). 
