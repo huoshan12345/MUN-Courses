@@ -18,17 +18,17 @@
 
 #### 2 Complete each statement.
 
-(a) A Turing machine that halts on all inputs and never loops is called a ______.
+(a) A Turing machine that halts on all inputs and never loops is called a \_\_\_\_.
 
-(b) A language is Turing-recognizable if and only if it has a ______.
+(b) A language is Turing-recognizable if and only if it has a \_\_\_\_.
 
-The language $HALT = \lbrace \langle M,w \rangle\ |\ M \text{ halts on } w \rbrace $.
+(c) The language $HALT = \lbrace \langle M,w \rangle\ |\ M \text{ halts on } w \rbrace $ is \_\_\_\_ but \_\_\_\_.
 
-(d) The set of all languages over an alphabet Σ is ______(countable/uncountable),
-while the set of all Turing machines is ______(countable/uncountable). 
+(d) The set of all languages over an alphabet Σ is \_\_\_\_(countable/uncountable),
+while the set of all Turing machines is \_\_\_\_(countable/uncountable). 
 
 (e) A linear-bounded automaton is a nondeterministic Turing machine whose tape head is restricted to the
-portion of the tape containing the ______.
+portion of the tape containing the \_\_\_\_.
 
 ---
 
