@@ -88,7 +88,7 @@ what mathematics can prove.
 5 Design a Turing machine that can decide if a string belongs to the language represented by regular expression
 ab∗a. In the initial configuration of the machine, there is a single blank character at the leftmost side, and the
 string of a’s and b’s are placed afterwards, followed by blank symbols. The R/W head is placed on the leftmost
-blank symbol after the string. After the machine halts there is going to be a single Y/Nsymbol following the
+blank symbol after the string. After the machine halts there is going to be a single Ⓨ/Ⓝ symbol following the
 leftmost blank and trailing blanks afterwards. Some example computations can be given as:
 
 (a) ${\\\#}abbba{\\\#} \ {⊢_M}^{\ast}\ {\\\#}Ⓨ$  
