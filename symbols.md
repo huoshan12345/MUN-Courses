@@ -16,6 +16,8 @@
 - ${\\\#}$ (Use 3 backslashes (instead of 1) to escape the hash symbol so that it renders correctly on GitHub.)
 - $II\underline{I}IIII$ (underline)
 - $\stackrel{?}{=}$ $\overset{?}{=}$
+- $\mathbb{R}$
+- Ⓨ Ⓝ
 - spaces in html: 
   - &nbsp;(A standard-width space) 
   - &ensp;(half the width of an em space) 
@@ -25,9 +27,6 @@
   - $\quad$(1em)
   - $\qquad$(2em)
   - $\hspace{3em}$(custom length)
-- $\mathbb{R}$
-- $\stackrel{?}{=}$
-- Ⓨ Ⓝ
 
 ## references
 - [see unicode symbols](https://www.compart.com/en/unicode/)
